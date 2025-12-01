@@ -1,0 +1,113 @@
+/* Espaciado general de la sección */
+.nosotros-section {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Fondo gris muy clarito para diferenciar del blanco puro */
+}
+
+/* --- CONTENEDOR CENTRAL (MISMAS MEDIDAS QUE HEADER Y HOME) --- */
+.nosotros-container {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+/* --- PARTE 1: GRID INTRODUCCIÓN --- */
+.intro-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Espacio entre texto e imagen */
+    margin-bottom: 80px;
+}
+
+.intro-text {
+    flex: 1; /* Ocupa la mitad */
+}
+
+.intro-image {
+    flex: 1; /* Ocupa la otra mitad */
+}
+
+.intro-image img {
+    width: 100%;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra elegante */
+    object-fit: cover;
+}
+
+/* Tipografía */
+.subtitle {
+    color: #84bd00; /* Verde corporativo */
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.intro-text h1 {
+    font-size: 2.5rem;
+    color: #0e1a24; /* Azul oscuro del header */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.intro-text p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+/* --- PARTE 2: TARJETAS MISIÓN/VISIÓN --- */
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 30px;
+}
+
+.card-mv {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #84bd00; /* Línea verde abajo */
+}
+
+.card-mv:hover {
+    transform: translateY(-10px); /* Efecto de flotar al pasar el mouse */
+}
+
+.icon-mv {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.card-mv h3 {
+    color: #0e1a24;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.card-mv p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- RESPONSIVE (CELULAR) --- */
+@media (max-width: 768px) {
+    .intro-grid {
+        flex-direction: column; /* Uno debajo del otro */
+        gap: 30px;
+    }
+
+    .mv-grid {
+        grid-template-columns: 1fr; /* Una sola columna para las tarjetas */
+    }
+
+    .intro-text h1 {
+        font-size: 2rem;
+    }
+}

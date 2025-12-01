@@ -1,0 +1,125 @@
+/* --- ESTILOS BASE (ESCRITORIO / PC) --- */
+.header {
+  background: #0e1a24;
+  width: 100%;
+  /* 1. AUMENTAMOS LA ALTURA DE LA BARRA */
+  height: 100px; 
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Sombra un poco más marcada */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  width: 90%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  /* 2. AUMENTAMOS EL TAMAÑO DEL LOGO */
+  height: 75px; 
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto opcional: el logo crece un poquito si le pasas el mouse */
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* MENÚ DE PC */
+.nav-links {
+  display: flex;
+  gap: 40px;
+  height: 100%;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  /* 3. AUMENTAMOS EL TAMAÑO DE LETRA */
+  font-size: 18px; 
+  font-weight: 700; /* Letra más gruesa (Bold) */
+  text-transform: uppercase;
+  transition: 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+  color: #84bd00;
+}
+
+/* OCULTAMOS EL BOTÓN DE CELULAR EN PC */
+.menu-toggle {
+  display: none; 
+}
+
+/* --- VERSION MÓVIL --- */
+@media (max-width: 768px) {
+  
+  /* En celular mantenemos la barra un poco más chica para no estorbar */
+  .header {
+      height: 80px; 
+  }
+  
+  .logo-img {
+      height: 50px; /* Logo más chico en celular */
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+  }
+
+  .bar {
+    width: 30px; /* Barras más grandes */
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+  .menu-toggle.open .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.open .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -8px); }
+
+  .nav-links {
+    position: absolute;
+    /* IMPORTANTE: Esto debe coincidir con la altura del header en móvil */
+    top: 80px; 
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #0e1a24;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 25px;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links a {
+      font-size: 1.2rem; /* Letra grande en celular para tocar fácil */
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  }
+}

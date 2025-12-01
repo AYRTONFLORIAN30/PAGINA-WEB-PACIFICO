@@ -1,0 +1,140 @@
+.banner {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    /* Centramos el contenedor GRANDE verticalmente */
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* --- CONTENEDOR GEMELO AL DEL HEADER --- */
+.home-container {
+    width: 90%;
+    max-width: 1200px; /* IGUAL QUE EL HEADER */
+    margin: 0 auto;    /* Centrado en pantalla */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* TEXTO A LA IZQUIERDA */
+    justify-content: center;
+}
+
+/* Textos */
+.banner h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    max-width: 700px; /* Ancho del texto */
+    text-align: left; /* Asegura alineación izq */
+}
+
+.banner h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.cta-button {
+    background-color: #84bd00;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cta-button:hover {
+    background-color: #6a9c00;
+}
+
+/* CELULARES */
+@media (max-width: 768px) {
+    .banner h1 { font-size: 2.2rem; }
+    .home-container { 
+        align-items: center; /* En celular centramos todo */
+        text-align: center;
+    }
+    .banner h1, .banner h2 { text-align: center; }
+}
+
+/* ... (Mantén todo tu código anterior del Banner y Home-Container igual) ... */
+
+
+/* --- ESTILOS DEL BOTÓN FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed; /* Se queda fijo al hacer scroll */
+    bottom: 30px;    /* Distancia desde abajo */
+    right: 30px;     /* Distancia desde la derecha */
+    
+    background-color: #25d366; /* Color oficial de WhatsApp */
+    color: white;
+    
+    width: 60px;     /* Tamaño del círculo */
+    height: 60px;
+    border-radius: 50%; /* Lo hace redondo */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 2000; /* Asegura que esté POR ENCIMA de todo */
+    transition: all 0.3s ease;
+    
+    /* ANIMACIÓN DEL "LATIDO" */
+    animation: pulse-green 2s infinite;
+}
+
+/* Efecto al pasar el mouse */
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Crece un poquito */
+    background-color: #1ebc57; /* Un verde un poco más oscuro */
+}
+
+/* DEFINICIÓN DE LA ANIMACIÓN (Ondas) */
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); /* La onda se expande y desaparece */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Ajuste para celulares (un poco más pequeño y pegado) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+}

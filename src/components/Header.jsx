@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/Header.css";
+import logoMinera from "../assets/LOGO HOME.png"; 
+
+function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <header className="header">
+      <div className="header-container">
+        
+        {/* LOGO */}
+        <div className="logo">
+          <Link to="/">
+            <img src={logoMinera} alt="Pacifico Logo" className="logo-img" />
+          </Link>
+        </div>
+
+        {/* BOTÓN MÓVIL */}
+        <div className={`menu-toggle ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+        
+        {/* MENÚ */}
+        <nav className={`nav-links ${isOpen ? "active" : ""}`}>
+          <Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link>
+          <Link to="/nosotros" onClick={() => setIsOpen(false)}>Nosotros</Link>
+          <Link to="/servicios" onClick={() => setIsOpen(false)}>Servicios</Link>
+          <Link to="/contacto" onClick={() => setIsOpen(false)}>Contacto</Link>
+        </nav>
+
+      </div>
+    </header>
+  );
+}
+
+export default Header;
