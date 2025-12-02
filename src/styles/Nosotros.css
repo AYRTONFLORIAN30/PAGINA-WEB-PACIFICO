@@ -1,113 +1,212 @@
-/* Espaciado general de la sección */
+/* Espaciado general */
 .nosotros-section {
-    padding: 80px 0;
-    background-color: #f9f9f9; /* Fondo gris muy clarito para diferenciar del blanco puro */
+    padding-top: 60px;
+    padding-bottom: 80px;
+    background-color: white;
 }
 
-/* --- CONTENEDOR CENTRAL (MISMAS MEDIDAS QUE HEADER Y HOME) --- */
 .nosotros-container {
     width: 90%;
     max-width: 1200px; 
     margin: 0 auto;
 }
 
-/* --- PARTE 1: GRID INTRODUCCIÓN --- */
-.intro-grid {
+/* --- 1. INTRODUCCIÓN --- */
+.intro-centered {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 60px; /* Espacio entre texto e imagen */
-    margin-bottom: 80px;
-}
-
-.intro-text {
-    flex: 1; /* Ocupa la mitad */
-}
-
-.intro-image {
-    flex: 1; /* Ocupa la otra mitad */
-}
-
-.intro-image img {
-    width: 100%;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra elegante */
-    object-fit: cover;
-}
-
-/* Tipografía */
-.subtitle {
-    color: #84bd00; /* Verde corporativo */
-    font-weight: 800;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 10px;
+    text-align: center;
+    gap: 30px;
+    margin-bottom: 60px;
 }
 
 .intro-text h1 {
     font-size: 2.5rem;
-    color: #0e1a24; /* Azul oscuro del header */
+    color: #0e1a24;
+    text-transform: uppercase;
     margin-bottom: 20px;
-    line-height: 1.2;
+    font-weight: 800;
 }
 
 .intro-text p {
-    color: #555;
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 15px;
-    font-size: 1.05rem;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* --- PARTE 2: TARJETAS MISIÓN/VISIÓN --- */
-.mv-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+.subtitle {
+    color: #84bd00;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.intro-image img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+
+/* --- 2. FRANJA AMARILLA (MISION / VISION) --- */
+.mision-vision-wrapper {
+    background-color: #334d6a; /* Amarillo intenso */
+    padding: 80px 0;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.mv-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.mv-block {
+    display: flex;
+    align-items: flex-start; 
     gap: 30px;
+    flex: 1; /* Mitad y mitad */
 }
 
-.card-mv {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+/* Círculo blanco para el icono */
+.mv-icon-circle {
+    background-color: white;
+    /* --- CAMBIO: AUMENTADO DE 100px A 140px --- */
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- ESTILO PARA TUS IMÁGENES PNG (Misión/Visión) --- */
+.mv-icon-circle img {
+    /* --- CAMBIO: AUMENTADO DE 60px A 85px --- */
+    width: 85px;  
+    height: 85px;
+    object-fit: contain; 
+}
+
+/* --- Estilo para los SVG (solo por si acaso) --- */
+.mv-icon-circle svg {
+    width: 80px;
+    height: 80px;
+    fill: #84bd00;
+}
+
+.mv-text h2 {
+    color: white;
+    font-size: 2.8rem; /* Título un poco más grande */
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.mv-text p {
+    color: white; 
+    font-size: 1.1rem; /* Texto un poco más grande */
+    line-height: 1.6;
+    font-weight: 500;
+    text-align: justify;
+}
+
+
+/* --- 3. VALORES (Grid limpio) --- */
+.valores-section {
     text-align: center;
-    transition: transform 0.3s ease;
-    border-bottom: 4px solid #84bd00; /* Línea verde abajo */
 }
 
-.card-mv:hover {
-    transform: translateY(-10px); /* Efecto de flotar al pasar el mouse */
-}
-
-.icon-mv {
-    font-size: 3rem;
+.valores-section h2 {
+    font-size: 2.5rem;
+    color: #0e1a24;
     margin-bottom: 20px;
 }
 
-.card-mv h3 {
-    color: #0e1a24;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+.valores-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
-.card-mv p {
-    color: #666;
-    font-size: 0.95rem;
+/* GRID DE 3 COLUMNAS */
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 50px 30px; 
+}
+
+.valor-card {
+    text-align: center;
+    padding: 10px;
+}
+
+.valor-icon {
+    margin-bottom: 20px; /* Un poco más de espacio abajo del icono */
+}
+
+/* --- CAMBIO: AUMENTADO TAMAÑO DE ICONOS DE VALORES --- */
+.valor-icon svg {
+    width: 90px; /* Aumentado de 60px a 90px */
+    height: 90px;
+}
+
+.valor-card h3 {
+    font-size: 1.4rem; /* Título un poco más grande */
+    color: #0e1a24;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.valor-card p {
+    font-size: 1.05rem;
+    color: #555;
     line-height: 1.5;
 }
 
-/* --- RESPONSIVE (CELULAR) --- */
-@media (max-width: 768px) {
-    .intro-grid {
-        flex-direction: column; /* Uno debajo del otro */
-        gap: 30px;
+/* RESPONSIVE (CELULAR Y TABLET) */
+@media (max-width: 992px) {
+    .mv-container {
+        flex-direction: column; 
+        gap: 50px;
     }
+    .valores-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
 
-    .mv-grid {
-        grid-template-columns: 1fr; /* Una sola columna para las tarjetas */
+@media (max-width: 600px) {
+    .intro-text h1 { font-size: 2rem; }
+    
+    .mv-block {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
     }
-
-    .intro-text h1 {
-        font-size: 2rem;
+    .mv-text p { text-align: center; } 
+    
+    .valores-grid {
+        grid-template-columns: 1fr; 
     }
+    
+    /* Ajuste para que no sean gigantes en celular */
+    .mv-icon-circle { width: 120px; height: 120px; }
+    .mv-icon-circle img { width: 70px; height: 70px; }
+    .valor-icon svg { width: 70px; height: 70px; }
 }

@@ -39,7 +39,7 @@ function Footer() {
         <div className="footer-col">
           <h3>CONTACTO:</h3>
           <p><strong>Correo:</strong> ventas@pacifico.com.pe</p>
-          <p><strong>Dirección:</strong> Av. La Agricultura 123, <br/>Santiago de Surco, Lima - Perú</p>
+          <p><strong>Dirección:</strong> Carretera Central Tarma - La Oroya km. 25, <br/>Huasqui</p>
         </div>
 
         {/* COLUMNA 3: Enlaces */}

@@ -2,11 +2,11 @@
 .header {
   background: #0e1a24;
   width: 100%;
-  /* 1. AUMENTAMOS LA ALTURA DE LA BARRA */
-  height: 100px; 
+  /* 1. AUMENTAMOS LA ALTURA DE LA BARRA (De 100px a 120px) */
+  height: 120px; 
   position: relative;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Sombra un poco más marcada */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); 
 }
 
 .header-container {
@@ -26,19 +26,17 @@
 }
 
 .logo-img {
-  /* 2. AUMENTAMOS EL TAMAÑO DEL LOGO */
-  height: 75px; 
+  /* 2. AUMENTAMOS EL LOGO (De 75px a 100px) */
+  height: 100px; 
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-/* Efecto opcional: el logo crece un poquito si le pasas el mouse */
 .logo-img:hover {
     transform: scale(1.05);
 }
 
-/* MENÚ DE PC */
 .nav-links {
   display: flex;
   gap: 40px;
@@ -49,9 +47,8 @@
 .nav-links a {
   color: white;
   text-decoration: none;
-  /* 3. AUMENTAMOS EL TAMAÑO DE LETRA */
   font-size: 18px; 
-  font-weight: 700; /* Letra más gruesa (Bold) */
+  font-weight: 700; 
   text-transform: uppercase;
   transition: 0.3s;
   letter-spacing: 0.5px;
@@ -61,21 +58,21 @@
   color: #84bd00;
 }
 
-/* OCULTAMOS EL BOTÓN DE CELULAR EN PC */
 .menu-toggle {
   display: none; 
 }
 
-/* --- VERSION MÓVIL --- */
+/* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
   
-  /* En celular mantenemos la barra un poco más chica para no estorbar */
   .header {
-      height: 80px; 
+      /* Ajuste móvil: un poco más grande también (90px) */
+      height: 90px; 
   }
   
   .logo-img {
-      height: 50px; /* Logo más chico en celular */
+      /* Logo móvil más grande (70px) */
+      height: 70px; 
   }
 
   .menu-toggle {
@@ -86,7 +83,7 @@
   }
 
   .bar {
-    width: 30px; /* Barras más grandes */
+    width: 30px; 
     height: 3px;
     background-color: white;
     transition: all 0.3s ease;
@@ -98,8 +95,8 @@
 
   .nav-links {
     position: absolute;
-    /* IMPORTANTE: Esto debe coincidir con la altura del header en móvil */
-    top: 80px; 
+    /* IMPORTANTE: Esto debe coincidir con la altura del header en móvil (90px) */
+    top: 90px; 
     left: 0;
     width: 100%;
     height: auto;
@@ -115,7 +112,7 @@
   }
 
   .nav-links a {
-      font-size: 1.2rem; /* Letra grande en celular para tocar fácil */
+      font-size: 1.2rem; 
   }
 
   .nav-links.active {

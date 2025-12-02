@@ -8,17 +8,15 @@
 .footer-container {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between;  <-- Lo cambiamos por gap para mejor control */
     max-width: 1200px;
     margin: 0 auto;
-    gap: 50px; /* Espacio entre columnas */
+    gap: 50px; 
     padding-bottom: 40px;
     border-bottom: 1px solid #333;
 }
 
-/* Estilos de las Columnas */
 .footer-col {
-    flex: 1; /* Esto hace que se repartan el espacio equitativamente */
+    flex: 1; 
     min-width: 250px;
 }
 
@@ -36,17 +34,14 @@
     color: #cccccc;
 }
 
-/* --- LOGO --- */
 .footer-logo {
     max-width: 160px;
     margin-bottom: 20px;
     display: block;
     
-    /* --- AGREGA ESTA LÍNEA --- */
-    margin-left: 20px; /* Ajusta este número si quieres más o menos espacio */
+    margin-left: 20px; 
 }
 
-/* --- REDES SOCIALES (ICONOS SVG) --- */
 .social-icons {
     display: flex;
     gap: 12px;
@@ -59,21 +54,19 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #333; /* Fondo gris oscuro del círculo */
+    background-color: #333; 
     border-radius: 50%;
-    color: white; /* Color del icono SVG */
+    color: white; 
     transition: all 0.3s ease;
     border: 1px solid transparent;
 }
 
-/* Efecto al pasar el mouse */
 .icon:hover {
-    background-color: #84bd00; /* Verde corporativo */
-    transform: translateY(-3px); /* Se levanta un poquito */
+    background-color: #84bd00;
+    transform: translateY(-3px); 
     box-shadow: 0 5px 15px rgba(132, 189, 0, 0.3);
 }
 
-/* Estilos de Enlaces */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -94,7 +87,6 @@
     padding-left: 5px;
 }
 
-/* Barra inferior */
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
@@ -112,7 +104,6 @@
     color: white;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -131,33 +122,26 @@
     }
 }
 
-/* --- COLORES REALES DE REDES SOCIALES --- */
-
-/* Facebook (Azul) */
 .icon.facebook {
     background-color: #1877F2;
     border: 1px solid #1877F2;
 }
 
-/* Instagram (Degradado Oficial) */
 .icon.instagram {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    border: none; /* Los degradados no suelen llevar borde */
+    border: none; 
 }
 
-/* LinkedIn (Azul Oscuro) */
 .icon.linkedin {
     background-color: #0A66C2;
     border: 1px solid #0A66C2;
 }
 
-/* YouTube (Rojo) */
 .icon.youtube {
     background-color: #FF0000;
     border: 1px solid #FF0000;
 }
 
-/* Efecto Hover: Al pasar el mouse se vuelven blancos con el icono de color */
 .icon.facebook:hover {
     background-color: white;
     color: #1877F2;
