@@ -1,26 +1,23 @@
 import React from 'react';
 import "../styles/Home.css";
-// Importamos la imagen grande desde assets
-import homeBgImage from '../assets/HOME-IMAGEN.jpg';
+import homeBgImage from '../assets/HOME-IMAGEN.webp';
 
-// --- IMPORTACIÓN DE LOGOS DE CLIENTES ---
-import cliente1 from '../assets/AGRO RURAL.png';
-import cliente2 from '../assets/AGROIDEAS.jpeg';
-import cliente3 from '../assets/AGUA-LORETO.png';
-import cliente4 from '../assets/DEVIDA.jpeg';
-import cliente5 from '../assets/EPS EMAPAT.png';
-import cliente6 from '../assets/ESSALUD.jpeg';
-import cliente7 from '../assets/PICHIS PALCAZU.jpeg';
-import cliente8 from '../assets/SEDAPAL.png';
+import cliente1 from '../assets/AGRO RURAL.webp';
+import cliente2 from '../assets/AGROIDEAS.webp';
+import cliente3 from '../assets/AGUA-LORETO.webp';
+import cliente4 from '../assets/DEVIDA.webp';
+import cliente5 from '../assets/EPS EMAPAT.webp';
+import cliente6 from '../assets/ESSALUD.webp';
+import cliente7 from '../assets/PICHIS PALCAZU.webp';
+import cliente8 from '../assets/SEDAPAL.webp';
 
 function Home() {
-  // Array de clientes para generar el carrusel
+  
   const clientes = [cliente1, cliente2, cliente3, cliente4, cliente5, cliente6, cliente7, cliente8];
 
   return (
     <div className="home-wrapper">
       
-      {/* --- SECCIÓN 1: BANNER PRINCIPAL --- */}
       <div className="banner" style={{ backgroundImage: `url(${homeBgImage})` }}>
         <div className="overlay">
           <div className="home-container">
@@ -31,21 +28,20 @@ function Home() {
         </div>
       </div>
 
-      {/* --- SECCIÓN 2: ACERCA DE PACÍFICO --- */}
       <section className="about-home">
         <div className="about-content">
           <span className="section-tag">NUESTRA ESENCIA</span>
           <h2>Acerca de Pacífico Abonos y Enmiendas</h2>
           <p>
-            Somos una empresa líder dedicada a la extracción, producción y comercialización 
-            de fertilizantes y enmiendas agrícolas de alta pureza. Nuestro compromiso es 
-            brindar soluciones que recuperen la vitalidad de los suelos peruanos, 
-            garantizando cultivos más sanos, rentables y sostenibles.
+            Con más de 18 años de experiencia, somos especialistas en potenciar el rendimiento agrícola. 
+            Producimos y comercializamos la línea más completa de abonos naturales, orgánicos y enmiendas 
+            cálcicas marca PACIFICO. 
+            Somos calidad peruana al servicio de un campo más productivo y sostenible.
           </p>
           
           <div className="stats-grid">
             <div className="stat-item">
-              <h3>+10</h3>
+              <h3>+18</h3>
               <p>Años de Experiencia</p>
             </div>
             <div className="stat-item">
@@ -60,7 +56,6 @@ function Home() {
         </div>
       </section>
 
-      {/* --- SECCIÓN 3: NUESTROS CLIENTES (Logos Grandes) --- */}
       <section className="clients-section">
         <div className="clients-header">
           <h2>Nuestros Clientes</h2>
@@ -69,14 +64,12 @@ function Home() {
         
         <div className="slider">
           <div className="slide-track">
-            {/* PRIMERA VUELTA DE LOGOS */}
             {clientes.map((logo, index) => (
               <div className="slide" key={`logo-1-${index}`}>
                 <img src={logo} alt={`Cliente ${index + 1}`} />
               </div>
             ))}
 
-            {/* SEGUNDA VUELTA (DUPLICADA PARA EFECTO INFINITO) */}
             {clientes.map((logo, index) => (
               <div className="slide" key={`logo-2-${index}`}>
                 <img src={logo} alt={`Cliente ${index + 1}`} />
@@ -86,7 +79,6 @@ function Home() {
         </div>
       </section>
 
-      {/* --- BOTÓN FLOTANTE DE WHATSAPP --- */}
       <a 
         href="https://wa.me/51999999999?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20productos." 
         className="whatsapp-float" 

@@ -1,0 +1,142 @@
+/* Página General */
+.productos-page {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+/* Header de Productos */
+.productos-header {
+    background-color: #0e1a24; 
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.productos-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.productos-header p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* Contenedor Principal */
+.productos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sección por Categoría */
+.categoria-section {
+    margin-bottom: 80px;
+    background: white; /* Un fondo blanco para separar categorías se ve mejor */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.categoria-titulo {
+    font-size: 2.2rem;
+    color: #84bd00; /* Verde Pacifico */
+    border-left: 6px solid #0e1a24;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.categoria-desc {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    margin-left: 25px;
+}
+
+/* Grid de Productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+/* Tarjeta de Producto */
+.producto-card {
+    background: white;
+    /* Quitamos el borde y sombra de la tarjeta individual para un look más limpio */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+}
+
+/* CONTENEDOR DE LA IMAGEN DEL PRODUCTO */
+.producto-img-container {
+    height: 250px; /* Altura fija para que todas se alineen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.producto-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* IMPORTANTE: Muestra todo el saco sin recortar */
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover .producto-img {
+    transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+}
+
+.producto-card h3 {
+    color: #0e1a24;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Botón Cotizar */
+.btn-cotizar {
+    background-color: #0e1a24;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px; /* Bordes menos redondos para look industrial */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-cotizar:hover {
+    background-color: #84bd00; 
+}
+
+/* --- CLASE NECESARIA PARA EL LINK --- */
+/* Esto permite que al dar clic en la imagen funcione como enlace sin afectar el estilo */
+.producto-link-wrapper {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .productos-header h1 { font-size: 2.2rem; }
+    .categoria-section { padding: 20px; }
+    .productos-grid { gap: 30px; }
+}

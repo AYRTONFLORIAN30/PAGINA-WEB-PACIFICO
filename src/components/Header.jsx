@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
 // Asegúrate de que este sea el nombre correcto de tu imagen en la carpeta assets
-import logoMinera from "../assets/LOGO HOME.png"; 
+import logoMinera from "../assets/LOGO HOME.webp"; 
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ function Header() {
         <nav className={`nav-links ${isOpen ? "active" : ""}`}>
           <Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link>
           <Link to="/nosotros" onClick={() => setIsOpen(false)}>Nosotros</Link>
-          <Link to="/servicios" onClick={() => setIsOpen(false)}>Servicios</Link>
+          <Link to="/productos" onClick={() => setIsOpen(false)}>Productos</Link>
           <Link to="/contacto" onClick={() => setIsOpen(false)}>Contacto</Link>
         </nav>
 
