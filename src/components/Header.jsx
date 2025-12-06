@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
 // Asegúrate de que este sea el nombre correcto de tu imagen en la carpeta assets
-import logoMinera from "../assets/LOGO HOME.webp"; 
+import logoMinera from "../assets/logo.webp"; 
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);

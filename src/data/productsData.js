@@ -1,5 +1,3 @@
-// IMPORTACIÓN DE IMÁGENES
-// Asegúrate de que los nombres coincidan con tus archivos en assets
 import agrocalMix from "../assets/Agrocal mix.webp";
 import dolomita from "../assets/Dolomita.webp";
 import superMagnoCal from "../assets/Magno cal mix.webp";
@@ -15,10 +13,7 @@ import abonazaPapero from "../assets/Abonaza papero.webp";
 import nutriAbonaza from "../assets/Abonaza.webp";
 import humusLombriz from "../assets/Humus de lombriz.webp";
 
-// LISTA MAESTRA DE PRODUCTOS
-// El "id" es lo que usaremos en la URL (ej: pacifico.com/producto/agrocal-mix)
 export const productsData = [
-  // --- Enmiendas Cálcicas ---
   {
     id: "agrocal-mix",
     nombre: "Agrocal-mix",
@@ -65,7 +60,6 @@ export const productsData = [
     fichaTecnica: "CaCO3 90%."
   },
 
-  // --- Abonos Naturales ---
   {
     id: "roca-fosforica-bayovar",
     nombre: "Roca fosforica bayovar",
@@ -94,7 +88,6 @@ export const productsData = [
     fichaTecnica: "Boro 10% aprox."
   },
 
-  // --- Abonos Orgánicos ---
   {
     id: "gallinaza",
     nombre: "Gallinaza",
@@ -130,5 +123,62 @@ export const productsData = [
     descripcion: "El mejor abono orgánico, estable y rico en ácidos húmicos.",
     beneficios: ["100% asimilable", "No quema las plantas", "Regenerador de suelos"],
     fichaTecnica: "Humus 100% puro."
+  },
+
+  {
+    id: "hidrocal",
+    nombre: "Hidrocal",
+    categoria: "Productos para tratamiento de agua potable",
+    img: agrocalMix, 
+    descripcion: "Especializado para el tratamiento de Residuos Sanitarios.",
+    beneficios: ["Alta pureza", "Control de contaminantes", "Eficiencia en tratamiento"],
+    fichaTecnica: "Tratamiento de aguas residuales."
+  },
+  {
+    id: "hidrosil",
+    nombre: "Hidrosil",
+    categoria: "Productos para tratamiento de agua potable",
+    img: agrocalMix, 
+    descripcion: "Medio filtrador de residuos sanitarios de alto rendimiento.",
+    beneficios: ["Filtración avanzada", "Remoción de partículas", "Seguro y confiable"],
+    fichaTecnica: "Medio filtrante silíceo."
+  },
+
+  // --- 5. Hidróxidos de Calcio (NUEVO) ---
+  {
+    id: "cal-bordalesa",
+    nombre: "Cal bordalesa",
+    categoria: "Hidróxidos de Calcio",
+    img: agrocalMix, // FOTO TEMPORAL
+    descripcion: "Proporción de cal de minerales de uso agrícola.",
+    beneficios: ["Control de hongos", "Corrector de pH", "Uso agrícola versátil"],
+    fichaTecnica: "Caldo bordelés base."
+  },
+  {
+    id: "fill-cal",
+    nombre: "Fill cal",
+    categoria: "Hidróxidos de Calcio",
+    img: agrocalMix, // FOTO TEMPORAL
+    descripcion: "Especial para la restauración de restos arqueológicos.",
+    beneficios: ["Compatible con materiales antiguos", "Baja reactividad nociva", "Acabado natural"],
+    fichaTecnica: "Restauración y conservación."
+  },
+  {
+    id: "bio-cal",
+    nombre: "Bio cal",
+    categoria: "Hidróxidos de Calcio",
+    img: agrocalMix, // FOTO TEMPORAL
+    descripcion: "Cal diseñada para el tratamiento de residuos sólidos.",
+    beneficios: ["Estabilización de lodos", "Control de olores", "Desinfección"],
+    fichaTecnica: "Tratamiento ambiental."
+  },
+  {
+    id: "cal-nieve",
+    nombre: "Cal Nieve",
+    categoria: "Hidróxidos de Calcio",
+    img: agrocalMix, // FOTO TEMPORAL
+    descripcion: "Cal de alta blancura para varios usos industriales y decorativos.",
+    beneficios: ["Alta pureza", "Color blanco intenso", "Multiusos"],
+    fichaTecnica: "Hidróxido de calcio de alta blancura."
   }
 ];

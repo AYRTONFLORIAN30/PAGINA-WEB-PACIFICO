@@ -1,45 +1,46 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-// Importamos la base de datos de productos
 import { productsData } from '../data/productsData'; 
 import "../styles/ProductoDetalle.css"; 
+import { getValue } from '@testing-library/user-event/dist/utils';
 
 function ProductoDetalle() {
-  const { id } = useParams(); // Captura el nombre del producto de la URL (ej: 'agrocal-mix')
+  const { id } = useParams(); 
   const navigate = useNavigate();
 
-  // Busca el producto específico en la lista
   const producto = productsData.find(p => p.id === id);
 
-  // Si alguien escribe una URL mal o el producto no existe, lo devolvemos al catálogo
   useEffect(() => {
     if (!producto) {
       navigate('/productos'); 
     }
-    // Truco: Hacer que la página empiece siempre desde arriba
+
     window.scrollTo(0, 0);
   }, [id, producto, navigate]);
 
-  // Mientras carga o si no hay producto, no mostramos nada para evitar errores
   if (!producto) return null;
 
   return (
     <div className="detalle-page">
       <div className="detalle-container">
         
-        {/* Botón para regresar */}
         <button className="btn-volver" onClick={() => navigate('/productos')}>
           ← Volver a Productos
         </button>
 
         <div className="detalle-grid">
           
-          {/* Columna Izquierda: Imagen */}
           <div className="detalle-img-box">
-            <img src={producto.img} alt={producto.nombre} />
+            <img 
+              src={producto.img} 
+              alt={producto.nombre} 
+              
+              fetchpriority="high"
+              
+              decoding="async"
+            />
           </div>
 
-          {/* Columna Derecha: Datos */}
           <div className="detalle-info">
             <span className="detalle-categoria">{producto.categoria}</span>
             <h1>{producto.nombre}</h1>
