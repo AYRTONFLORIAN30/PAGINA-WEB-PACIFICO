@@ -1,11 +1,11 @@
-import { useEffect } from "react"; // 1. Importamos useEffect
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"; // 2. Importamos useLocation
+import { useEffect } from "react"; 
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"; 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos"; 
-import Contacto from "./pages/Contacto";
+import Contacto from "./pages/Contacto"; // Asegúrate de que el archivo esté en esta carpeta
 import ProductoDetalle from "./pages/ProductoDetalle"; 
 import "./App.css";
 
@@ -42,6 +42,7 @@ function App() {
             {/* Ruta de detalle del producto */}
             <Route path="/producto/:id" element={<ProductoDetalle />} />
             
+            {/* Ruta de Contacto con la corrección */}
             <Route path="/contacto" element={<Contacto />} />
           </Routes>
         </main>

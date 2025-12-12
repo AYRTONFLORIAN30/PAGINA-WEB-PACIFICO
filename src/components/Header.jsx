@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/Header.css";
 // Asegúrate de que este sea el nombre correcto de tu imagen en la carpeta assets
 import logoMinera from "../assets/logo.webp"; 
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);

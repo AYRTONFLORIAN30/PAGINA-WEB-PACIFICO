@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/Nosotros.css";
 import nosotrosImg from "../assets/nosotros.webp"; 
+import nosotrosImg2 from "../assets/nosotros 2.webp"; 
 
 // --- 1. IMPORTAMOS TUS IMÁGENES PNG ---
 import misionPng from "../assets/mision.webp";
@@ -35,7 +36,6 @@ function Nosotros() {
             <span className="subtitle">SOBRE NOSOTROS</span>
             <h1>PACIFICO ABONOS Y ENMIENDAS</h1>
             
-            {/* AQUI ESTÁ EL CAMBIO SOLICITADO */}
             <h2 style={{ marginTop: '1.5rem', marginBottom: '1rem', color: '#333' }}>¿Quiénes somos?</h2>
             <p>
               Somos una empresa peruana con más de 18 años en el mercado agrícola.
@@ -43,11 +43,24 @@ function Nosotros() {
               Especializada en la producción y comercialización de Abonos Naturales, 
               abonos orgánicos y enmiendas agrícolas cálcicas de marca PACIFICO.
             </p>
-            {/* FIN DEL CAMBIO */}
 
           </div>
+          
+          {/* SECCIÓN DE IMÁGENES MODIFICADA */}
           <div className="intro-image">
+            
+            {/* Imagen 1 - 2018 */}
             <img src={nosotrosImg} alt="Equipo de trabajo en planta" />
+            <p style={{ textAlign: 'center', marginTop: '0.5rem', color: '#555', fontWeight: 'bold' }}>
+              Año 2018
+            </p>
+            
+            {/* Imagen 2 - 2012 */}
+            <img src={nosotrosImg2} alt="Imagen Nosotros 2" style={{ marginTop: '1.5rem' }} />
+            <p style={{ textAlign: 'center', marginTop: '0.5rem', color: '#555', fontWeight: 'bold' }}>
+              Año 2012
+            </p>
+
           </div>
         </div>
 

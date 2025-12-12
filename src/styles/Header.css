@@ -1,12 +1,12 @@
 /* --- ESTILOS BASE (ESCRITORIO / PC) --- */
 .header {
-  background: #0a2588;
+  background: #ffe100;
   width: 100%;
   /* 1. AUMENTAMOS LA ALTURA DE LA BARRA (De 100px a 120px) */
   height: 120px; 
   position: relative;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4); 
+  box-shadow: 0 4px 12px rgba(175, 86, 86, 0.4); 
 }
 
 .header-container {
@@ -45,7 +45,7 @@
 }
 
 .nav-links a {
-  color: white;
+  color: rgb(23, 45, 126);
   text-decoration: none;
   font-size: 18px; 
   font-weight: 700; 
@@ -55,7 +55,7 @@
 }
 
 .nav-links a:hover {
-  color: #84bd00;
+  color: #26a42e;
 }
 
 .menu-toggle {
