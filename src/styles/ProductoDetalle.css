@@ -1,5 +1,10 @@
+/* =========================================
+   1. ESTILOS GENERALES DE LA PÁGINA
+   ========================================= */
+
 .detalle-page {
-    padding: 120px 20px 80px 20px; /* Espacio arriba para no chocar con el header fijo */
+    /* Ajustado a 85px para que el cuadro suba más */
+    padding: 85px 20px 80px 20px;
     background-color: #f9f9f9;
     min-height: 80vh;
 }
@@ -9,24 +14,10 @@
     margin: 0 auto;
 }
 
-/* Botón de regresar */
-.btn-volver {
-    background: none;
-    border: none;
-    color: #666;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-weight: 600;
-    transition: color 0.3s;
-}
+/* =========================================
+   2. GRID PRINCIPAL E IMAGEN
+   ========================================= */
 
-.btn-volver:hover {
-    color: #0e1a24;
-    text-decoration: underline;
-}
-
-/* Grid principal de 2 columnas */
 .detalle-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -35,9 +26,11 @@
     padding: 50px;
     border-radius: 15px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    
+    /* Centra verticalmente la imagen respecto al texto */
+    align-items: center; 
 }
 
-/* Contenedor de la imagen */
 .detalle-img-box {
     display: flex;
     justify-content: center;
@@ -46,7 +39,9 @@
     border: 1px solid #eee;
     border-radius: 10px;
     padding: 20px;
-    height: 400px; /* Altura fija para mantener consistencia */
+    
+    /* Altura aumentada para que la imagen se vea grande e imponente */
+    height: 550px; 
 }
 
 .detalle-img-box img {
@@ -55,7 +50,10 @@
     object-fit: contain;
 }
 
-/* Sección de información (derecha) */
+/* =========================================
+   3. TIPOGRAFÍA Y TEXTOS
+   ========================================= */
+
 .detalle-categoria {
     color: #84bd00; /* Verde corporativo */
     font-weight: 800;
@@ -80,7 +78,10 @@
     margin-bottom: 30px;
 }
 
-/* Caja gris de especificaciones */
+/* =========================================
+   4. ESPECIFICACIONES Y TABLA TÉCNICA
+   ========================================= */
+
 .detalle-specs {
     background-color: #f4f4f4;
     padding: 25px;
@@ -92,6 +93,7 @@
     font-size: 1.1rem;
     color: #0e1a24;
     margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .detalle-specs ul {
@@ -114,10 +116,66 @@
 .ficha-box strong {
     display: block;
     color: #0e1a24;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
-/* Botón grande de cotizar */
+/* --- Estilos de la Tabla --- */
+
+.tabla-tecnica-container {
+    overflow-x: auto; /* Scroll horizontal en móviles */
+    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.detalle-specs table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+
+.detalle-specs th {
+    background-color: #0e1a24; /* Azul oscuro marca */
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.detalle-specs th:last-child {
+    text-align: right;
+}
+
+.detalle-specs td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.detalle-specs td:last-child {
+    text-align: right;
+    font-weight: 700;
+    color: #333;
+}
+
+.detalle-specs tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.detalle-specs tr:hover {
+    background-color: #f0fdf4;
+}
+
+/* =========================================
+   5. BOTONES Y RESPONSIVE
+   ========================================= */
+
 .btn-cotizar-grande {
     background-color: #0e1a24;
     color: white;
@@ -137,19 +195,62 @@
     background-color: #84bd00;
 }
 
-/* Responsivo para celulares y tablets */
 @media (max-width: 768px) {
     .detalle-grid {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
         padding: 20px;
         gap: 30px;
     }
     
     .detalle-img-box {
-        height: 300px; /* Imagen más pequeña en celular */
+        height: 300px; /* En celular la imagen es más pequeña */
     }
     
     .detalle-info h1 {
         font-size: 2rem;
     }
+
+    .detalle-specs th, 
+    .detalle-specs td {
+        padding: 8px 10px;
+    }
+}
+
+/* ... (Todo tu CSS anterior se mantiene igual) ... */
+
+/* --- NUEVA SECCIÓN DE BOTONES --- */
+.botones-accion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre el botón PDF y el de Cotizar */
+  margin-top: 25px;
+}
+
+/* Estilo del Botón PDF */
+.btn-descargar-pdf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  color: #d32f2f; /* Rojo PDF */
+  border: 2px solid #d32f2f;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.btn-descargar-pdf:hover {
+  background-color: #d32f2f;
+  color: white;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.2);
+}
+
+/* Ajuste del botón cotizar para que coincida en ancho si lo deseas */
+.btn-cotizar-grande {
+  margin-top: 0; /* Quitamos el margin-top antiguo porque ahora lo maneja el gap del padre */
 }

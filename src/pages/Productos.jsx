@@ -60,7 +60,6 @@ function Productos() {
         {renderSection("Enmiendas Agrícolas Cálcicas", "Corrección de acidez y aporte de calcio para suelos equilibrados.", catCalcicas)}
         {renderSection("Abonos Naturales", "Nutrientes esenciales de origen natural para potenciar tus cultivos.", catNaturales)}
         {renderSection("Abonos Orgánicos", "Materia orgánica procesada para mejorar la estructura del suelo.", catOrganicos)}
-        
         {renderSection("Productos para tratamiento de agua potable", "Soluciones especializadas para saneamiento y filtración de residuos.", catTratamiento)}
         {renderSection("Hidróxidos de Calcio", "Variedad de cales para uso agrícola, restauración y tratamiento de residuos.", catHidroxidos)}
 

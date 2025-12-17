@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
 import "../styles/Home.css";
 import homeBgImage from '../assets/HOME-IMAGEN.webp';
 import { productsData } from '../data/productsData';
 
-// IMPORTANTE: Aquí importamos las imágenes para que React las reconozca
+// Imágenes de iconos
 import iconEco from '../assets/icono-eco.webp';
 import iconEnvio from '../assets/icono-envio.webp';
 import iconAsesor from '../assets/icono-asesor.webp';
 
 function Home() {
   
+  // --- LÓGICA DEL FORMULARIO DE COTIZACIÓN ---
+  const [formData, setFormData] = useState({
+    nombre: '',
+    empresa: '',
+    email: '',
+    telefono: '',
+    rucDni: '',
+    lugar: '',
+    mensaje: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Datos del formulario:', formData);
+    alert('Gracias. Su solicitud de cotización ha sido enviada.');
+  };
+  // ---------------------------------------------
+
   return (
     <div className="home-wrapper">
       
@@ -46,13 +68,12 @@ function Home() {
         </div>
       </section>
 
-      {/* 3. BENEFICIOS (SECCIÓN NUEVA) */}
+      {/* 3. BENEFICIOS */}
       <section className="benefits-section">
         <div className="section-header">
           <h2>¿Por qué elegir Pacífico?</h2>
         </div>
         <div className="benefits-grid">
-          
           {/* Tarjeta 1 */}
           <div className="benefit-card">
             <div className="icon-box">
@@ -82,13 +103,14 @@ function Home() {
         </div>
       </section>
 
-      {/* 4. CARRUSEL DE PRODUCTOS */}
-      <section className="home-products-section">
-        <div className="section-header">
-          <h2>Nuestros Productos</h2>
-          <p>Calidad garantizada para cada etapa del cultivo</p>
-        </div>
+      {/* 4. TÍTULO DE PRODUCTOS (FONDO BLANCO) */}
+      <div className="products-title-section">
+        <h2>Nuestros Productos</h2>
+        <p>Calidad garantizada para cada etapa del cultivo</p>
+      </div>
 
+      {/* 5. CARRUSEL DE PRODUCTOS (FONDO AMARILLO) */}
+      <section className="home-products-section">
         <div className="product-slider">
           <div className="product-slide-track">
             {productsData.map((prod, index) => (
@@ -121,9 +143,10 @@ function Home() {
         </div>
       </section> 
 
-      {/* 5. VIDEO PROCESOS */}
+      {/* 6. VIDEO PROCESOS */}
       <section className="processes-section">
-        <div className="section-header">
+        {/* REUTILIZAMOS LA CLASE DE PRODUCTOS PARA QUE SE VEA IGUAL */}
+        <div className="products-title-section" style={{ padding: '0 20px 40px 20px' }}>
           <h2>Nuestros Procesos</h2>
           <p>Tecnología y dedicación en cada gramo de producto</p>
         </div>
@@ -138,6 +161,79 @@ function Home() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
           ></iframe>
+        </div>
+      </section>
+
+      {/* 7. NUEVA SECCIÓN: FORMULARIO DE COTIZACIÓN */}
+      <section className="cotizacion-section">
+        <div className="cotizacion-overlay"></div>
+        <div className="cotizacion-container">
+          
+          <div className="form-card">
+            {/* Encabezado Amarillo */}
+            <div className="form-header-yellow">
+              <h2>Solicite una cotización</h2>
+            </div>
+
+            <div className="form-body">
+              <p className="form-description">
+                Complete el siguiente formulario para realizar una cotización. Con gusto nos contactaremos 
+                con usted en el menor tiempo posible.
+              </p>
+
+              <form onSubmit={handleSubmit}>
+                
+                {/* Agrupamos las columnas en este DIV */}
+                <div className="form-grid">
+                  
+                  {/* Columna Izquierda: Inputs */}
+                  <div className="form-left-col">
+                    <input 
+                      type="text" name="nombre" placeholder="Nombre*" required 
+                      value={formData.nombre} onChange={handleChange} 
+                    />
+                    <input 
+                      type="text" name="empresa" placeholder="Empresa*" required 
+                      value={formData.empresa} onChange={handleChange} 
+                    />
+                    <input 
+                      type="email" name="email" placeholder="Email*" required 
+                      value={formData.email} onChange={handleChange} 
+                    />
+                    <input 
+                      type="tel" name="telefono" placeholder="Teléfono*" required 
+                      value={formData.telefono} onChange={handleChange} 
+                    />
+                    <input 
+                      type="text" name="rucDni" placeholder="RUC o DNI*" required 
+                      value={formData.rucDni} onChange={handleChange} 
+                    />
+                    <input 
+                      type="text" name="lugar" placeholder="Especificar para que lugar cotiza el fertilizante*" required 
+                      value={formData.lugar} onChange={handleChange} 
+                    />
+                  </div>
+
+                  {/* Columna Derecha: Textarea */}
+                  <div className="form-right-col">
+                    <textarea 
+                      name="mensaje" 
+                      placeholder="Mensaje" 
+                      value={formData.mensaje} onChange={handleChange}
+                    ></textarea>
+                  </div>
+
+                </div> {/* Fin del form-grid */}
+
+                {/* El botón queda FUERA del grid para que vaya abajo */}
+                <div className="form-footer-action">
+                  <button type="submit" className="btn-enviar-cotizacion">Enviar</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
         </div>
       </section>
 

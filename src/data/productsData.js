@@ -1,3 +1,4 @@
+// --- IMPORTACIÓN DE IMÁGENES ---
 import agrocalMix from "../assets/Agrocal mix.webp";
 import dolomita from "../assets/Dolomita.webp";
 import superMagnoCal from "../assets/Magno cal mix.webp";
@@ -13,7 +14,24 @@ import abonazaPapero from "../assets/Abonaza papero.webp";
 import nutriAbonaza from "../assets/Abonaza.webp";
 import humusLombriz from "../assets/Humus de lombriz.webp";
 
+// --- IMPORTACIÓN DE PDFs (FICHAS TÉCNICAS) ---
+// Basado en los nombres de tu captura de pantalla
+import pdfAgrocalMix from "../assets/fichas/Agrocal-mix.pdf";
+import pdfDolomita from "../assets/fichas/Dolomita.pdf";
+import pdfMagnoCal from "../assets/fichas/Magnocal mix.pdf"; // Ajustado según tu captura
+import pdfAgroYeso from "../assets/fichas/Agro yeso.pdf";
+import pdfRocaFosforica from "../assets/fichas/Roca fosforica.pdf";
+import pdfSulfatoCalcio from "../assets/fichas/Sulfato de calcio.pdf";
+import pdfAbonazaPapero from "../assets/fichas/Abonaza papero.pdf";
+import pdfHumusLombriz from "../assets/fichas/Humus de lombriz.pdf";
+import pdfHidroCal from "../assets/fichas/Hidro cal.pdf";
+import pdfCalBordalesa from "../assets/fichas/Cal bordalesa.pdf";
+import pdfFillCal from "../assets/fichas/Fill cal.pdf";
+import pdfBioCal from "../assets/fichas/Bio cal.pdf";
+import pdfCalNieve from "../assets/fichas/Cal nieve.pdf";
+
 export const productsData = [
+  // --- ENMIENDAS AGRÍCOLAS CÁLCICAS ---
   {
     id: "agrocal-mix",
     nombre: "Agrocal-mix",
@@ -21,7 +39,15 @@ export const productsData = [
     img: agrocalMix,
     descripcion: "Mezcla balanceada para corrección de suelos ácidos.",
     beneficios: ["Mejora el pH del suelo", "Aporta Calcio y Magnesio", "Mejora la estructura del suelo"],
-    fichaTecnica: "Calcio: 30%, Magnesio: 10%, Granulometría fina."
+    pdfFile: pdfAgrocalMix, 
+    fichaTecnica: "Calcio: 30%, Magnesio: 10%, Granulometría fina.",
+    composicion: [
+      { elemento: "Ca(OH)2", porcentaje: "35 - 40%" },
+      { elemento: "CaCO3", porcentaje: "1 - 5%" },
+      { elemento: "CaMg(CO3)2", porcentaje: "15 - 20%" },
+      { elemento: "SiO2", porcentaje: "10 - 15%" },
+      { elemento: "CaSO4", porcentaje: "15 - 20%" }
+    ]
   },
   {
     id: "dolomita",
@@ -30,7 +56,14 @@ export const productsData = [
     img: dolomita,
     descripcion: "Carbonato doble de calcio y magnesio ideal para suelos deficientes.",
     beneficios: ["Neutraliza la acidez", "Aporte lento y constante", "Económico y eficiente"],
-    fichaTecnica: "CaCO3 + MgCO3."
+    pdfFile: pdfDolomita, // ASIGNADO
+    fichaTecnica: "CaCO3 + MgCO3.",
+    composicion: [
+      { elemento: "Ca", porcentaje: "21.5%" },
+      { elemento: "CaO", porcentaje: "30%" },
+      { elemento: "Mg", porcentaje: "12.90%" },
+      { elemento: "MgO", porcentaje: "21.54%" }
+    ]
   },
   {
     id: "super-magno-cal-mix",
@@ -39,7 +72,14 @@ export const productsData = [
     img: superMagnoCal,
     descripcion: "Potente corrector de suelos con alta concentración de magnesio.",
     beneficios: ["Corrección rápida", "Ideal para cultivos de alta demanda", "Fácil aplicación"],
-    fichaTecnica: "Alta concentración de Mg."
+    pdfFile: pdfMagnoCal, // ASIGNADO (Magnocal mix.pdf)
+    fichaTecnica: "Alta concentración de Mg.",
+    composicion: [
+      { elemento: "CaO", porcentaje: "22.68%" },
+      { elemento: "MgO", porcentaje: "6.76%" },
+      { elemento: "S", porcentaje: "8.35%" },
+      { elemento: "Mn", porcentaje: "0.02%" }
+    ]
   },
   {
     id: "agro-yeso",
@@ -48,7 +88,14 @@ export const productsData = [
     img: agroYeso,
     descripcion: "Sulfato de calcio dihidratado, excelente para suelos sódicos.",
     beneficios: ["Desplaza el sodio", "Aporta Azufre", "Mejora la infiltración de agua"],
-    fichaTecnica: "CaSO4·2H2O."
+    pdfFile: pdfAgroYeso, // ASIGNADO
+    fichaTecnica: "CaSO4·2H2O.",
+    composicion: [
+      { elemento: "Ca", porcentaje: "22.50%" },
+      { elemento: "CaO", porcentaje: "31.50%" },
+      { elemento: "S", porcentaje: "17.80%" },
+      { elemento: "MgO", porcentaje: "53.00%" }
+    ]
   },
   {
     id: "carbo-cal",
@@ -57,9 +104,15 @@ export const productsData = [
     img: carboCal,
     descripcion: "Carbonato de calcio de alta pureza.",
     beneficios: ["Fuente concentrada de Calcio", "Regulador de pH", "Mejora disponibilidad de nutrientes"],
-    fichaTecnica: "CaCO3 90%."
+    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    fichaTecnica: "CaCO3 90%.",
+    composicion: [
+      { elemento: "CaCO3", porcentaje: "97.80%" },
+      { elemento: "CaO", porcentaje: "53.00%" }
+    ]
   },
 
+  // --- ABONOS NATURALES ---
   {
     id: "roca-fosforica-bayovar",
     nombre: "Roca fosforica bayovar",
@@ -67,7 +120,13 @@ export const productsData = [
     img: rocaFosforica,
     descripcion: "Fuente natural de fósforo de liberación lenta.",
     beneficios: ["Fósforo reactivo", "Efecto residual prolongado", "Ecológico"],
-    fichaTecnica: "P2O5: 22-28%."
+    pdfFile: pdfRocaFosforica, // ASIGNADO
+    fichaTecnica: "P2O5: 22-28%.",
+    composicion: [
+      { elemento: "P2O5", porcentaje: "18 - 22%" },
+      { elemento: "CaO", porcentaje: "30 - 32%" },
+      { elemento: "SiO", porcentaje: "4 - 4.5%" }
+    ]
   },
   {
     id: "sulfato-de-calcio",
@@ -76,7 +135,14 @@ export const productsData = [
     img: sulfatoCalcio,
     descripcion: "Fuente directa de Azufre y Calcio para la planta.",
     beneficios: ["Nutrición directa", "No altera el pH significativamente", "Mejora calidad de fruto"],
-    fichaTecnica: "Ca + S."
+    pdfFile: pdfSulfatoCalcio, // ASIGNADO
+    fichaTecnica: "Ca + S.",
+    composicion: [
+      { elemento: "Ca", porcentaje: "22.50%" },
+      { elemento: "CaO", porcentaje: "31.50%" },
+      { elemento: "S", porcentaje: "17.80%" },
+      { elemento: "SO4", porcentaje: "53.00%" }
+    ]
   },
   {
     id: "ulex-30",
@@ -85,9 +151,15 @@ export const productsData = [
     img: ulex30,
     descripcion: "Borato de sodio y calcio natural.",
     beneficios: ["Fuente de Boro", "Esencial para floración", "Origen mineral"],
-    fichaTecnica: "Boro 10% aprox."
+    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    fichaTecnica: "Boro 10% aprox.",
+    composicion: [
+      { elemento: "B", porcentaje: "9 - 13%" },
+      { elemento: "B2O3", porcentaje: "30 - 32%" }
+    ]
   },
 
+  // --- ABONOS ORGÁNICOS ---
   {
     id: "gallinaza",
     nombre: "Gallinaza",
@@ -95,7 +167,16 @@ export const productsData = [
     img: gallinaza,
     descripcion: "Abono orgánico rico en nitrógeno procedente de aves.",
     beneficios: ["Alto contenido de N-P-K", "Activa vida microbiana", "Compostado"],
-    fichaTecnica: "Materia Orgánica 40%."
+    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    fichaTecnica: "Materia Orgánica 40%.",
+    composicion: [
+      { elemento: "N", porcentaje: "2 - 3%" },
+      { elemento: "P2O5", porcentaje: "3 - 4%" },
+      { elemento: "K2O", porcentaje: "1 - 2%" },
+      { elemento: "CaO", porcentaje: "8 - 10%" },
+      { elemento: "S", porcentaje: "1 - 2%" },
+      { elemento: "MO", porcentaje: "70 - 75%" }
+    ]
   },
   {
     id: "abonaza-papero",
@@ -104,7 +185,17 @@ export const productsData = [
     img: abonazaPapero,
     descripcion: "Formulación especial para el cultivo de papa.",
     beneficios: ["Balanceado para tubérculos", "Mejora peso y calibre", "Suelo más suelto"],
-    fichaTecnica: "Mezcla orgánica especializada."
+    pdfFile: pdfAbonazaPapero, // ASIGNADO
+    fichaTecnica: "Mezcla orgánica especializada.",
+    composicion: [
+      { elemento: "N", porcentaje: "2 - 4%" },
+      { elemento: "P2O5", porcentaje: "4 - 5%" },
+      { elemento: "K2O", porcentaje: "3 - 4%" },
+      { elemento: "CaO", porcentaje: "18 - 20%" },
+      { elemento: "MgO", porcentaje: "4 - 5%" },
+      { elemento: "SO4", porcentaje: "8 - 10%" },
+      { elemento: "pH", porcentaje: ">9%" }
+    ]
   },
   {
     id: "nutri-abonaza",
@@ -113,7 +204,17 @@ export const productsData = [
     img: nutriAbonaza,
     descripcion: "Abono orgánico enriquecido y balanceado.",
     beneficios: ["Nutrición integral", "Mejora retención de humedad", "Sostenible"],
-    fichaTecnica: "Materia Orgánica enriquecida."
+    pdfFile: null, // NO HABÍA "ABONAZA" SOLA EN PDF, SOLO "ABONAZA PAPERO"
+    fichaTecnica: "Materia Orgánica enriquecida.",
+    composicion: [
+      { elemento: "N", porcentaje: "1.5 - 2%" },
+      { elemento: "P2O5", porcentaje: "4.0 - 4.5%" },
+      { elemento: "K2O", porcentaje: "2.8 - 3%" },
+      { elemento: "CaO", porcentaje: ">20%" },
+      { elemento: "MgO", porcentaje: "4 - 5%" },
+      { elemento: "SO4", porcentaje: ">8%" },
+      { elemento: "pH", porcentaje: "8.00" }
+    ]
   },
   {
     id: "humus-de-lombriz",
@@ -122,9 +223,24 @@ export const productsData = [
     img: humusLombriz,
     descripcion: "El mejor abono orgánico, estable y rico en ácidos húmicos.",
     beneficios: ["100% asimilable", "No quema las plantas", "Regenerador de suelos"],
-    fichaTecnica: "Humus 100% puro."
+    pdfFile: pdfHumusLombriz, // ASIGNADO
+    fichaTecnica: "Humus 100% puro.",
+    composicion: [
+      { elemento: "N", porcentaje: "1.51%" },
+      { elemento: "P2O5", porcentaje: "1.27%" },
+      { elemento: "K2O", porcentaje: "1.64%" },
+      { elemento: "Ca", porcentaje: "3.8%" },
+      { elemento: "Mg", porcentaje: "1.4%" },
+      { elemento: "Fe", porcentaje: "580ppm" },
+      { elemento: "Mn", porcentaje: "430ppm" },
+      { elemento: "Zn", porcentaje: "500ppm" },
+      { elemento: "Cu", porcentaje: "63ppm" },
+      { elemento: "Acidos Fulvicos", porcentaje: "3.02%" },
+      { elemento: "Acidos Humicos", porcentaje: "4.7%" }
+    ]
   },
 
+  // --- TRATAMIENTO DE AGUA POTABLE ---
   {
     id: "hidrocal",
     nombre: "Hidrocal",
@@ -132,6 +248,7 @@ export const productsData = [
     img: agrocalMix, 
     descripcion: "Especializado para el tratamiento de Residuos Sanitarios.",
     beneficios: ["Alta pureza", "Control de contaminantes", "Eficiencia en tratamiento"],
+    pdfFile: pdfHidroCal, // ASIGNADO
     fichaTecnica: "Tratamiento de aguas residuales."
   },
   {
@@ -141,44 +258,49 @@ export const productsData = [
     img: agrocalMix, 
     descripcion: "Medio filtrador de residuos sanitarios de alto rendimiento.",
     beneficios: ["Filtración avanzada", "Remoción de partículas", "Seguro y confiable"],
+    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
     fichaTecnica: "Medio filtrante silíceo."
   },
 
-  // --- 5. Hidróxidos de Calcio (NUEVO) ---
+  // --- HIDRÓXIDOS DE CALCIO ---
   {
     id: "cal-bordalesa",
     nombre: "Cal bordalesa",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, // FOTO TEMPORAL
+    img: agrocalMix, 
     descripcion: "Proporción de cal de minerales de uso agrícola.",
     beneficios: ["Control de hongos", "Corrector de pH", "Uso agrícola versátil"],
+    pdfFile: pdfCalBordalesa, // ASIGNADO
     fichaTecnica: "Caldo bordelés base."
   },
   {
     id: "fill-cal",
     nombre: "Fill cal",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, // FOTO TEMPORAL
+    img: agrocalMix, 
     descripcion: "Especial para la restauración de restos arqueológicos.",
     beneficios: ["Compatible con materiales antiguos", "Baja reactividad nociva", "Acabado natural"],
+    pdfFile: pdfFillCal, // ASIGNADO
     fichaTecnica: "Restauración y conservación."
   },
   {
     id: "bio-cal",
     nombre: "Bio cal",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, // FOTO TEMPORAL
+    img: agrocalMix, 
     descripcion: "Cal diseñada para el tratamiento de residuos sólidos.",
     beneficios: ["Estabilización de lodos", "Control de olores", "Desinfección"],
+    pdfFile: pdfBioCal, // ASIGNADO
     fichaTecnica: "Tratamiento ambiental."
   },
   {
     id: "cal-nieve",
     nombre: "Cal Nieve",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, // FOTO TEMPORAL
+    img: agrocalMix, 
     descripcion: "Cal de alta blancura para varios usos industriales y decorativos.",
     beneficios: ["Alta pureza", "Color blanco intenso", "Multiusos"],
+    pdfFile: pdfCalNieve, // ASIGNADO
     fichaTecnica: "Hidróxido de calcio de alta blancura."
   }
 ];

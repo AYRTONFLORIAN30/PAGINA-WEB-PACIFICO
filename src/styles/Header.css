@@ -85,7 +85,7 @@
   .bar {
     width: 30px; 
     height: 3px;
-    background-color: white;
+    background-color: rgb(40, 48, 139);
     transition: all 0.3s ease;
   }
 
@@ -100,7 +100,7 @@
     left: 0;
     width: 100%;
     height: auto;
-    background-color: #0f0e24;
+    background-color: #ffe100;
     flex-direction: column;
     align-items: center;
     padding: 30px 0;

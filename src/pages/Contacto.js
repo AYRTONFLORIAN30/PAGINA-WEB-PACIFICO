@@ -14,7 +14,7 @@ const Contacto = () => {
     {
       id: 1,
       titulo: "ZONA 1",
-      representante: "Freddy Caracusma",
+      representante: "Freddy Caracuzma",
       regiones: "Junín, Pasco, Huancavelica, Ayacucho",
       ciudad: "TARMA",
       direccion: "Av. Ramón Castilla N° 251",
@@ -35,7 +35,7 @@ const Contacto = () => {
       representante: "Ruth Rojas",
       regiones: "Lambayeque, Cajamarca, Amazonas",
       ciudad: "LAMBAYEQUE",
-      direccion: "Carr. Panamericana Norte Km 801 Lambayeque",
+      direccion: "Calle 2 de mayo N°136",
       telefonos: ["910867681", "930872013"]
     },
     {
