@@ -140,3 +140,35 @@
     .categoria-section { padding: 20px; }
     .productos-grid { gap: 30px; }
 }
+
+/* ... (El resto de tu CSS sigue igual, solo agrega esto al final) ... */
+
+/* =========================================
+   EFECTO DE ENTRADA ELÁSTICA (BOUNCY)
+   ========================================= */
+
+/* Estado inicial: Invisible, desplazado abajo y un poco más pequeño */
+.scroll-card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+    
+    /* La magia está aquí: cubic-bezier crea el efecto de rebote.
+       La tarjeta "se pasa" un poquito de su tamaño y luego regresa.
+    */
+    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    will-change: opacity, transform;
+}
+
+/* Estado final: Visible y en su lugar */
+.scroll-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Opcional: Si quieres que en celulares sea un poco más rápido */
+@media (max-width: 768px) {
+    .scroll-card {
+        transition-duration: 0.5s;
+    }
+}

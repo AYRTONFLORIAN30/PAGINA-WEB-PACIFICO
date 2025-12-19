@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // 1. Importamos useEffect
 import { Link } from 'react-router-dom'; 
 import { productsData } from '../data/productsData'; 
 import "../styles/Productos.css";
 
 function Productos() {
   
+  // --- 2. Lógica de Animación (Observador) ---
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible'); 
+        }
+      });
+    }, { threshold: 0.1 }); // Se activa apenas se ve un 10% de la tarjeta
+
+    const hiddenElements = document.querySelectorAll('.scroll-card');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => hiddenElements.forEach((el) => observer.unobserve(el));
+  }, []);
+  // -------------------------------------------
+
   const catCalcicas = productsData.filter(p => p.categoria === "Enmiendas Agrícolas Cálcicas");
   const catNaturales = productsData.filter(p => p.categoria === "Abonos Naturales");
   const catOrganicos = productsData.filter(p => p.categoria === "Abonos Orgánicos");
@@ -19,7 +36,8 @@ function Productos() {
       
       <div className="productos-grid">
         {products.map((prod) => (
-          <div key={prod.id} className="producto-card">
+          /* 3. Agregamos la clase "scroll-card" aquí */
+          <div key={prod.id} className="producto-card scroll-card">
             
             <Link to={`/producto/${prod.id}`} className="producto-link-wrapper">
               <div className="producto-img-container">

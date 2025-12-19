@@ -1,4 +1,3 @@
-/* Espaciado general */
 .nosotros-section {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -11,7 +10,6 @@
     margin: 0 auto;
 }
 
-/* --- 1. INTRODUCCIÓN --- */
 .intro-centered {
     display: flex;
     flex-direction: column;
@@ -46,29 +44,47 @@
     font-size: 1rem;
 }
 
-.intro-image {
+.intro-images-grid {
+    display: flex;             
+    justify-content: center;   
+    gap: 40px;                 
     width: 100%;
-    /* AUMENTADO: De 900px a 1100px para que se vea más grande e imponente */
-    max-width: 1100px; 
+    max-width: 1200px;
     margin-top: 30px;
+    align-items: center;   
 }
 
-.intro-image img {
-    width: 100%;
-    height: auto;
-    /* Si lograste quitar el fondo y es PNG, quita el border-radius y box-shadow para que se vea silueteada */
-    /* Si sigue siendo la foto rectangular JPG, déjalos para que se vea bien */
-    border-radius: 12px; 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+.foto-card {
+    flex: 1;                   
+    max-width: 550px;         
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+}
+
+.foto-card img {
+    width: 100%;               
+    height: auto;              
     
-    /* Truco: Si la imagen es muy "ancha" y quieres que se vea más alta, puedes forzar un poco el aspect ratio, 
-       pero mejor dejarlo en auto para no deformar a las personas. */
+    border-radius: 12px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    transition: transform 0.3s ease;
 }
 
+.foto-card img:hover {
+    transform: scale(1.02); 
+}
 
-/* --- 2. FRANJA AMARILLA (MISION / VISION) --- */
+.foto-card p {
+    text-align: center;
+    margin-top: 20px; 
+    color: #555; 
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
 .mision-vision-wrapper {
-    background-color: #0a2588; /* Amarillo intenso */
+    background-color: #0a2588; 
     padding: 80px 0;
     width: 100%;
     margin-bottom: 80px;
@@ -87,13 +103,11 @@
     display: flex;
     align-items: flex-start; 
     gap: 30px;
-    flex: 1; /* Mitad y mitad */
+    flex: 1; 
 }
 
-/* Círculo blanco para el icono */
 .mv-icon-circle {
     background-color: white;
-    /* --- CAMBIO: AUMENTADO DE 100px A 140px --- */
     width: 140px;
     height: 140px;
     border-radius: 50%;
@@ -104,15 +118,12 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* --- ESTILO PARA TUS IMÁGENES PNG (Misión/Visión) --- */
 .mv-icon-circle img {
-    /* --- CAMBIO: AUMENTADO DE 60px A 85px --- */
     width: 85px;  
     height: 85px;
     object-fit: contain; 
 }
 
-/* --- Estilo para los SVG (solo por si acaso) --- */
 .mv-icon-circle svg {
     width: 80px;
     height: 80px;
@@ -121,7 +132,7 @@
 
 .mv-text h2 {
     color: white;
-    font-size: 2.8rem; /* Título un poco más grande */
+    font-size: 2.8rem;
     margin-bottom: 15px;
     font-weight: 800;
     text-transform: uppercase;
@@ -129,14 +140,12 @@
 
 .mv-text p {
     color: white; 
-    font-size: 1.1rem; /* Texto un poco más grande */
+    font-size: 1.1rem;
     line-height: 1.6;
     font-weight: 500;
     text-align: justify;
 }
 
-
-/* --- 3. VALORES (Grid limpio) --- */
 .valores-section {
     text-align: center;
 }
@@ -157,7 +166,6 @@
     line-height: 1.6;
 }
 
-/* GRID DE 3 COLUMNAS */
 .valores-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -170,17 +178,16 @@
 }
 
 .valor-icon {
-    margin-bottom: 20px; /* Un poco más de espacio abajo del icono */
+    margin-bottom: 20px;
 }
 
-/* --- CAMBIO: AUMENTADO TAMAÑO DE ICONOS DE VALORES --- */
 .valor-icon svg {
-    width: 90px; /* Aumentado de 60px a 90px */
+    width: 90px;
     height: 90px;
 }
 
 .valor-card h3 {
-    font-size: 1.4rem; /* Título un poco más grande */
+    font-size: 1.4rem;
     color: #0e1a24;
     margin-bottom: 15px;
     font-weight: 800;
@@ -192,7 +199,6 @@
     line-height: 1.5;
 }
 
-/* RESPONSIVE (CELULAR Y TABLET) */
 @media (max-width: 992px) {
     .mv-container {
         flex-direction: column; 
@@ -200,6 +206,19 @@
     }
     .valores-grid {
         grid-template-columns: 1fr 1fr; 
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-images-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 0; 
+    }
+    
+    .foto-card {
+        width: 100%;
+        margin-bottom: 50px; 
     }
 }
 
@@ -217,8 +236,28 @@
         grid-template-columns: 1fr; 
     }
     
-    /* Ajuste para que no sean gigantes en celular */
     .mv-icon-circle { width: 120px; height: 120px; }
     .mv-icon-circle img { width: 70px; height: 70px; }
     .valor-icon svg { width: 70px; height: 70px; }
+}
+
+
+.scroll-scale {
+    opacity: 0;
+    transform: scale(0.9) translateY(50px);
+    transition: all 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.scroll-scale.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.scroll-scale.delay-100 {
+    transition-delay: 0.2s;
+}
+
+.scroll-scale.delay-200 {
+    transition-delay: 0.4s;
 }

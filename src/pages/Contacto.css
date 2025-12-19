@@ -1,348 +1,160 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
 
-:root {
-  --primary: #2f498b;       
-  --primary-bg: #fff3e0;    
-  --text-dark: #333;
-  --text-gray: #666;
-  --shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+/* ... debajo sigue tu código normal ... */
 
-.contacto-container {
-  padding: 50px 20px;
-  background-color: #f4f6f8;
-  font-family: 'Roboto', sans-serif;
+/* FONDO Y LAYOUT PRINCIPAL */
+.hortus-layout {
+  /* Ruta de tu imagen */
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../assets/fondo-campo-flores.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
+  
+  /* ESTO ES LO NUEVO PARA CENTRAR EL TÍTULO: */
+  display: flex;
+  flex-direction: column; /* Apila los elementos (Título arriba, Grid abajo) */
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
 }
-
-/* --- Header --- */
-.contacto-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.contacto-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
-  color: var(--primary);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.slogan {
-  font-style: italic;
-  color: var(--text-gray);
-  font-size: 1.1rem;
-}
-
-/* --- Grid Layout (Versión Mapa Grande) --- */
-.zonas-grid {
+.layout-grid {
   display: grid;
-  /* Columnas anchas (min 600px) para acomodar mapa grande y texto grande */
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
-  gap: 40px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* --- Tarjeta Principal --- */
-.zona-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  border: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-}
-
-.zona-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-}
-
-/* --- Cabecera de la Tarjeta --- */
-.card-header {
-  background: linear-gradient(to right, #ffffff, var(--primary-bg));
-  padding: 20px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid var(--primary-bg);
-}
-
-/* Etiqueta ZONA (Texto Aumentado) */
-.badge-zona {
-  background: var(--primary);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 1.1rem;      /* Aumentado */
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Nombre Representante (Texto Aumentado) */
-.representante-nombre {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;      /* Aumentado */
-  color: var(--text-dark);
-}
-
-/* --- Cuerpo de la Tarjeta --- */
-.card-content {
-  display: flex;
-  padding: 25px;
-  gap: 30px;
-}
-
-/* Columna Izquierda (Info) */
-.info-column {
-  flex: 1; 
-}
-
-/* Columna Derecha (Mapa Grande) */
-.map-column {
-  flex: 1.2; /* El mapa ocupa un poco más de espacio que el texto (1.2 vs 1) */
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
-.mapa-container {
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1300px;
   width: 100%;
-  height: 220px; /* Altura reducida para parecerse a la imagen de referencia (tarjeta compacta) */
-  border-radius: 15px; /* Bordes muy redondeados */
-  overflow: hidden;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.1); /* Sombra interna para profundidad */
-  border: 2px solid #fff; /* Borde blanco estilo fotografía */
-  margin-top: 15px;
-  position: relative;
-  z-index: 0; /* Asegura que no tape otros elementos */
+  align-items: center;
 }
 
-/* Ajuste Responsive para Móviles */
-@media (max-width: 768px) {
-  .mapa-container {
-    height: 180px; /* Un poco más pequeño en celulares */
-  }
-}
-
-.map-column small {
+/* TÍTULO Y MAPA IZQUIERDO */
+.mapa-section {
   text-align: center;
-  display: block;
-  margin-top: 10px;
-  font-size: 0.8rem;
-  color: #999;
+}
+
+.mapa-title {
+  color: white;
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 0.5px;
 }
 
-/* --- Estilos de Texto (Información) --- */
-.info-group {
-  margin-bottom: 20px; /* Más espacio entre grupos */
+/* TARJETA DERECHA (BLANCA) */
+.info-card-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra elegante */
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; /* Para que nada se salga de los bordes */
 }
 
-/* Etiquetas "Cobertura" (Texto Aumentado) */
-.info-group label {
-  font-size: 0.9rem;      /* Aumentado */
-  text-transform: uppercase;
-  color: #999;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 6px;
+.card-header-hortus {
+  border-bottom: 3px solid #76b900; /* Línea verde característica */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* Texto Regiones (Texto Aumentado) */
-.regiones-text {
-  margin: 0;
-  font-style: italic;
-  color: var(--text-gray);
-  font-size: 1.25rem;     /* Aumentado significativamente */
-  line-height: 1.5;
-}
-
-/* --- Bloque Destacado (Dirección) --- */
-.highlight-bg {
-  background-color: var(--primary-bg); 
-  padding: 20px;          /* Más padding interno */
-  border-radius: 8px;
-  border-left: 5px solid var(--primary);
-}
-
-/* Ciudad (Texto Aumentado MUCHO) */
-.ciudad-tag {
-  display: block;
-  color: var(--primary);
+.zona-label {
+  color: #2f498b; /* Tu azul corporativo */
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 1.4rem;      /* Aumentado */
-  margin-bottom: 8px;
+  font-size: 1.4rem;
 }
 
-/* Dirección (Texto Aumentado) */
-.direccion-text {
-  margin: 0;
-  color: var(--text-dark);
-  font-weight: 600;
-  font-size: 1.2rem;      /* Aumentado */
-}
-
-/* --- Botones Teléfono --- */
-.telefonos-list {
+/* ITEMS DE INFORMACIÓN */
+.detail-row {
   display: flex;
+  align-items: flex-start;
   gap: 15px;
-  margin-top: 25px;
-  flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
-.btn-telefono {
-  flex: 1;
-  min-width: 150px;       /* Botones más anchos */
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 12px 10px;     /* Botones más altos */
-  text-align: center;
-  border-radius: 6px;
-  text-decoration: none;
-  color: var(--text-dark);
-  font-size: 1.15rem;     /* Números grandes */
-  font-weight: 600;
+.icon-circle {
+  background: #f0f4f8;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  transition: all 0.2s;
+  color: #2f498b;
+  flex-shrink: 0;
 }
 
-.btn-telefono:hover {
-  background: var(--text-dark);
-  color: white;
-  border-color: var(--text-dark);
+.detail-text h4 {
+  margin: 0 0 5px 0;
+  color: #888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-/* --- Responsive (Móvil) --- */
-@media (max-width: 768px) {
-  .zonas-grid { 
-    grid-template-columns: 1fr; /* Una sola columna */
-  }
-  
-  .card-content { 
-    flex-direction: column-reverse; /* Mapa arriba, info abajo en celulares */
-    padding: 20px;
-  }
-  
-  .mapa-container { 
-    height: 250px; /* Altura ajustada para móvil */
-  }
+.detail-text p, .detail-text span {
+  margin: 0;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+}
 
-  .contacto-header h1 {
+/* CONTENEDOR DEL MAPA PEQUEÑO */
+.mini-mapa-wrapper {
+  height: 250px; /* Altura fija para que se vea bien */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: auto; /* Empuja el mapa al final de la tarjeta */
+  border: 1px solid #ddd;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1; /* Asegura que el mapa se vea */
+}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .mapa-title {
     font-size: 2rem;
   }
 }
-/* ... (Mantén todo tu CSS anterior hasta llegar a .map-column) ... */
 
-/* Columna Derecha (Mapa) */
-.map-column {
-  flex: 1; /* Reducimos un poco el ancho relativo */
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centramos el mapa y el texto pequeño */
-}
-
-/* --- ESTILO CLAVE PARA IMITAR LA SEGUNDA IMAGEN --- */
-.mapa-container {
-  width: 100%;
-  /* Altura fija para que parezca una tarjeta compacta, como en la foto referencia */
-  height: 200px; 
-  
-  /* Bordes muy redondeados */
-  border-radius: 16px; 
-  overflow: hidden;
-  
-  /* El marco blanco grueso característico de la imagen referencia */
-  border: 4px solid #ffffff;
-  
-  /* Sombra para darle relieve sobre el fondo gris de la tarjeta */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  
-  margin-top: 15px;
-  position: relative;
-  z-index: 1; /* Asegura que el pin se vea bien */
-  background-color: #eee; /* Fondo temporal mientras carga */
-}
-
-.map-column small {
+.main-header-section {
   text-align: center;
-  display: block;
-  margin-top: 12px;
-  font-size: 0.75rem;
-  color: #999;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-/* ... (El resto de tu CSS para textos, botones y responsive) ... */
-
-/* Ajuste Responsive para Móviles si es necesario */
-@media (max-width: 768px) {
-  .mapa-container {
-    height: 180px; /* Un poco más pequeño en celulares */
-  }
-}
-
-/* ... (Todo tu CSS anterior del Header y Textos se mantiene igual) ... */
-
-/* Columna Derecha (Mapa) */
-.map-column {
-  flex: 1.5; /* Le damos más espacio horizontal al mapa */
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* --- ESTILO EXACTO DE LA IMAGEN REFERENCIA --- */
-.mapa-container {
+  margin-bottom: 40px; /* Espacio entre el título y el mapa/tarjeta */
   width: 100%;
-  
-  /* AUMENTADO: Antes 200px -> Ahora 320px para que se vea GRANDE */
-  height: 320px; 
-  
-  /* Bordes redondeados pero sutiles, como en la imagen */
-  border-radius: 12px; 
-  overflow: hidden;
-  
-  /* Un borde gris muy suave o sombra para separarlo del fondo blanco */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  background-color: #eee; 
-  
-  margin-top: 10px;
-  position: relative;
-  z-index: 1;
 }
 
-/* Texto de "Ubicación Referencial" debajo del mapa */
-.map-column small {
-  text-align: center;
-  display: block;
-  margin-top: 12px;
-  font-size: 0.8rem;
-  color: #888;
-  font-weight: 600;
+.mapa-title {
+  color: white;
+  font-size: 3.5rem; /* Un poco más grande para que impacte */
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
-/* Responsive para celular */
-@media (max-width: 768px) {
-  .mapa-container {
-    height: 250px; /* En móvil un poco menos alto, pero sigue siendo grande */
-  }
+.mapa-subtitle {
+  color: white;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  font-weight: 500;
+}
+
+/* El resto de tu CSS (.layout-grid, .info-card-container, etc) déjalo igual */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1300px;
+  width: 100%;
+  align-items: flex-start; /* Alineación superior */
 }

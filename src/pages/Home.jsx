@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import "../styles/Home.css";
 import homeBgImage from '../assets/HOME-IMAGEN.webp';
@@ -31,6 +31,23 @@ function Home() {
     console.log('Datos del formulario:', formData);
     alert('Gracias. Su solicitud de cotización ha sido enviada.');
   };
+
+  // --- LÓGICA DEL EFECTO SCROLL (ACTUALIZADA) ---
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible'); 
+        }
+      });
+    }, { threshold: 0.15 });
+
+    // AHORA OBSERVAMOS TRES TIPOS DE CLASES DE ANIMACIÓN
+    const hiddenElements = document.querySelectorAll('.scroll-scale, .scroll-blur, .scroll-slide');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => hiddenElements.forEach((el) => observer.unobserve(el));
+  }, []);
   // ---------------------------------------------
 
   return (
@@ -49,9 +66,9 @@ function Home() {
         </div>
       </div>
 
-      {/* 2. ACERCA DE */}
+      {/* 2. ACERCA DE (Efecto Zoom: scroll-scale) */}
       <section className="about-home">
-        <div className="about-content">
+        <div className="about-content scroll-scale">
           <span className="section-tag">NUESTRA ESENCIA</span>
           <h2>Acerca de Pacífico Abonos y Enmiendas</h2>
           <p>
@@ -68,14 +85,14 @@ function Home() {
         </div>
       </section>
 
-      {/* 3. BENEFICIOS */}
+      {/* 3. BENEFICIOS (Efecto Zoom: scroll-scale) */}
       <section className="benefits-section">
-        <div className="section-header">
+        <div className="section-header scroll-scale">
           <h2>¿Por qué elegir Pacífico?</h2>
         </div>
+        
         <div className="benefits-grid">
-          {/* Tarjeta 1 */}
-          <div className="benefit-card">
+          <div className="benefit-card scroll-scale">
             <div className="icon-box">
               <img src={iconEco} alt="Ecológico" />
             </div>
@@ -83,8 +100,7 @@ function Home() {
             <p>Insumos que respetan el medio ambiente y regeneran tu suelo.</p>
           </div>
 
-          {/* Tarjeta 2 */}
-          <div className="benefit-card">
+          <div className="benefit-card scroll-scale delay-100">
             <div className="icon-box">
               <img src={iconEnvio} alt="Envíos" />
             </div>
@@ -92,8 +108,7 @@ function Home() {
             <p>Logística eficiente para llegar a tu campo donde estés.</p>
           </div>
 
-          {/* Tarjeta 3 */}
-          <div className="benefit-card">
+          <div className="benefit-card scroll-scale delay-200">
             <div className="icon-box">
               <img src={iconAsesor} alt="Asesoría" />
             </div>
@@ -103,13 +118,13 @@ function Home() {
         </div>
       </section>
 
-      {/* 4. TÍTULO DE PRODUCTOS (FONDO BLANCO) */}
+      {/* 4. TÍTULO DE PRODUCTOS */}
       <div className="products-title-section">
         <h2>Nuestros Productos</h2>
         <p>Calidad garantizada para cada etapa del cultivo</p>
       </div>
 
-      {/* 5. CARRUSEL DE PRODUCTOS (FONDO AMARILLO) */}
+      {/* 5. CARRUSEL DE PRODUCTOS */}
       <section className="home-products-section">
         <div className="product-slider">
           <div className="product-slide-track">
@@ -143,9 +158,9 @@ function Home() {
         </div>
       </section> 
 
-      {/* 6. VIDEO PROCESOS */}
-      <section className="processes-section">
-        {/* REUTILIZAMOS LA CLASE DE PRODUCTOS PARA QUE SE VEA IGUAL */}
+      {/* 6. VIDEO PROCESOS - NUEVO EFECTO (scroll-blur) */}
+      {/* Aplicamos el efecto a toda la sección */}
+      <section className="processes-section scroll-blur">
         <div className="products-title-section" style={{ padding: '0 20px 40px 20px' }}>
           <h2>Nuestros Procesos</h2>
           <p>Tecnología y dedicación en cada gramo de producto</p>
@@ -164,13 +179,13 @@ function Home() {
         </div>
       </section>
 
-      {/* 7. NUEVA SECCIÓN: FORMULARIO DE COTIZACIÓN */}
+      {/* 7. FORMULARIO DE COTIZACIÓN - NUEVO EFECTO (scroll-slide) */}
       <section className="cotizacion-section">
         <div className="cotizacion-overlay"></div>
         <div className="cotizacion-container">
           
-          <div className="form-card">
-            {/* Encabezado Amarillo */}
+          {/* Aplicamos el efecto de deslizar solo a la TARJETA del formulario */}
+          <div className="form-card scroll-slide">
             <div className="form-header-yellow">
               <h2>Solicite una cotización</h2>
             </div>
@@ -182,11 +197,7 @@ function Home() {
               </p>
 
               <form onSubmit={handleSubmit}>
-                
-                {/* Agrupamos las columnas en este DIV */}
                 <div className="form-grid">
-                  
-                  {/* Columna Izquierda: Inputs */}
                   <div className="form-left-col">
                     <input 
                       type="text" name="nombre" placeholder="Nombre*" required 
@@ -214,7 +225,6 @@ function Home() {
                     />
                   </div>
 
-                  {/* Columna Derecha: Textarea */}
                   <div className="form-right-col">
                     <textarea 
                       name="mensaje" 
@@ -222,14 +232,11 @@ function Home() {
                       value={formData.mensaje} onChange={handleChange}
                     ></textarea>
                   </div>
+                </div>
 
-                </div> {/* Fin del form-grid */}
-
-                {/* El botón queda FUERA del grid para que vaya abajo */}
                 <div className="form-footer-action">
                   <button type="submit" className="btn-enviar-cotizacion">Enviar</button>
                 </div>
-
               </form>
             </div>
           </div>

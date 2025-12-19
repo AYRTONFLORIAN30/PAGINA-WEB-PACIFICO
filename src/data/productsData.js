@@ -14,11 +14,18 @@ import abonazaPapero from "../assets/Abonaza papero.webp";
 import nutriAbonaza from "../assets/Abonaza.webp";
 import humusLombriz from "../assets/Humus de lombriz.webp";
 
+// --- NUEVAS IMPORTACIONES BASADAS EN TUS CAPTURAS ---
+import hidrocal from "../assets/Hidrocal.webp";   // <--- NUEVO IMPORT
+import calBordalesa from "../assets/Cal bordalesa.webp"; // <--- NUEVO IMPORT
+import fillCal from "../assets/Fill cal.webp";    // <--- NUEVO IMPORT
+import bioCal from "../assets/Bio cal.webp";      // <--- NUEVO IMPORT
+import calNieve from "../assets/Cal nieve.webp";  // <--- NUEVO IMPORT
+
+
 // --- IMPORTACIÓN DE PDFs (FICHAS TÉCNICAS) ---
-// Basado en los nombres de tu captura de pantalla
 import pdfAgrocalMix from "../assets/fichas/Agrocal-mix.pdf";
 import pdfDolomita from "../assets/fichas/Dolomita.pdf";
-import pdfMagnoCal from "../assets/fichas/Magnocal mix.pdf"; // Ajustado según tu captura
+import pdfMagnoCal from "../assets/fichas/Magnocal mix.pdf";
 import pdfAgroYeso from "../assets/fichas/Agro yeso.pdf";
 import pdfRocaFosforica from "../assets/fichas/Roca fosforica.pdf";
 import pdfSulfatoCalcio from "../assets/fichas/Sulfato de calcio.pdf";
@@ -56,7 +63,7 @@ export const productsData = [
     img: dolomita,
     descripcion: "Carbonato doble de calcio y magnesio ideal para suelos deficientes.",
     beneficios: ["Neutraliza la acidez", "Aporte lento y constante", "Económico y eficiente"],
-    pdfFile: pdfDolomita, // ASIGNADO
+    pdfFile: pdfDolomita,
     fichaTecnica: "CaCO3 + MgCO3.",
     composicion: [
       { elemento: "Ca", porcentaje: "21.5%" },
@@ -72,7 +79,7 @@ export const productsData = [
     img: superMagnoCal,
     descripcion: "Potente corrector de suelos con alta concentración de magnesio.",
     beneficios: ["Corrección rápida", "Ideal para cultivos de alta demanda", "Fácil aplicación"],
-    pdfFile: pdfMagnoCal, // ASIGNADO (Magnocal mix.pdf)
+    pdfFile: pdfMagnoCal,
     fichaTecnica: "Alta concentración de Mg.",
     composicion: [
       { elemento: "CaO", porcentaje: "22.68%" },
@@ -88,7 +95,7 @@ export const productsData = [
     img: agroYeso,
     descripcion: "Sulfato de calcio dihidratado, excelente para suelos sódicos.",
     beneficios: ["Desplaza el sodio", "Aporta Azufre", "Mejora la infiltración de agua"],
-    pdfFile: pdfAgroYeso, // ASIGNADO
+    pdfFile: pdfAgroYeso,
     fichaTecnica: "CaSO4·2H2O.",
     composicion: [
       { elemento: "Ca", porcentaje: "22.50%" },
@@ -104,7 +111,7 @@ export const productsData = [
     img: carboCal,
     descripcion: "Carbonato de calcio de alta pureza.",
     beneficios: ["Fuente concentrada de Calcio", "Regulador de pH", "Mejora disponibilidad de nutrientes"],
-    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    pdfFile: null,
     fichaTecnica: "CaCO3 90%.",
     composicion: [
       { elemento: "CaCO3", porcentaje: "97.80%" },
@@ -120,7 +127,7 @@ export const productsData = [
     img: rocaFosforica,
     descripcion: "Fuente natural de fósforo de liberación lenta.",
     beneficios: ["Fósforo reactivo", "Efecto residual prolongado", "Ecológico"],
-    pdfFile: pdfRocaFosforica, // ASIGNADO
+    pdfFile: pdfRocaFosforica,
     fichaTecnica: "P2O5: 22-28%.",
     composicion: [
       { elemento: "P2O5", porcentaje: "18 - 22%" },
@@ -135,7 +142,7 @@ export const productsData = [
     img: sulfatoCalcio,
     descripcion: "Fuente directa de Azufre y Calcio para la planta.",
     beneficios: ["Nutrición directa", "No altera el pH significativamente", "Mejora calidad de fruto"],
-    pdfFile: pdfSulfatoCalcio, // ASIGNADO
+    pdfFile: pdfSulfatoCalcio,
     fichaTecnica: "Ca + S.",
     composicion: [
       { elemento: "Ca", porcentaje: "22.50%" },
@@ -151,7 +158,7 @@ export const productsData = [
     img: ulex30,
     descripcion: "Borato de sodio y calcio natural.",
     beneficios: ["Fuente de Boro", "Esencial para floración", "Origen mineral"],
-    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    pdfFile: null,
     fichaTecnica: "Boro 10% aprox.",
     composicion: [
       { elemento: "B", porcentaje: "9 - 13%" },
@@ -167,7 +174,7 @@ export const productsData = [
     img: gallinaza,
     descripcion: "Abono orgánico rico en nitrógeno procedente de aves.",
     beneficios: ["Alto contenido de N-P-K", "Activa vida microbiana", "Compostado"],
-    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    pdfFile: null,
     fichaTecnica: "Materia Orgánica 40%.",
     composicion: [
       { elemento: "N", porcentaje: "2 - 3%" },
@@ -185,7 +192,7 @@ export const productsData = [
     img: abonazaPapero,
     descripcion: "Formulación especial para el cultivo de papa.",
     beneficios: ["Balanceado para tubérculos", "Mejora peso y calibre", "Suelo más suelto"],
-    pdfFile: pdfAbonazaPapero, // ASIGNADO
+    pdfFile: pdfAbonazaPapero,
     fichaTecnica: "Mezcla orgánica especializada.",
     composicion: [
       { elemento: "N", porcentaje: "2 - 4%" },
@@ -204,7 +211,7 @@ export const productsData = [
     img: nutriAbonaza,
     descripcion: "Abono orgánico enriquecido y balanceado.",
     beneficios: ["Nutrición integral", "Mejora retención de humedad", "Sostenible"],
-    pdfFile: null, // NO HABÍA "ABONAZA" SOLA EN PDF, SOLO "ABONAZA PAPERO"
+    pdfFile: null,
     fichaTecnica: "Materia Orgánica enriquecida.",
     composicion: [
       { elemento: "N", porcentaje: "1.5 - 2%" },
@@ -223,7 +230,7 @@ export const productsData = [
     img: humusLombriz,
     descripcion: "El mejor abono orgánico, estable y rico en ácidos húmicos.",
     beneficios: ["100% asimilable", "No quema las plantas", "Regenerador de suelos"],
-    pdfFile: pdfHumusLombriz, // ASIGNADO
+    pdfFile: pdfHumusLombriz,
     fichaTecnica: "Humus 100% puro.",
     composicion: [
       { elemento: "N", porcentaje: "1.51%" },
@@ -245,20 +252,20 @@ export const productsData = [
     id: "hidrocal",
     nombre: "Hidrocal",
     categoria: "Productos para tratamiento de agua potable",
-    img: agrocalMix, 
+    img: hidrocal, // <--- CORREGIDO (antes agrocalMix)
     descripcion: "Especializado para el tratamiento de Residuos Sanitarios.",
     beneficios: ["Alta pureza", "Control de contaminantes", "Eficiencia en tratamiento"],
-    pdfFile: pdfHidroCal, // ASIGNADO
+    pdfFile: pdfHidroCal,
     fichaTecnica: "Tratamiento de aguas residuales."
   },
   {
     id: "hidrosil",
     nombre: "Hidrosil",
     categoria: "Productos para tratamiento de agua potable",
-    img: agrocalMix, 
+    img: agrocalMix, // NOTA: No vi una imagen específica para "Hidrosil" en tus capturas, así que mantuve la temporal.
     descripcion: "Medio filtrador de residuos sanitarios de alto rendimiento.",
     beneficios: ["Filtración avanzada", "Remoción de partículas", "Seguro y confiable"],
-    pdfFile: null, // NO SE ENCONTRÓ PDF EN LA LISTA
+    pdfFile: null,
     fichaTecnica: "Medio filtrante silíceo."
   },
 
@@ -267,40 +274,40 @@ export const productsData = [
     id: "cal-bordalesa",
     nombre: "Cal bordalesa",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, 
+    img: calBordalesa, // <--- CORREGIDO (antes agrocalMix)
     descripcion: "Proporción de cal de minerales de uso agrícola.",
     beneficios: ["Control de hongos", "Corrector de pH", "Uso agrícola versátil"],
-    pdfFile: pdfCalBordalesa, // ASIGNADO
+    pdfFile: pdfCalBordalesa,
     fichaTecnica: "Caldo bordelés base."
   },
   {
     id: "fill-cal",
     nombre: "Fill cal",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, 
+    img: fillCal, // <--- CORREGIDO (antes agrocalMix)
     descripcion: "Especial para la restauración de restos arqueológicos.",
     beneficios: ["Compatible con materiales antiguos", "Baja reactividad nociva", "Acabado natural"],
-    pdfFile: pdfFillCal, // ASIGNADO
+    pdfFile: pdfFillCal,
     fichaTecnica: "Restauración y conservación."
   },
   {
     id: "bio-cal",
     nombre: "Bio cal",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, 
+    img: bioCal, // <--- CORREGIDO (antes agrocalMix)
     descripcion: "Cal diseñada para el tratamiento de residuos sólidos.",
     beneficios: ["Estabilización de lodos", "Control de olores", "Desinfección"],
-    pdfFile: pdfBioCal, // ASIGNADO
+    pdfFile: pdfBioCal,
     fichaTecnica: "Tratamiento ambiental."
   },
   {
     id: "cal-nieve",
     nombre: "Cal Nieve",
     categoria: "Hidróxidos de Calcio",
-    img: agrocalMix, 
+    img: calNieve, // <--- CORREGIDO (antes agrocalMix)
     descripcion: "Cal de alta blancura para varios usos industriales y decorativos.",
     beneficios: ["Alta pureza", "Color blanco intenso", "Multiusos"],
-    pdfFile: pdfCalNieve, // ASIGNADO
+    pdfFile: pdfCalNieve,
     fichaTecnica: "Hidróxido de calcio de alta blancura."
   }
 ];

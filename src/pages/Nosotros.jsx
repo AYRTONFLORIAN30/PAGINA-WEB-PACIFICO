@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // 1. IMPORTAMOS useEffect
 import "../styles/Nosotros.css";
 import nosotrosImg from "../assets/nosotros.webp"; 
 import nosotrosImg2 from "../assets/nosotros 2.webp"; 
 
-// --- 1. IMPORTAMOS TUS IMÁGENES PNG ---
 import misionPng from "../assets/mision.webp";
 import visionPng from "../assets/vision.webp";
 
-// --- 2. MANTENEMOS LOS DEMÁS ICONOS EN SVG (VALORES) ---
+// Iconos SVG (Sin cambios)
 const IconoCompromiso = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0a2588" width="50" height="50"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></svg>
 );
@@ -25,6 +24,24 @@ const IconoEmpatia = () => (
 );
 
 function Nosotros() {
+
+  // --- 2. LÓGICA DE ANIMACIÓN (IGUAL QUE EN HOME) ---
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const hiddenElements = document.querySelectorAll('.scroll-scale');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => hiddenElements.forEach((el) => observer.unobserve(el));
+  }, []);
+  // --------------------------------------------------
+
   return (
     <section className="nosotros-section">
       
@@ -32,7 +49,9 @@ function Nosotros() {
         
         {/* 1. INTRODUCCIÓN */}
         <div className="intro-centered">
-          <div className="intro-text">
+          
+          {/* Animamos el texto de introducción */}
+          <div className="intro-text scroll-scale">
             <span className="subtitle">SOBRE NOSOTROS</span>
             <h1>PACIFICO ABONOS Y ENMIENDAS</h1>
             
@@ -43,23 +62,22 @@ function Nosotros() {
               Especializada en la producción y comercialización de Abonos Naturales, 
               abonos orgánicos y enmiendas agrícolas cálcicas de marca PACIFICO.
             </p>
-
           </div>
           
-          {/* SECCIÓN DE IMÁGENES MODIFICADA */}
-          <div className="intro-image">
+          {/* SECCIÓN DE IMÁGENES (Animamos todo el bloque de fotos) */}
+          <div className="intro-images-grid scroll-scale delay-100">
             
-            {/* Imagen 1 - 2018 */}
-            <img src={nosotrosImg} alt="Equipo de trabajo en planta" />
-            <p style={{ textAlign: 'center', marginTop: '0.5rem', color: '#555', fontWeight: 'bold' }}>
-              Año 2018
-            </p>
-            
-            {/* Imagen 2 - 2012 */}
-            <img src={nosotrosImg2} alt="Imagen Nosotros 2" style={{ marginTop: '1.5rem' }} />
-            <p style={{ textAlign: 'center', marginTop: '0.5rem', color: '#555', fontWeight: 'bold' }}>
-              Año 2012
-            </p>
+            {/* Foto Izquierda */}
+            <div className="foto-card">
+                <img src={nosotrosImg} alt="Equipo de trabajo en planta 2018" />
+                <p>Año 2018</p>
+            </div>
+
+            {/* Foto Derecha */}
+            <div className="foto-card">
+                <img src={nosotrosImg2} alt="Equipo de trabajo en planta 2012" />
+                <p>Año 2012</p>
+            </div>
 
           </div>
         </div>
@@ -70,8 +88,8 @@ function Nosotros() {
       <div className="mision-vision-wrapper">
         <div className="mv-container">
           
-          {/* Misión */}
-          <div className="mv-block">
+          {/* Misión - Animación normal */}
+          <div className="mv-block scroll-scale">
             <div className="mv-icon-circle">
               <img src={misionPng} alt="Icono Misión" />
             </div>
@@ -87,8 +105,8 @@ function Nosotros() {
             </div>
           </div>
 
-          {/* Visión */}
-          <div className="mv-block">
+          {/* Visión - Animación con retraso para que aparezca después */}
+          <div className="mv-block scroll-scale delay-200">
             <div className="mv-icon-circle">
               <img src={visionPng} alt="Icono Visión" />
             </div>
@@ -111,40 +129,44 @@ function Nosotros() {
       {/* 3. VALORES */}
       <div className="nosotros-container">
         <div className="valores-section">
-          <h2>Nuestros Valores Institucionales</h2>
-          <p className="valores-subtitle">
-            MINERALES & DERIVADOS SUDAMERICANA S.A.C promueve el bienestar de sus clientes, 
-            colaboradores y las comunidades donde se encuentra presente. Para ello, está 
-            guiada por sus valores institucionales:
-          </p>
+          
+          {/* Título animado */}
+          <div className="scroll-scale">
+            <h2>Nuestros Valores Institucionales</h2>
+            <p className="valores-subtitle">
+                MINERALES & DERIVADOS SUDAMERICANA S.A.C promueve el bienestar de sus clientes, 
+                colaboradores y las comunidades donde se encuentra presente. Para ello, está 
+                guiada por sus valores institucionales:
+            </p>
+          </div>
 
           <div className="valores-grid">
             
-            <div className="valor-card">
+            <div className="valor-card scroll-scale">
               <div className="valor-icon"><IconoCompromiso /></div>
               <h3>Compromiso</h3>
               <p>De la empresa de atender las necesidades del cliente y satisfacer sus expectativas.</p>
             </div>
 
-            <div className="valor-card">
+            <div className="valor-card scroll-scale delay-100">
               <div className="valor-icon"><IconoResponsabilidad /></div>
               <h3>Responsabilidad</h3>
               <p>Cumplimos con entregar los productos con los requerimientos acordados en el momento indicado.</p>
             </div>
 
-            <div className="valor-card">
+            <div className="valor-card scroll-scale delay-200">
               <div className="valor-icon"><IconoCompetitividad /></div>
               <h3>Competitividad</h3>
               <p>Ofrecemos servicios y productos de calidad, con eficiencia, eficacia y a precios competitivos.</p>
             </div>
 
-            <div className="valor-card">
+            <div className="valor-card scroll-scale">
               <div className="valor-icon"><IconoTrabajo /></div>
               <h3>Trabajo en Equipo</h3>
               <p>Unimos esfuerzos para el logro de nuestros objetivos, en un ambiente de confianza, comunicación permanente y respeto; compartiendo conocimiento, experiencia e información.</p>
             </div>
 
-            <div className="valor-card">
+            <div className="valor-card scroll-scale delay-100">
               <div className="valor-icon"><IconoEmpatia /></div>
               <h3>Empatía</h3>
               <p>Ponernos en el lugar del cliente.</p>

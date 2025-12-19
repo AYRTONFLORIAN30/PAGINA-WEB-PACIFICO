@@ -1,78 +1,56 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-// --- CONFIGURACIÓN DEL "ALFILER ROJO" ---
-const RedIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+// --- ARREGLO DE ÍCONOS DE LEAFLET ---
+// Sin esto, los marcadores a veces no aparecen o se ven rotos
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
-L.Marker.prototype.options.icon = RedIcon;
 
-// --- DATA EXACTA ---
-const zonasData = {
-  1: { 
-    ciudad: "TARMA",
-    direccion: "Av. Ramón Castilla N° 251",
-    // INTACTO
-    center: [-11.426041, -75.755381] 
-  },
-  2: { 
-    ciudad: "TINGO MARÍA",
-    direccion: "Car. Marginal Huánuco Tingo María Km 111",
-    // CORREGIDO: Movido a zona Afilador/Las Palmas (Carretera recta y poblada, no selva)
-    center: [-9.31400, -76.00550] 
-  },
-  3: { 
-    ciudad: "LAMBAYEQUE",
-    direccion: "Calle 2 de Mayo N°136",
-    // INTACTO
-    center: [-6.70240, -79.90680] 
-  },
-  4: { 
-    ciudad: "MADRE DE DIOS",
-    direccion: "Av. Ernesto Rivero 1302",
-    // INTACTO
-    center: [-12.59655, -69.18705] 
-  }
+// Coordenadas exactas para centrar el mapa
+const COORDS = {
+  1: { lat: -11.4166, lng: -75.6833, label: "Tarma" },        // Centro
+  2: { lat: -9.2944, lng: -76.0000, label: "Tingo María" },   // Selva
+  3: { lat: -6.7011, lng: -79.9064, label: "Lambayeque" },    // Norte
+  4: { lat: -12.5933, lng: -69.1894, label: "Madre de Dios" } // Sur
 };
 
-const MapaInteractivo = ({ zonaId }) => {
-  const data = zonasData[zonaId];
+// Componente "Ayudante" para mover la cámara cuando cambia la zona
+function Recenter({ lat, lng }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView([lat, lng], 14); // Zoom 14 para ver calles
+  }, [lat, lng, map]);
+  return null;
+}
 
-  if (!data) return <div style={{background: '#eee', height:'100%'}}>Cargando...</div>;
+const MapaInteractivo = ({ zonaId }) => {
+  const location = COORDS[zonaId] || COORDS[1]; // Por defecto Tarma
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
+    <div style={{ height: '100%', width: '100%', position: 'relative' }}>
       <MapContainer 
-        key={zonaId} 
-        center={data.center} 
-        zoom={19} 
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom={false} 
-        dragging={false}        
-        zoomControl={false}     
-        doubleClickZoom={false}
-        attributionControl={false}
+        center={[location.lat, location.lng]} 
+        zoom={13} 
+        style={{ height: "100%", width: "100%" }}
+        scrollWheelZoom={false} // Evita que hagas zoom sin querer al bajar la página
+        zoomControl={false} // Quitamos los botones +/- para que se vea limpio
       >
-        {/* Mapa de Google Maps */}
         <TileLayer
-          url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
-          subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
+          attribution='&copy; OpenStreetMap'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        <Marker position={data.center}>
-          <Popup>
-            <strong>{data.ciudad}</strong><br/>
-            {data.direccion}
-          </Popup>
+        <Marker position={[location.lat, location.lng]}>
+          <Popup>{location.label}</Popup>
         </Marker>
-
+        
+        {/* Este componente mueve el mapa mágicamente */}
+        <Recenter lat={location.lat} lng={location.lng} />
       </MapContainer>
     </div>
   );
