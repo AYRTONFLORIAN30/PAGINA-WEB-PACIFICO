@@ -1,12 +1,18 @@
 import { useEffect } from "react"; 
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"; 
+
+// Componentes Globales
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+// Páginas
 import Home from "./pages/Home";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos"; 
-import Contacto from "./pages/Contacto"; // Asegúrate de que el archivo esté en esta carpeta
+import Contacto from "./pages/Contacto"; 
 import ProductoDetalle from "./pages/ProductoDetalle"; 
+import LibroReclamaciones from "./pages/LibroReclamaciones"; // <--- NUEVA IMPORTACIÓN
+
 import "./App.css";
 
 // --- INICIO DE LA SOLUCIÓN ---
@@ -33,17 +39,20 @@ function App() {
 
         <main className="content">
           <Routes>
+            {/* Rutas Principales */}
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<Nosotros />} />
             
-            {/* Ruta del Catálogo completo */}
+            {/* Rutas de Productos */}
             <Route path="/productos" element={<Productos />} />
-            
-            {/* Ruta de detalle del producto */}
             <Route path="/producto/:id" element={<ProductoDetalle />} />
             
-            {/* Ruta de Contacto con la corrección */}
+            {/* Ruta de Contacto */}
             <Route path="/contacto" element={<Contacto />} />
+
+            {/* --- NUEVA RUTA: LIBRO DE RECLAMACIONES --- */}
+            <Route path="/libro-de-reclamaciones" element={<LibroReclamaciones />} />
+            
           </Routes>
         </main>
 

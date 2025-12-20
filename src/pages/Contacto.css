@@ -1,160 +1,215 @@
+/* =========================================
+   1. IMPORTACIONES Y RESET GLOBAL (CRUCIAL)
+   ========================================= */
 @import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
 
-/* ... debajo sigue tu código normal ... */
+/* ESTO ES LO QUE TE FALTABA PARA QUE NO SE DESBORDE: */
+* {
+  box-sizing: border-box;
+}
 
-/* FONDO Y LAYOUT PRINCIPAL */
+/* =========================================
+   2. LAYOUT PRINCIPAL
+   ========================================= */
 .hortus-layout {
-  /* Ruta de tu imagen */
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../assets/fondo-campo-flores.png');
+  /* Fondo fijo */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/fondo-campo-flores.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
+  width: 100%; /* Asegura que ocupe el ancho */
   
-  /* ESTO ES LO NUEVO PARA CENTRAR EL TÍTULO: */
-  display: flex;
-  flex-direction: column; /* Apila los elementos (Título arriba, Grid abajo) */
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-  font-family: 'Roboto', sans-serif;
-}
-.layout-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  max-width: 1300px;
-  width: 100%;
-  align-items: center;
-}
-
-/* TÍTULO Y MAPA IZQUIERDO */
-.mapa-section {
-  text-align: center;
-}
-
-.mapa-title {
-  color: white;
-  font-size: 3rem;
-  font-weight: 800;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-}
-
-/* TARJETA DERECHA (BLANCA) */
-.info-card-container {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra elegante */
-  min-height: 500px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden; /* Para que nada se salga de los bordes */
-}
-
-.card-header-hortus {
-  border-bottom: 3px solid #76b900; /* Línea verde característica */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.zona-label {
-  color: #2f498b; /* Tu azul corporativo */
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-}
-
-/* ITEMS DE INFORMACIÓN */
-.detail-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.icon-circle {
-  background: #f0f4f8;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  color: #2f498b;
-  flex-shrink: 0;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-.detail-text h4 {
-  margin: 0 0 5px 0;
-  color: #888;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.detail-text p, .detail-text span {
-  margin: 0;
-  color: #333;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-/* CONTENEDOR DEL MAPA PEQUEÑO */
-.mini-mapa-wrapper {
-  height: 250px; /* Altura fija para que se vea bien */
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: auto; /* Empuja el mapa al final de la tarjeta */
-  border: 1px solid #ddd;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-  z-index: 1; /* Asegura que el mapa se vea */
-}
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .layout-grid {
-    grid-template-columns: 1fr;
-  }
-  .mapa-title {
-    font-size: 2rem;
-  }
-}
-
+/* =========================================
+   3. CABECERA
+   ========================================= */
 .main-header-section {
   text-align: center;
-  margin-bottom: 40px; /* Espacio entre el título y el mapa/tarjeta */
+  margin-bottom: 30px; 
   width: 100%;
+  max-width: 900px;
+  padding: 0 15px;
 }
 
 .mapa-title {
   color: white;
-  font-size: 3.5rem; /* Un poco más grande para que impacte */
+  font-size: 3.5rem; 
   font-weight: 800;
   text-shadow: 0 4px 10px rgba(0,0,0,0.6);
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.1;
 }
 
 .mapa-subtitle {
-  color: white;
+  color: #f0f0f0;
   font-size: 1.2rem;
   text-shadow: 0 2px 5px rgba(0,0,0,0.8);
   font-weight: 500;
 }
 
-/* El resto de tu CSS (.layout-grid, .info-card-container, etc) déjalo igual */
+/* =========================================
+   4. GRILLA PRINCIPAL (ESCRITORIO)
+   ========================================= */
 .layout-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  max-width: 1300px;
+  grid-template-columns: 1fr 1fr; /* 50% Mapa - 50% Tarjeta */
+  gap: 40px; 
+  max-width: 1000px; 
+  width: 100%; 
+  margin: 0 auto; 
+  align-items: center; 
+  justify-items: center; 
+}
+
+/* MAPA (Escritorio) */
+.mapa-section {
   width: 100%;
-  align-items: flex-start; /* Alineación superior */
+  max-width: 500px; 
+  display: flex;
+  justify-content: center;
+}
+
+/* TARJETA (Escritorio) */
+.info-card-container {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.card-header-hortus {
+  border-bottom: 3px solid #76b900; 
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.zona-label {
+  color: #005691; 
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+/* DETALLES */
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.icon-circle {
+  background: #eef6fc;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #005691;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.detail-text h4 {
+  margin: 0 0 5px 0;
+  color: #888;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.detail-text p, .detail-text span {
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* =========================================
+   7. RESPONSIVE (MÓVIL - CORREGIDO)
+   ========================================= */
+@media (max-width: 900px) {
+  
+  .hortus-layout {
+    padding: 20px 10px; /* Menos padding lateral para dar espacio */
+    height: auto;
+  }
+
+  .mapa-title {
+    font-size: 2rem;
+    letter-spacing: 0;
+  }
+  
+  .mapa-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Cambiamos Grid a Flex para mejor control en móvil */
+  .layout-grid {
+    display: flex;
+    flex-direction: column; /* Uno debajo del otro */
+    gap: 20px;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 100%; /* IMPORTANTE: No exceder la pantalla */
+  }
+
+  /* --- MAPA EN MÓVIL --- */
+  .mapa-section {
+    order: 1;
+    margin: 0;
+    width: 100%;
+    /* Quitamos el ancho fijo, que se adapte */
+    max-width: 100%; 
+    display: flex;
+    justify-content: center;
+    /* Ajuste para que el mapa SVG no se corte */
+    overflow: hidden; 
+  }
+
+  /* --- TARJETA EN MÓVIL (Aquí estaba el error) --- */
+  .info-card-container {
+    order: 2;
+    margin: 0;
+    width: 100%; /* Ocupa el 100% del padre */
+    max-width: 100%; /* Nunca más ancho que la pantalla */
+    padding: 25px 20px; /* Padding seguro */
+    min-height: auto;
+    border-radius: 20px;
+  }
+  
+  .zona-label {
+    font-size: 1.3rem;
+    text-align: center; 
+  }
+
+  .card-header-hortus {
+    text-align: center;
+  }
+  
+  .icon-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
 }

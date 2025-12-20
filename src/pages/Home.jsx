@@ -22,6 +22,9 @@ function Home() {
     mensaje: ''
   });
 
+  // 1. NUEVO ESTADO PARA EL MODAL DE COTIZACIÓN
+  const [showModal, setShowModal] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -29,10 +32,20 @@ function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Datos del formulario:', formData);
-    alert('Gracias. Su solicitud de cotización ha sido enviada.');
+    // 2. EN LUGAR DE ALERT, MOSTRAMOS EL MODAL
+    setShowModal(true);
   };
 
-  // --- LÓGICA DEL EFECTO SCROLL (ACTUALIZADA) ---
+  // Función para cerrar
+  const closeModal = () => {
+    setShowModal(false);
+    // Opcional: Limpiar el formulario al cerrar
+    setFormData({
+      nombre: '', empresa: '', email: '', telefono: '', rucDni: '', lugar: '', mensaje: ''
+    });
+  };
+
+  // --- LÓGICA DEL EFECTO SCROLL ---
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -42,16 +55,16 @@ function Home() {
       });
     }, { threshold: 0.15 });
 
-    // AHORA OBSERVAMOS TRES TIPOS DE CLASES DE ANIMACIÓN
     const hiddenElements = document.querySelectorAll('.scroll-scale, .scroll-blur, .scroll-slide');
     hiddenElements.forEach((el) => observer.observe(el));
 
     return () => hiddenElements.forEach((el) => observer.unobserve(el));
   }, []);
-  // ---------------------------------------------
 
   return (
     <div className="home-wrapper">
+      
+      {/* ... (TODO TU CÓDIGO DEL BANNER, ACERCA DE, BENEFICIOS, PRODUCTOS Y VIDEO SE MANTIENE IGUAL) ... */}
       
       {/* 1. BANNER PRINCIPAL */}
       <div className="banner" style={{ backgroundImage: `url(${homeBgImage})` }}>
@@ -66,7 +79,7 @@ function Home() {
         </div>
       </div>
 
-      {/* 2. ACERCA DE (Efecto Zoom: scroll-scale) */}
+      {/* 2. ACERCA DE */}
       <section className="about-home">
         <div className="about-content scroll-scale">
           <span className="section-tag">NUESTRA ESENCIA</span>
@@ -85,7 +98,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 3. BENEFICIOS (Efecto Zoom: scroll-scale) */}
+      {/* 3. BENEFICIOS */}
       <section className="benefits-section">
         <div className="section-header scroll-scale">
           <h2>¿Por qué elegir Pacífico?</h2>
@@ -93,47 +106,35 @@ function Home() {
         
         <div className="benefits-grid">
           <div className="benefit-card scroll-scale">
-            <div className="icon-box">
-              <img src={iconEco} alt="Ecológico" />
-            </div>
+            <div className="icon-box"><img src={iconEco} alt="Ecológico" /></div>
             <h3>100% Ecológico</h3>
             <p>Insumos que respetan el medio ambiente y regeneran tu suelo.</p>
           </div>
-
           <div className="benefit-card scroll-scale delay-100">
-            <div className="icon-box">
-              <img src={iconEnvio} alt="Envíos" />
-            </div>
+            <div className="icon-box"><img src={iconEnvio} alt="Envíos" /></div>
             <h3>Envíos a todo el Perú</h3>
             <p>Logística eficiente para llegar a tu campo donde estés.</p>
           </div>
-
           <div className="benefit-card scroll-scale delay-200">
-            <div className="icon-box">
-              <img src={iconAsesor} alt="Asesoría" />
-            </div>
+            <div className="icon-box"><img src={iconAsesor} alt="Asesoría" /></div>
             <h3>Asesoría Técnica</h3>
             <p>Acompañamiento profesional para maximizar tu cosecha.</p>
           </div>
         </div>
       </section>
 
-      {/* 4. TÍTULO DE PRODUCTOS */}
+      {/* 4. y 5. PRODUCTOS */}
       <div className="products-title-section">
         <h2>Nuestros Productos</h2>
         <p>Calidad garantizada para cada etapa del cultivo</p>
       </div>
-
-      {/* 5. CARRUSEL DE PRODUCTOS */}
       <section className="home-products-section">
         <div className="product-slider">
           <div className="product-slide-track">
             {productsData.map((prod, index) => (
               <div className="product-slide" key={`p1-${index}`}>
                 <Link to={`/producto/${prod.id}`} className="home-product-card">
-                  <div className="card-image">
-                    <img src={prod.img} alt={prod.nombre} />
-                  </div>
+                  <div className="card-image"><img src={prod.img} alt={prod.nombre} /></div>
                   <div className="card-content">
                     <h4>{prod.nombre}</h4>
                     <span className="card-btn">Ver Detalle</span>
@@ -141,12 +142,11 @@ function Home() {
                 </Link>
               </div>
             ))}
-            {productsData.map((prod, index) => (
+            {/* Duplicado para loop infinito */}
+             {productsData.map((prod, index) => (
               <div className="product-slide" key={`p2-${index}`}>
                 <Link to={`/producto/${prod.id}`} className="home-product-card">
-                  <div className="card-image">
-                    <img src={prod.img} alt={prod.nombre} />
-                  </div>
+                  <div className="card-image"><img src={prod.img} alt={prod.nombre} /></div>
                   <div className="card-content">
                     <h4>{prod.nombre}</h4>
                     <span className="card-btn">Ver Detalle</span>
@@ -158,33 +158,24 @@ function Home() {
         </div>
       </section> 
 
-      {/* 6. VIDEO PROCESOS - NUEVO EFECTO (scroll-blur) */}
-      {/* Aplicamos el efecto a toda la sección */}
+      {/* 6. VIDEO */}
       <section className="processes-section scroll-blur">
         <div className="products-title-section" style={{ padding: '0 20px 40px 20px' }}>
           <h2>Nuestros Procesos</h2>
           <p>Tecnología y dedicación en cada gramo de producto</p>
         </div>
-        
         <div className="video-wrapper">
           <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/KSva8cuHFL4" 
-            title="YouTube video player" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
+            width="560" height="315" src="https://www.youtube.com/embed/KSva8cuHFL4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen
           ></iframe>
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE COTIZACIÓN - NUEVO EFECTO (scroll-slide) */}
+      {/* 7. FORMULARIO DE COTIZACIÓN */}
       <section className="cotizacion-section">
         <div className="cotizacion-overlay"></div>
         <div className="cotizacion-container">
           
-          {/* Aplicamos el efecto de deslizar solo a la TARJETA del formulario */}
           <div className="form-card scroll-slide">
             <div className="form-header-yellow">
               <h2>Solicite una cotización</h2>
@@ -199,38 +190,15 @@ function Home() {
               <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                   <div className="form-left-col">
-                    <input 
-                      type="text" name="nombre" placeholder="Nombre*" required 
-                      value={formData.nombre} onChange={handleChange} 
-                    />
-                    <input 
-                      type="text" name="empresa" placeholder="Empresa*" required 
-                      value={formData.empresa} onChange={handleChange} 
-                    />
-                    <input 
-                      type="email" name="email" placeholder="Email*" required 
-                      value={formData.email} onChange={handleChange} 
-                    />
-                    <input 
-                      type="tel" name="telefono" placeholder="Teléfono*" required 
-                      value={formData.telefono} onChange={handleChange} 
-                    />
-                    <input 
-                      type="text" name="rucDni" placeholder="RUC o DNI*" required 
-                      value={formData.rucDni} onChange={handleChange} 
-                    />
-                    <input 
-                      type="text" name="lugar" placeholder="Especificar para que lugar cotiza el fertilizante*" required 
-                      value={formData.lugar} onChange={handleChange} 
-                    />
+                    <input type="text" name="nombre" placeholder="Nombre*" required value={formData.nombre} onChange={handleChange} />
+                    <input type="text" name="empresa" placeholder="Empresa*" required value={formData.empresa} onChange={handleChange} />
+                    <input type="email" name="email" placeholder="Email*" required value={formData.email} onChange={handleChange} />
+                    <input type="tel" name="telefono" placeholder="Teléfono*" required value={formData.telefono} onChange={handleChange} />
+                    <input type="text" name="rucDni" placeholder="RUC o DNI*" required value={formData.rucDni} onChange={handleChange} />
+                    <input type="text" name="lugar" placeholder="Especificar para que lugar cotiza el fertilizante*" required value={formData.lugar} onChange={handleChange} />
                   </div>
-
                   <div className="form-right-col">
-                    <textarea 
-                      name="mensaje" 
-                      placeholder="Mensaje" 
-                      value={formData.mensaje} onChange={handleChange}
-                    ></textarea>
+                    <textarea name="mensaje" placeholder="Mensaje" value={formData.mensaje} onChange={handleChange}></textarea>
                   </div>
                 </div>
 
@@ -248,6 +216,24 @@ function Home() {
       <a href="https://wa.me/51999999999" className="whatsapp-float" target="_blank" rel="noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
       </a>
+
+      {/* 3. MODAL DE COTIZACIÓN (AMARILLO) */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content-yellow">
+            <div className="success-icon-yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2>¡Cotización Enviada!</h2>
+            <p>Hemos recibido tus datos correctamente. Nuestro equipo comercial se pondrá en contacto contigo a la brevedad.</p>
+            <button onClick={closeModal} className="btn-modal-yellow">ENTENDIDO</button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

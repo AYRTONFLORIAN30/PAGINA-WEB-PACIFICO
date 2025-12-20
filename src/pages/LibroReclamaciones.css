@@ -1,0 +1,333 @@
+/* =========================================
+   ESTILOS BASE
+   ========================================= */
+.libro-layout {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL (CON ANIMACIÓN)
+   ========================================= */
+.libro-container {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra un poco más elegante */
+  border-top: 5px solid #005691; /* Azul corporativo */
+  
+  /* --- AQUÍ ESTÁ LA MAGIA DE LA ANIMACIÓN --- */
+  opacity: 0; /* Empieza invisible */
+  animation: aparecerSuave 0.8s ease-out forwards; /* Dura 0.8 segundos */
+  transform: translateY(30px); /* Empieza un poco más abajo */
+}
+
+/* =========================================
+   RESTO DE ESTILOS (IGUAL QUE ANTES)
+   ========================================= */
+.libro-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 20px;
+}
+
+.libro-header h1 {
+  color: #005691;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.fecha-actual {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.empresa-info {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.form-section {
+  margin-bottom: 30px;
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover en las secciones */
+.form-section:hover {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+}
+
+.form-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-left: 4px solid #76b900; /* Verde corporativo */
+  padding-left: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #005691;
+  box-shadow: 0 0 0 3px rgba(0, 86, 145, 0.1); /* Brillo azul suave */
+  outline: none;
+}
+
+/* Radio buttons */
+.radio-group div {
+  display: flex;
+  gap: 20px;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.radio-group label {
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #005691;
+  width: 18px;
+  height: 18px;
+}
+
+.tipo-reclamo-info {
+  background-color: #eef6fc;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #004a7c;
+  border-left: 4px solid #005691;
+}
+
+.checkbox-legal {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.checkbox-legal input {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: #76b900;
+}
+
+.btn-enviar {
+  background-color: #005691;
+  color: white;
+  border: none;
+  padding: 18px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-enviar:hover {
+  background-color: #76b900; /* Hover verde */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   ANIMACIONES (KEYFRAMES)
+   ========================================= */
+@keyframes aparecerSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95); /* Empieza abajo y un poco pequeño */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Termina en su sitio y tamaño normal */
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .libro-container {
+    padding: 20px;
+  }
+  .libro-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ... (Tus estilos anteriores se mantienen igual) ... */
+
+/* =========================================
+   ESTILOS DEL MODAL (POP-UP)
+   ========================================= */
+
+/* Fondo oscuro que cubre toda la pantalla */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté encima de todo */
+  backdrop-filter: blur(5px); /* Efecto borroso al fondo (muy pro) */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* La tarjeta blanca del mensaje */
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote */
+  border-top: 6px solid #76b900; /* Borde verde arriba */
+}
+
+/* El círculo verde con el check */
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #eefce3; /* Verde muy clarito */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.success-icon svg {
+  width: 50px;
+  height: 50px;
+  color: #76b900; /* Icono verde */
+  animation: drawCheck 0.6s ease-in-out;
+}
+
+/* Textos del modal */
+.modal-content h2 {
+  color: #005691;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.modal-content p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.modal-id {
+  font-family: 'Courier New', monospace;
+  background: #f0f4f8;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem !important;
+}
+
+/* Botón del modal */
+.btn-modal-cerrar {
+  background-color: #005691;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+  width: 100%;
+}
+
+.btn-modal-cerrar:hover {
+  background-color: #76b900;
+  transform: scale(1.05);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

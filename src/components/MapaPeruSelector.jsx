@@ -21,18 +21,13 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
     getMapData();
   }, []);
 
-  // --- CONFIGURACIÓN DE SOLO LAS 4 REGIONES CON TIENDA ---
   const data = [
-    // 1. LAMBAYEQUE (Norte) - CORREGIDO: 'pe-lb'
     { 'hc-key': 'pe-lb', color: activeZoneId === 3 ? '#76b900' : '#005691', zoneId: 3, name: "LAMBAYEQUE" },
 
-    // 2. HUÁNUCO (Selva)
     { 'hc-key': 'pe-hc', color: activeZoneId === 2 ? '#76b900' : '#005691', zoneId: 2, name: "HUÁNUCO" },
     
-    // 3. JUNÍN (Centro)
     { 'hc-key': 'pe-ju', color: activeZoneId === 1 ? '#76b900' : '#005691', zoneId: 1, name: "JUNÍN" },
 
-    // 4. MADRE DE DIOS (Sur)
     { 'hc-key': 'pe-md', color: activeZoneId === 4 ? '#76b900' : '#005691', zoneId: 4, name: "MADRE DE DIOS" }, 
   ];
 
@@ -53,7 +48,6 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
       style: { color: '#fff', fontSize: '14px', fontWeight: 'bold' },
       borderColor: '#76b900',
       borderRadius: 10,
-      // Solo mostramos tooltip si es una zona con tienda
       pointFormatter: function() {
         if (this.zoneId) return `📍 ${this.name}`;
         return false;
@@ -64,9 +58,8 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
         allAreas: true,
         borderColor: 'white',
         borderWidth: 1.5,
-        // COLOR GRIS PARA EL RESTO DEL PERÚ
         nullColor: '#d3d3d3', 
-        nullInteraction: false, // El resto del mapa NO hace nada (no click, no hover)
+        nullInteraction: false, 
         states: {
           hover: {
             color: '#007cc3',
@@ -76,7 +69,6 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
         events: {
           click: function (e) {
             const zona = e.point.zoneId;
-            // Solo hacemos caso si se clickea una de las 4 zonas
             if (zona) {
               onZoneClick(zona);
             }

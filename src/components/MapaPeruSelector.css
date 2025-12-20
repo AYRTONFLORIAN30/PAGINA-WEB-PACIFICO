@@ -6,7 +6,6 @@
 }
 .svg-content { width: 100%; height: auto; }
 
-/* Azul Hortus por defecto */
 .dept-path {
   fill: #005691; 
   stroke: #ffffff;
@@ -16,7 +15,6 @@
 }
 .dept-path:hover { fill: #007bc2; }
 
-/* Verde Hortus cuando está activo */
 .dept-path.active {
   fill: #76b900 !important;
   stroke-width: 2px;

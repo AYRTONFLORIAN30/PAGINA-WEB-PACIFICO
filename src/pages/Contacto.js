@@ -13,7 +13,7 @@ const zonasData = [
     id: 1, 
     titulo: "JUNIN",
     representante: "Freddy Caracuzma",
-    ciudad: "TARMA",
+    ciudad: "Tarma",
     direccion: "Av. Ramón Castilla N° 251",
     horario: "Lunes a Sábado: 8am - 5pm",
     telefonos: ["964699046", "935919049"]
@@ -22,7 +22,7 @@ const zonasData = [
     id: 2, 
     titulo: "HUANUCO",
     representante: "Andy Sanancio",
-    ciudad: "TINGO MARÍA",
+    ciudad: "Tingo Maria",
     direccion: "Car. Marginal Huánuco Tingo María Km 111",
     horario: "Lunes a Viernes: 8am - 5pm",
     telefonos: ["925135078", "930872013"]
@@ -31,7 +31,7 @@ const zonasData = [
     id: 3, 
     titulo: "LAMBAYEQUE",
     representante: "Ruth Rojas",
-    ciudad: "LAMBAYEQUE",
+    ciudad: "Lambayeque",
     direccion: "Calle 2 de mayo N°136",
     horario: "Lunes a Viernes: 8am - 5pm",
     telefonos: ["910867681", "930872013"]
@@ -40,7 +40,7 @@ const zonasData = [
     id: 4, 
     titulo: "MADRE DE DIOS",
     representante: "Daniel Benitez",
-    ciudad: "MADRE DE DIOS",
+    ciudad: "Madre de Dios",
     direccion: "Av. Hernesto Rivero 1302 piso 02",
     horario: "Lunes a Sábado: 8am - 5pm",
     telefonos: ["910867681", "930872013"]

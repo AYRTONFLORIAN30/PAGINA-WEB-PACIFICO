@@ -664,3 +664,112 @@
 
 .scroll-scale.delay-100 { transition-delay: 0.2s; }
 .scroll-scale.delay-200 { transition-delay: 0.4s; }
+
+
+/* ... TUS ESTILOS EXISTENTES ... */
+
+/* =========================================
+   ESTILOS DEL MODAL DE COTIZACIÓN (AMARILLO)
+   ========================================= */
+
+/* Fondo oscuro (Reutilizable) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo un poco más oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Muy alto para tapar todo */
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Tarjeta del Modal (Tema Amarillo) */
+.modal-content-yellow {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-top: 6px solid #eab308; /* COLOR AMARILLO DEL FORMULARIO */
+}
+
+/* Icono Check Amarillo */
+.success-icon-yellow {
+  width: 80px;
+  height: 80px;
+  background-color: #fffbeb; /* Fondo amarillo muy suave */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.success-icon-yellow svg {
+  width: 45px;
+  height: 45px;
+  color: #eab308; /* Icono Amarillo */
+  animation: drawCheck 0.6s ease-in-out;
+}
+
+/* Textos */
+.modal-content-yellow h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.modal-content-yellow p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Botón Amarillo */
+.btn-modal-yellow {
+  background-color: #eab308; /* AMARILLO */
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(234, 179, 8, 0.3);
+}
+
+.btn-modal-yellow:hover {
+  background-color: #ca9a00; /* Amarillo más oscuro al pasar mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(234, 179, 8, 0.4);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes drawCheck {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
