@@ -11,7 +11,7 @@ const Phone = () => <svg width="20" height="20" fill="none" stroke="currentColor
 const zonasData = [
   {
     id: 1, 
-    titulo: "JUNIN",
+    titulo: "ZONA 1 (Junín,Pasco,Huancavelica,Ayacucho)",
     representante: "Freddy Caracuzma",
     ciudad: "Tarma",
     direccion: "Av. Ramón Castilla N° 251",
@@ -20,7 +20,7 @@ const zonasData = [
   },
   {
     id: 2, 
-    titulo: "HUANUCO",
+    titulo: "ZONA 2 (Huánuco,San Martín,Ucayali)",
     representante: "Andy Sanancio",
     ciudad: "Tingo Maria",
     direccion: "Car. Marginal Huánuco Tingo María Km 111",
@@ -29,7 +29,7 @@ const zonasData = [
   },
   {
     id: 3, 
-    titulo: "LAMBAYEQUE",
+    titulo: "ZONA 3 (Lambayeque,Cajamarca,Amazonas)",
     representante: "Ruth Rojas",
     ciudad: "Lambayeque",
     direccion: "Calle 2 de mayo N°136",
@@ -38,7 +38,7 @@ const zonasData = [
   },
   {
     id: 4, 
-    titulo: "MADRE DE DIOS",
+    titulo: "ZONA 4 (Abancay,Cusco,Madre de Dios)",
     representante: "Daniel Benitez",
     ciudad: "Madre de Dios",
     direccion: "Av. Hernesto Rivero 1302 piso 02",
@@ -51,10 +51,22 @@ const Contacto = () => {
   const [selectedId, setSelectedId] = useState(1);
   const activeData = zonasData.find(z => z.id === selectedId);
 
+  const renderTitulo = (tituloCompleto) => {
+    const partes = tituloCompleto.split(' (');
+    if (partes.length > 1) {
+      return (
+        <div className="zona-label-container">
+          <span className="zona-titulo-principal">{partes[0]}</span>
+          <span className="zona-regiones">({partes[1]}</span>
+        </div>
+      );
+    }
+    return <span className="zona-titulo-principal">{tituloCompleto}</span>;
+  };
+
   return (
     <div className="hortus-layout">
       
-      {/* --- NUEVO: TÍTULO CENTRADO ARRIBA DE TODO --- */}
       <div className="main-header-section">
         <h1 className="mapa-title">Nuestras Sucursales</h1>
         <p className="mapa-subtitle">Selecciona una región con tienda</p>
@@ -62,7 +74,6 @@ const Contacto = () => {
 
       <div className="layout-grid">
         
-        {/* LADO IZQUIERDO: SOLO EL MAPA (Ya sin título aquí) */}
         <div className="mapa-section">
           <MapaPeruSelector 
             activeZoneId={selectedId} 
@@ -70,10 +81,9 @@ const Contacto = () => {
           />
         </div>
 
-        {/* LADO DERECHO: TARJETA DE DATOS */}
         <div className="info-card-container">
           <div className="card-header-hortus">
-            <span className="zona-label">{activeData.titulo}</span>
+            {renderTitulo(activeData.titulo)}
           </div>
 
           <div className="card-body">
@@ -110,9 +120,7 @@ const Contacto = () => {
               </div>
             </div>
             
-            <div style={{marginTop: '30px', textAlign: 'center', opacity: 0.5}}>
-               <img src="/logo.png" alt="" style={{height: '40px', filter: 'grayscale(100%)'}} />
-            </div>
+            {/* 🗑️ ELIMINADO: Ya no está el div con la imagen del logo */}
 
           </div>
         </div>

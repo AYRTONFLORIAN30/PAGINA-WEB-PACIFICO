@@ -8,176 +8,210 @@
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
+  /* Asegura que no haya scroll horizontal en la página entera */
+  overflow-x: hidden; 
 }
 
 /* =========================================
-   CONTENEDOR PRINCIPAL (CON ANIMACIÓN)
+   CONTENEDOR PRINCIPAL
    ========================================= */
 .libro-container {
   background: white;
   width: 100%;
   max-width: 900px;
-  padding: 40px;
+  /* Espacio interno cómodo para PC */
+  padding: 50px; 
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra un poco más elegante */
-  border-top: 5px solid #005691; /* Azul corporativo */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-top: 5px solid #005691;
   
-  /* --- AQUÍ ESTÁ LA MAGIA DE LA ANIMACIÓN --- */
-  opacity: 0; /* Empieza invisible */
-  animation: aparecerSuave 0.8s ease-out forwards; /* Dura 0.8 segundos */
-  transform: translateY(30px); /* Empieza un poco más abajo */
+  opacity: 0;
+  animation: aparecerSuave 0.8s ease-out forwards;
+  transform: translateY(30px);
 }
 
 /* =========================================
-   RESTO DE ESTILOS (IGUAL QUE ANTES)
+   ENCABEZADO
    ========================================= */
 .libro-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   border-bottom: 2px solid #eee;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 .libro-header h1 {
   color: #005691;
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
   font-weight: 800;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.fecha-actual {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 5px;
-}
+.fecha-actual { font-size: 1.1rem; color: #555; margin-bottom: 5px; }
+.empresa-info { font-size: 0.9rem; color: #888; }
 
-.empresa-info {
-  font-size: 0.9rem;
-  color: #888;
-}
-
+/* =========================================
+   SECCIONES DEL FORMULARIO
+   ========================================= */
 .form-section {
   margin-bottom: 30px;
   background: #fafafa;
-  padding: 25px;
+  padding: 35px;
   border-radius: 8px;
   border: 1px solid #eee;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efecto hover en las secciones */
 .form-section:hover {
   background: #fff;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transform: translateY(-2px);
 }
 
 .form-section h3 {
   color: #333;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  border-left: 4px solid #76b900; /* Verde corporativo */
-  padding-left: 10px;
+  border-left: 5px solid #76b900;
+  padding-left: 15px;
+  line-height: 1.4;
 }
 
+/* GRILLA DE INPUTS */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 30px;
 }
+
+.full-width { grid-column: 1 / -1; }
 
 .form-group {
   display: flex;
   flex-direction: column;
 }
 
-.full-width {
-  grid-column: 1 / -1;
-}
-
 .form-group label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
   color: #444;
 }
 
+/* ESTILOS DE LOS INPUTS */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="number"],
 .form-group input[type="tel"],
 .form-group textarea {
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
   transition: all 0.3s ease;
   background-color: #fff;
+  width: 100%; /* Asegura que no se salgan */
+  box-sizing: border-box; /* IMPORTANTE: Para que el padding no sume al ancho */
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: #005691;
-  box-shadow: 0 0 0 3px rgba(0, 86, 145, 0.1); /* Brillo azul suave */
+  box-shadow: 0 0 0 3px rgba(0, 86, 145, 0.1);
   outline: none;
 }
 
-/* Radio buttons */
+/* =========================================
+   RADIO BUTTONS (TIPO)
+   ========================================= */
+.radio-group {
+  grid-column: 1 / -1;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que baje si no entra */
+}
+
+.radio-group > label {
+  margin-bottom: 0;
+  margin-right: 10px;
+  color: #005691 !important;
+  font-weight: 800;
+  min-width: fit-content;
+}
+
 .radio-group div {
   display: flex;
   gap: 20px;
-  margin-top: 5px;
   align-items: center;
+  margin-top: 0 !important;
+  flex-wrap: wrap; /* Permite que las opciones bajen en pantallas muy pequeñas */
 }
 
 .radio-group label {
   font-weight: normal;
   cursor: pointer;
   margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .radio-group input[type="radio"] {
   accent-color: #005691;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
 }
 
+/* =========================================
+   OTROS ELEMENTOS
+   ========================================= */
 .tipo-reclamo-info {
   background-color: #eef6fc;
-  padding: 15px;
+  padding: 20px;
   border-radius: 6px;
-  margin-bottom: 20px;
-  font-size: 0.9rem;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
   color: #004a7c;
   border-left: 4px solid #005691;
+  line-height: 1.6;
 }
 
 .checkbox-legal {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 25px;
-  font-size: 0.95rem;
-  background: #f9f9f9;
-  padding: 15px;
+  gap: 15px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  padding: 20px;
   border-radius: 6px;
 }
 
 .checkbox-legal input {
   margin-top: 4px;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   accent-color: #76b900;
+  flex-shrink: 0; /* Evita que el checkbox se aplaste */
 }
 
 .btn-enviar {
   background-color: #005691;
   color: white;
   border: none;
-  padding: 18px 30px;
-  font-size: 1.2rem;
+  padding: 20px;
+  font-size: 1.1rem;
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
@@ -189,78 +223,45 @@
 }
 
 .btn-enviar:hover {
-  background-color: #76b900; /* Hover verde */
+  background-color: #76b900;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 /* =========================================
-   ANIMACIONES (KEYFRAMES)
+   MODAL (POP-UP)
    ========================================= */
-@keyframes aparecerSuave {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(0.95); /* Empieza abajo y un poco pequeño */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1); /* Termina en su sitio y tamaño normal */
-  }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-  .libro-container {
-    padding: 20px;
-  }
-  .libro-header h1 {
-    font-size: 1.5rem;
-  }
-}
-
-/* ... (Tus estilos anteriores se mantienen igual) ... */
-
-/* =========================================
-   ESTILOS DEL MODAL (POP-UP)
-   ========================================= */
-
-/* Fondo oscuro que cubre toda la pantalla */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Oscuro semitransparente */
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Asegura que esté encima de todo */
-  backdrop-filter: blur(5px); /* Efecto borroso al fondo (muy pro) */
-  animation: fadeIn 0.3s ease-out;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+  padding: 20px; /* Para que no toque los bordes en celular */
 }
 
-/* La tarjeta blanca del mensaje */
 .modal-content {
   background: white;
-  padding: 40px;
-  border-radius: 20px;
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
   max-width: 450px;
-  width: 90%;
+  width: 100%;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote */
-  border-top: 6px solid #76b900; /* Borde verde arriba */
+  border-top: 6px solid #76b900;
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* El círculo verde con el check */
 .success-icon {
-  width: 80px;
-  height: 80px;
-  background-color: #eefce3; /* Verde muy clarito */
+  width: 70px;
+  height: 70px;
+  background-color: #eefce3;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -269,65 +270,79 @@
 }
 
 .success-icon svg {
-  width: 50px;
-  height: 50px;
-  color: #76b900; /* Icono verde */
+  width: 40px;
+  height: 40px;
+  color: #76b900;
   animation: drawCheck 0.6s ease-in-out;
 }
 
-/* Textos del modal */
-.modal-content h2 {
-  color: #005691;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  font-weight: 800;
-}
-
-.modal-content p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.modal-id {
-  font-family: 'Courier New', monospace;
-  background: #f0f4f8;
-  padding: 5px 10px;
-  border-radius: 4px;
-  display: inline-block;
-  color: #333;
-  font-weight: bold;
-  font-size: 0.9rem !important;
-}
-
-/* Botón del modal */
+.modal-content h2 { color: #005691; font-size: 1.6rem; margin-bottom: 10px; font-weight: 800; }
 .btn-modal-cerrar {
   background-color: #005691;
   color: white;
   border: none;
-  padding: 12px 30px;
+  padding: 12px;
   font-size: 1rem;
   border-radius: 50px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 15px;
   font-weight: bold;
-  transition: transform 0.2s, background 0.2s;
   width: 100%;
 }
 
-.btn-modal-cerrar:hover {
-  background-color: #76b900;
-  transform: scale(1.05);
-}
-
 /* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes aparecerSuave { from { opacity: 0; transform: translateY(50px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes scaleUp { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-@keyframes scaleUp {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* =========================================
+   📱 RESPONSIVE (MÓVIL) - CORRECCIONES
+   ========================================= */
+@media (max-width: 768px) {
+  .libro-layout {
+    padding: 10px; /* Menos borde afuera */
+  }
+
+  .libro-container {
+    padding: 20px 15px; /* IMPORTANTE: Reduje el padding de 50px a 15px */
+    width: 100%;
+  }
+
+  .libro-header h1 {
+    font-size: 1.4rem; /* Letra más chica para que "RECLAMACIONES" no se corte */
+    word-break: break-word; /* Rompe la palabra si es necesario */
+  }
+
+  .form-section {
+    padding: 20px 15px; /* Menos aire en las cajas internas */
+    margin-bottom: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 20px;
+  }
+
+  /* Arreglo para los Radio Buttons en móvil */
+  .radio-group {
+    flex-direction: column !important; /* "Tipo" arriba */
+    align-items: flex-start !important; /* Alineado a la izquierda */
+    gap: 10px;
+  }
+  
+  .radio-group div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Opciones alineadas al inicio */
+    gap: 15px;
+  }
+
+  .checkbox-legal {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+  
+  .btn-enviar {
+    font-size: 1rem;
+    padding: 15px;
+  }
 }
