@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Contacto.css'; 
 import MapaPeruSelector from '../components/MapaPeruSelector'; 
 
-// Iconos SVG
 const MapPin = () => <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
 const Clock = () => <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
 const User = () => <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>;
@@ -67,14 +66,14 @@ const Contacto = () => {
   return (
     <div className="hortus-layout">
       
-      <div className="main-header-section">
+      <div className="main-header-section animate-fade-down">
         <h1 className="mapa-title">Nuestras Sucursales</h1>
         <p className="mapa-subtitle">Selecciona una región con tienda</p>
       </div>
 
       <div className="layout-grid">
         
-        <div className="mapa-section">
+        <div className="mapa-section animate-fade-right">
           <MapaPeruSelector 
             activeZoneId={selectedId} 
             onZoneClick={setSelectedId} 
@@ -82,46 +81,47 @@ const Contacto = () => {
         </div>
 
         <div className="info-card-container">
-          <div className="card-header-hortus">
-            {renderTitulo(activeData.titulo)}
-          </div>
-
-          <div className="card-body">
-            <div className="detail-row">
-              <div className="icon-circle"><MapPin /></div>
-              <div className="detail-text">
-                <h4>Dirección:</h4>
-                <p>{activeData.direccion} - {activeData.ciudad}</p>
-              </div>
-            </div>
-
-            <div className="detail-row">
-              <div className="icon-circle"><Clock /></div>
-              <div className="detail-text">
-                <h4>Horario:</h4>
-                <p>{activeData.horario}</p>
-              </div>
-            </div>
-
-            <div className="detail-row">
-              <div className="icon-circle"><User /></div>
-              <div className="detail-text">
-                <h4>Representante:</h4>
-                <p>{activeData.representante}</p>
-              </div>
-            </div>
-
-            <div className="detail-row">
-              <div className="icon-circle"><Phone /></div>
-              <div className="detail-text">
-                 {activeData.telefonos.map((tel, idx) => (
-                    <span key={idx} style={{display:'block', marginBottom:'4px'}}>{tel}</span>
-                 ))}
-              </div>
-            </div>
+          <div className="card-content-wrapper" key={selectedId}>
             
-            {/* 🗑️ ELIMINADO: Ya no está el div con la imagen del logo */}
+            <div className="card-header-hortus">
+              {renderTitulo(activeData.titulo)}
+            </div>
 
+            <div className="card-body">
+              <div className="detail-row" style={{animationDelay: '0.1s'}}>
+                <div className="icon-circle"><MapPin /></div>
+                <div className="detail-text">
+                  <h4>Dirección:</h4>
+                  <p>{activeData.direccion} - {activeData.ciudad}</p>
+                </div>
+              </div>
+
+              <div className="detail-row" style={{animationDelay: '0.2s'}}>
+                <div className="icon-circle"><Clock /></div>
+                <div className="detail-text">
+                  <h4>Horario:</h4>
+                  <p>{activeData.horario}</p>
+                </div>
+              </div>
+
+              <div className="detail-row" style={{animationDelay: '0.3s'}}>
+                <div className="icon-circle"><User /></div>
+                <div className="detail-text">
+                  <h4>Representante:</h4>
+                  <p>{activeData.representante}</p>
+                </div>
+              </div>
+
+              <div className="detail-row" style={{animationDelay: '0.4s'}}>
+                <div className="icon-circle"><Phone /></div>
+                <div className="detail-text">
+                   {activeData.telefonos.map((tel, idx) => (
+                      <span key={idx} style={{display:'block', marginBottom:'4px'}}>{tel}</span>
+                   ))}
+                </div>
+              </div>
+            </div>
+          
           </div>
         </div>
       </div>

@@ -1,8 +1,6 @@
-/* --- ESTILOS BASE (ESCRITORIO / PC) --- */
 .header {
   background: #ffe100;
   width: 100%;
-  /* 1. AUMENTAMOS LA ALTURA DE LA BARRA (De 100px a 120px) */
   height: 120px; 
   position: relative;
   z-index: 1000;
@@ -26,7 +24,6 @@
 }
 
 .logo-img {
-  /* 2. AUMENTAMOS EL LOGO (De 75px a 100px) */
   height: 100px; 
   width: auto;
   object-fit: contain;
@@ -62,16 +59,13 @@
   display: none; 
 }
 
-/* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
   
   .header {
-      /* Ajuste móvil: un poco más grande también (90px) */
       height: 90px; 
   }
   
   .logo-img {
-      /* Logo móvil más grande (70px) */
       height: 70px; 
   }
 
@@ -95,7 +89,6 @@
 
   .nav-links {
     position: absolute;
-    /* IMPORTANTE: Esto debe coincidir con la altura del header en móvil (90px) */
     top: 90px; 
     left: 0;
     width: 100%;

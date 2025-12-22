@@ -262,7 +262,6 @@
     transform: scale(1.08);
 }
 
-/* Texto del Producto */
 .home-product-card h4 {
     font-size: 1rem; 
     font-weight: 800;
@@ -665,30 +664,21 @@
 .scroll-scale.delay-100 { transition-delay: 0.2s; }
 .scroll-scale.delay-200 { transition-delay: 0.4s; }
 
-
-/* ... TUS ESTILOS EXISTENTES ... */
-
-/* =========================================
-   ESTILOS DEL MODAL DE COTIZACIÓN (AMARILLO)
-   ========================================= */
-
-/* Fondo oscuro (Reutilizable) */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo un poco más oscuro */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Muy alto para tapar todo */
+  z-index: 9999; 
   backdrop-filter: blur(4px);
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Tarjeta del Modal (Tema Amarillo) */
 .modal-content-yellow {
   background: white;
   padding: 40px;
@@ -698,14 +688,13 @@
   width: 90%;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-top: 6px solid #eab308; /* COLOR AMARILLO DEL FORMULARIO */
+  border-top: 6px solid #eab308; 
 }
 
-/* Icono Check Amarillo */
 .success-icon-yellow {
   width: 80px;
   height: 80px;
-  background-color: #fffbeb; /* Fondo amarillo muy suave */
+  background-color: #fffbeb; 
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -716,11 +705,10 @@
 .success-icon-yellow svg {
   width: 45px;
   height: 45px;
-  color: #eab308; /* Icono Amarillo */
+  color: #eab308; 
   animation: drawCheck 0.6s ease-in-out;
 }
 
-/* Textos */
 .modal-content-yellow h2 {
   color: #333;
   font-size: 1.8rem;
@@ -736,9 +724,8 @@
   margin-bottom: 25px;
 }
 
-/* Botón Amarillo */
 .btn-modal-yellow {
-  background-color: #eab308; /* AMARILLO */
+  background-color: #eab308; 
   color: white;
   border: none;
   padding: 12px 40px;
@@ -752,12 +739,11 @@
 }
 
 .btn-modal-yellow:hover {
-  background-color: #ca9a00; /* Amarillo más oscuro al pasar mouse */
+  background-color: #ca9a00; 
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(234, 179, 8, 0.4);
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

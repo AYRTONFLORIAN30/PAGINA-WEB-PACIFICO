@@ -3,12 +3,11 @@ import Highcharts from 'highcharts/highmaps';
 import HighchartsReact from 'highcharts-react-official';
 import './MapaPeruSelector.css';
 
-// --- 1. DEFINIMOS LOS 4 COLORES DISTINTOS PARA CADA ZONA ---
 const ZONE_COLORS = {
-  1: '#76b900', // ZONA 1: Verde Corporativo
-  2: '#ff9800', // ZONA 2: Naranja vibrante
-  3: '#9c27b0', // ZONA 3: Morado intenso
-  4: '#d32f2f'  // ZONA 4: Rojo fuerte
+  1: '#76b900', 
+  2: '#ff9800', 
+  3: '#9c27b0', 
+  4: '#d32f2f'  
 };
 
 const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
@@ -29,32 +28,25 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
     getMapData();
   }, []);
 
-  // Definimos todas las regiones para cada zona
   const allRegions = [
-    // ZONA 1 (Centro)
     { 'hc-key': 'pe-ju', zoneId: 1, name: "JUNÍN" },
     { 'hc-key': 'pe-pa', zoneId: 1, name: "PASCO" },
     { 'hc-key': 'pe-hv', zoneId: 1, name: "HUANCAVELICA" },
     { 'hc-key': 'pe-ay', zoneId: 1, name: "AYACUCHO" },
 
-    // ZONA 2 (Selva)
     { 'hc-key': 'pe-hc', zoneId: 2, name: "HUÁNUCO" },
     { 'hc-key': 'pe-sm', zoneId: 2, name: "SAN MARTÍN" },
     { 'hc-key': 'pe-uc', zoneId: 2, name: "UCAYALI" },
 
-    // ZONA 3 (Norte)
     { 'hc-key': 'pe-lb', zoneId: 3, name: "LAMBAYEQUE" },
     { 'hc-key': 'pe-cj', zoneId: 3, name: "CAJAMARCA" },
     { 'hc-key': 'pe-am', zoneId: 3, name: "AMAZONAS" },
 
-    // ZONA 4 (Sur)
     { 'hc-key': 'pe-md', zoneId: 4, name: "MADRE DE DIOS" },
     { 'hc-key': 'pe-cs', zoneId: 4, name: "CUSCO" },
     { 'hc-key': 'pe-ap', zoneId: 4, name: "APURÍMAC" } 
   ];
 
-  // --- 2. APLICAMOS LOS COLORES ---
-  // Ya no usamos ternario (?). Cada región toma el color asignado a su zoneId.
   const chartData = allRegions.map(region => ({
     ...region,
     color: ZONE_COLORS[region.zoneId] 
@@ -75,7 +67,6 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
       headerFormat: '',
       backgroundColor: '#333',
       style: { color: '#fff', fontSize: '14px', fontWeight: 'bold' },
-      // El borde del tooltip tomará el color de la zona automáticamente
       borderRadius: 10,
       pointFormatter: function() {
         if (this.zoneId) return `📍 ${this.name} (Zona ${this.zoneId})`;
@@ -87,13 +78,10 @@ const MapaPeruSelector = ({ activeZoneId, onZoneClick }) => {
         allAreas: true,
         borderColor: 'white',
         borderWidth: 1.5,
-        nullColor: '#e0e0e0', // Departamentos sin zona serán grises
+        nullColor: '#e0e0e0', 
         nullInteraction: false, 
         states: {
           hover: {
-            // --- 3. MEJORA DEL HOVER ---
-            // Quitamos el color fijo. Ahora solo aumentamos el brillo
-            // para que se ilumine el color respectivo de cada zona.
             brightness: 0.2 
           }
         },

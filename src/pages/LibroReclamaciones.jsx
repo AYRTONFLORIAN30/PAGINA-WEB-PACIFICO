@@ -21,7 +21,6 @@ const LibroReclamaciones = () => {
 
   return (
     <div className="libro-layout">
-      {/* BLOQUE DEL FORMULARIO (Se queda igual) */}
       <div className="libro-container">
         
         <div className="libro-header">
@@ -31,7 +30,6 @@ const LibroReclamaciones = () => {
         </div>
 
         <form className="libro-form" onSubmit={handleSubmit}>
-           {/* ... SECCIÓN 1 ... */}
            <div className="form-section">
             <h3>1. Identificación del Consumidor Reclamante</h3>
             <div className="form-grid">
@@ -58,7 +56,6 @@ const LibroReclamaciones = () => {
             </div>
           </div>
 
-          {/* ... SECCIÓN 2 ... */}
           <div className="form-section">
             <h3>2. Identificación del Bien Contratado</h3>
             <div className="form-grid">
@@ -82,7 +79,6 @@ const LibroReclamaciones = () => {
             </div>
           </div>
 
-          {/* ... SECCIÓN 3 ... */}
           <div className="form-section">
             <h3>3. Detalle de la Reclamación</h3>
             <div className="tipo-reclamo-info">
@@ -122,9 +118,7 @@ const LibroReclamaciones = () => {
         </form>
 
       </div> 
-      {/* ⚠️ FIN DEL DIV 'libro-container'. EL MODAL AHORA VA AFUERA 👇 */}
 
-      {/* MODAL CORREGIDO: Al estar fuera del container animado, ahora sí se centrará en la pantalla */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">

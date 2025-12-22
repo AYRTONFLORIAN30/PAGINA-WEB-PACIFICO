@@ -1,4 +1,3 @@
-// --- IMPORTACIÓN DE IMÁGENES ---
 import agrocalMix from "../assets/Agrocal mix.webp";
 import dolomita from "../assets/Dolomita.webp";
 import superMagnoCal from "../assets/Magno cal mix.webp";
@@ -14,15 +13,12 @@ import abonazaPapero from "../assets/Abonaza papero.webp";
 import nutriAbonaza from "../assets/Abonaza.webp";
 import humusLombriz from "../assets/Humus de lombriz.webp";
 
-// --- NUEVAS IMPORTACIONES BASADAS EN TUS CAPTURAS ---
-import hidrocal from "../assets/Hidrocal.webp";   // <--- NUEVO IMPORT
-import calBordalesa from "../assets/Cal bordalesa.webp"; // <--- NUEVO IMPORT
-import fillCal from "../assets/Fill cal.webp";    // <--- NUEVO IMPORT
-import bioCal from "../assets/Bio cal.webp";      // <--- NUEVO IMPORT
-import calNieve from "../assets/Cal nieve.webp";  // <--- NUEVO IMPORT
+import hidrocal from "../assets/Hidrocal.webp";   
+import calBordalesa from "../assets/Cal bordalesa.webp"; 
+import fillCal from "../assets/Fill cal.webp";    
+import bioCal from "../assets/Bio cal.webp";      
+import calNieve from "../assets/Cal nieve.webp";  
 
-
-// --- IMPORTACIÓN DE PDFs (FICHAS TÉCNICAS) ---
 import pdfAgrocalMix from "../assets/fichas/Agrocal-mix.pdf";
 import pdfDolomita from "../assets/fichas/Dolomita.pdf";
 import pdfMagnoCal from "../assets/fichas/Magnocal mix.pdf";
@@ -38,7 +34,6 @@ import pdfBioCal from "../assets/fichas/Bio cal.pdf";
 import pdfCalNieve from "../assets/fichas/Cal nieve.pdf";
 
 export const productsData = [
-  // --- ENMIENDAS AGRÍCOLAS CÁLCICAS ---
   {
     id: "agrocal-mix",
     nombre: "Agrocal-mix",
@@ -119,7 +114,6 @@ export const productsData = [
     ]
   },
 
-  // --- ABONOS NATURALES ---
   {
     id: "roca-fosforica-bayovar",
     nombre: "Roca fosforica bayovar",
@@ -166,7 +160,6 @@ export const productsData = [
     ]
   },
 
-  // --- ABONOS ORGÁNICOS ---
   {
     id: "gallinaza",
     nombre: "Gallinaza",
@@ -247,12 +240,11 @@ export const productsData = [
     ]
   },
 
-  // --- TRATAMIENTO DE AGUA POTABLE ---
   {
     id: "hidrocal",
     nombre: "Hidrocal",
     categoria: "Productos para tratamiento de agua potable",
-    img: hidrocal, // <--- CORREGIDO (antes agrocalMix)
+    img: hidrocal, 
     descripcion: "Especializado para el tratamiento de Residuos Sanitarios.",
     beneficios: ["Alta pureza", "Control de contaminantes", "Eficiencia en tratamiento"],
     pdfFile: pdfHidroCal,
@@ -262,19 +254,18 @@ export const productsData = [
     id: "hidrosil",
     nombre: "Hidrosil",
     categoria: "Productos para tratamiento de agua potable",
-    img: agrocalMix, // NOTA: No vi una imagen específica para "Hidrosil" en tus capturas, así que mantuve la temporal.
+    img: agrocalMix, 
     descripcion: "Medio filtrador de residuos sanitarios de alto rendimiento.",
     beneficios: ["Filtración avanzada", "Remoción de partículas", "Seguro y confiable"],
     pdfFile: null,
     fichaTecnica: "Medio filtrante silíceo."
   },
 
-  // --- HIDRÓXIDOS DE CALCIO ---
   {
     id: "cal-bordalesa",
     nombre: "Cal bordalesa",
     categoria: "Hidróxidos de Calcio",
-    img: calBordalesa, // <--- CORREGIDO (antes agrocalMix)
+    img: calBordalesa, 
     descripcion: "Proporción de cal de minerales de uso agrícola.",
     beneficios: ["Control de hongos", "Corrector de pH", "Uso agrícola versátil"],
     pdfFile: pdfCalBordalesa,
@@ -284,7 +275,7 @@ export const productsData = [
     id: "fill-cal",
     nombre: "Fill cal",
     categoria: "Hidróxidos de Calcio",
-    img: fillCal, // <--- CORREGIDO (antes agrocalMix)
+    img: fillCal, 
     descripcion: "Especial para la restauración de restos arqueológicos.",
     beneficios: ["Compatible con materiales antiguos", "Baja reactividad nociva", "Acabado natural"],
     pdfFile: pdfFillCal,
@@ -294,7 +285,7 @@ export const productsData = [
     id: "bio-cal",
     nombre: "Bio cal",
     categoria: "Hidróxidos de Calcio",
-    img: bioCal, // <--- CORREGIDO (antes agrocalMix)
+    img: bioCal, 
     descripcion: "Cal diseñada para el tratamiento de residuos sólidos.",
     beneficios: ["Estabilización de lodos", "Control de olores", "Desinfección"],
     pdfFile: pdfBioCal,
@@ -304,7 +295,7 @@ export const productsData = [
     id: "cal-nieve",
     nombre: "Cal Nieve",
     categoria: "Hidróxidos de Calcio",
-    img: calNieve, // <--- CORREGIDO (antes agrocalMix)
+    img: calNieve, 
     descripcion: "Cal de alta blancura para varios usos industriales y decorativos.",
     beneficios: ["Alta pureza", "Color blanco intenso", "Multiusos"],
     pdfFile: pdfCalNieve,

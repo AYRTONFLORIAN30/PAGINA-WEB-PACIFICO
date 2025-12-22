@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'; // 1. Importamos useEffect
+import React, { useEffect } from 'react'; 
 import { Link } from 'react-router-dom'; 
 import { productsData } from '../data/productsData'; 
 import "../styles/Productos.css";
 
 function Productos() {
   
-  // --- 2. Lógica de Animación (Observador) ---
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -13,7 +12,7 @@ function Productos() {
           entry.target.classList.add('visible'); 
         }
       });
-    }, { threshold: 0.1 }); // Se activa apenas se ve un 10% de la tarjeta
+    }, { threshold: 0.1 }); 
 
     const hiddenElements = document.querySelectorAll('.scroll-card');
     hiddenElements.forEach((el) => observer.observe(el));
@@ -36,7 +35,6 @@ function Productos() {
       
       <div className="productos-grid">
         {products.map((prod) => (
-          /* 3. Agregamos la clase "scroll-card" aquí */
           <div key={prod.id} className="producto-card scroll-card">
             
             <Link to={`/producto/${prod.id}`} className="producto-link-wrapper">

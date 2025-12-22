@@ -1,6 +1,3 @@
-/* =========================================
-   ESTILOS BASE
-   ========================================= */
 .libro-layout {
   background-color: #f4f4f4;
   min-height: 100vh;
@@ -8,18 +5,13 @@
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
-  /* Asegura que no haya scroll horizontal en la página entera */
   overflow-x: hidden; 
 }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL
-   ========================================= */
 .libro-container {
   background: white;
   width: 100%;
   max-width: 900px;
-  /* Espacio interno cómodo para PC */
   padding: 50px; 
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -30,9 +22,6 @@
   transform: translateY(30px);
 }
 
-/* =========================================
-   ENCABEZADO
-   ========================================= */
 .libro-header {
   text-align: center;
   margin-bottom: 40px;
@@ -52,9 +41,6 @@
 .fecha-actual { font-size: 1.1rem; color: #555; margin-bottom: 5px; }
 .empresa-info { font-size: 0.9rem; color: #888; }
 
-/* =========================================
-   SECCIONES DEL FORMULARIO
-   ========================================= */
 .form-section {
   margin-bottom: 30px;
   background: #fafafa;
@@ -79,7 +65,6 @@
   line-height: 1.4;
 }
 
-/* GRILLA DE INPUTS */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -100,7 +85,6 @@
   color: #444;
 }
 
-/* ESTILOS DE LOS INPUTS */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="number"],
@@ -112,8 +96,8 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   background-color: #fff;
-  width: 100%; /* Asegura que no se salgan */
-  box-sizing: border-box; /* IMPORTANTE: Para que el padding no sume al ancho */
+  width: 100%; 
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -123,9 +107,6 @@
   outline: none;
 }
 
-/* =========================================
-   RADIO BUTTONS (TIPO)
-   ========================================= */
 .radio-group {
   grid-column: 1 / -1;
   display: flex !important;
@@ -136,7 +117,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   gap: 20px;
-  flex-wrap: wrap; /* Permite que baje si no entra */
+  flex-wrap: wrap; 
 }
 
 .radio-group > label {
@@ -152,7 +133,7 @@
   gap: 20px;
   align-items: center;
   margin-top: 0 !important;
-  flex-wrap: wrap; /* Permite que las opciones bajen en pantallas muy pequeñas */
+  flex-wrap: wrap; 
 }
 
 .radio-group label {
@@ -172,9 +153,6 @@
   cursor: pointer;
 }
 
-/* =========================================
-   OTROS ELEMENTOS
-   ========================================= */
 .tipo-reclamo-info {
   background-color: #eef6fc;
   padding: 20px;
@@ -203,7 +181,7 @@
   width: 20px;
   height: 20px;
   accent-color: #76b900;
-  flex-shrink: 0; /* Evita que el checkbox se aplaste */
+  flex-shrink: 0; 
 }
 
 .btn-enviar {
@@ -228,9 +206,7 @@
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* =========================================
-   MODAL (POP-UP)
-   ========================================= */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -243,7 +219,7 @@
   align-items: center;
   z-index: 2000;
   backdrop-filter: blur(5px);
-  padding: 20px; /* Para que no toque los bordes en celular */
+  padding: 20px; 
 }
 
 .modal-content {
@@ -290,49 +266,45 @@
   width: 100%;
 }
 
-/* Animaciones */
 @keyframes aparecerSuave { from { opacity: 0; transform: translateY(50px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes scaleUp { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-/* =========================================
-   📱 RESPONSIVE (MÓVIL) - CORRECCIONES
-   ========================================= */
+
 @media (max-width: 768px) {
   .libro-layout {
-    padding: 10px; /* Menos borde afuera */
+    padding: 10px; 
   }
 
   .libro-container {
-    padding: 20px 15px; /* IMPORTANTE: Reduje el padding de 50px a 15px */
+    padding: 20px 15px; 
     width: 100%;
   }
 
   .libro-header h1 {
-    font-size: 1.4rem; /* Letra más chica para que "RECLAMACIONES" no se corte */
-    word-break: break-word; /* Rompe la palabra si es necesario */
+    font-size: 1.4rem; 
+    word-break: break-word; 
   }
 
   .form-section {
-    padding: 20px 15px; /* Menos aire en las cajas internas */
+    padding: 20px 15px; 
     margin-bottom: 20px;
   }
 
   .form-grid {
-    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 
-  /* Arreglo para los Radio Buttons en móvil */
   .radio-group {
-    flex-direction: column !important; /* "Tipo" arriba */
-    align-items: flex-start !important; /* Alineado a la izquierda */
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
     gap: 10px;
   }
   
   .radio-group div {
     width: 100%;
     display: flex;
-    justify-content: flex-start; /* Opciones alineadas al inicio */
+    justify-content: flex-start; 
     gap: 15px;
   }
 

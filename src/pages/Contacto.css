@@ -1,17 +1,11 @@
-/* =========================================
-   1. IMPORTACIONES Y RESET GLOBAL
-   ========================================= */
 @import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
 
 * {
   box-sizing: border-box;
 }
 
-/* =========================================
-   2. LAYOUT PRINCIPAL
-   ========================================= */
 .hortus-layout {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/fondo-campo-flores.png');
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/fondo-campo-flores.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -25,9 +19,6 @@
   overflow-x: hidden;
 }
 
-/* =========================================
-   3. CABECERA PRINCIPAL
-   ========================================= */
 .main-header-section {
   text-align: center;
   margin-bottom: 30px; 
@@ -55,9 +46,6 @@
   font-weight: 500;
 }
 
-/* =========================================
-   4. GRILLA PRINCIPAL
-   ========================================= */
 .layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -76,18 +64,14 @@
   justify-content: center;
 }
 
-/* =========================================
-   5. TARJETA DE INFORMACIÓN (CORREGIDO)
-   ========================================= */
 .info-card-container {
   background: #ffffff;
   border-radius: 25px;
   padding: 40px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   
-  /* --- CAMBIO CLAVE AQUÍ --- */
-  min-height: auto; /* Antes era 500px. Ahora se ajusta al contenido */
-  /* ------------------------- */
+  min-height: auto; 
+
   
   display: flex;
   flex-direction: column;
@@ -146,9 +130,6 @@
   white-space: normal;
 }
 
-/* =========================================
-   6. DETALLES
-   ========================================= */
 .detail-row {
   display: flex;
   align-items: flex-start;
@@ -156,7 +137,6 @@
   margin-bottom: 20px;
 }
 
-/* Quitamos el margen inferior al último elemento para que quede pegadito al fondo */
 .detail-row:last-child {
   margin-bottom: 0;
 }
@@ -191,9 +171,6 @@
   line-height: 1.4;
 }
 
-/* =========================================
-   7. RESPONSIVE (MÓVIL)
-   ========================================= */
 @media (max-width: 900px) {
   .hortus-layout { padding: 20px 10px; height: auto; }
   .mapa-title { font-size: 2rem; letter-spacing: 0; }
@@ -232,4 +209,77 @@
   .zona-label { font-size: 1.3rem; text-align: center; }
   .card-header-hortus { text-align: center; }
   .icon-circle { width: 35px; height: 35px; font-size: 1rem; }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-down {
+  animation: fadeDown 0.8s ease-out forwards;
+}
+
+.animate-fade-right {
+  animation: fadeRight 0.8s ease-out forwards;
+  animation-delay: 0.2s; 
+  opacity: 0; 
+}
+
+.card-content-wrapper {
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  width: 100%;
+}
+
+.card-body .detail-row {
+  opacity: 0; 
+  animation: slideUpFade 0.5s ease forwards;
+}
+
+.icon-circle {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.detail-row:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+  background-color: #dcedfa;
 }

@@ -3,9 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { productsData } from '../data/productsData'; 
 import "../styles/ProductoDetalle.css"; 
 
-// NOTA: Quité la importación de 'react-icons' para solucionar tu error de compilación.
-// Usaremos un SVG directo en su lugar.
-
 function ProductoDetalle() {
   const { id } = useParams(); 
   const navigate = useNavigate();
@@ -85,21 +82,15 @@ function ProductoDetalle() {
               </div>
             </div>
 
-            {/* --- SECCIÓN DE BOTONES --- */}
             <div className="botones-accion">
               
-              {/* 1. BOTÓN VER PDF 
-                  - Eliminé 'download' para que se abra en nueva pestaña.
-                  - Usé un SVG manual para evitar el error de librería.
-              */}
               {producto.pdfFile && (
                 <a 
                   href={producto.pdfFile} 
-                  target="_blank"            // Abre en nueva pestaña
-                  rel="noopener noreferrer"  // Seguridad obligatoria
+                  target="_blank"            
+                  rel="noopener noreferrer"  
                   className="btn-descargar-pdf"
                 >
-                  {/* Icono PDF (SVG) */}
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="24" height="24" 
@@ -120,7 +111,6 @@ function ProductoDetalle() {
                 </a>
               )}
 
-              {/* 2. BOTÓN COTIZAR */}
               <button 
                 className="btn-cotizar-grande"
                 onClick={() => window.open(`https://wa.me/51999999999?text=Hola, estoy interesado en el producto: ${producto.nombre}. ¿Me podrían dar más información y precios?`, '_blank')}

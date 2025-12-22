@@ -1,11 +1,9 @@
-/* Página General */
 .productos-page {
     background-color: #f4f4f4;
     min-height: 100vh;
     padding-bottom: 80px;
 }
 
-/* Header de Productos */
 .productos-header {
     background-color: #0e1a24; 
     color: white;
@@ -25,17 +23,15 @@
     color: #ccc;
 }
 
-/* Contenedor Principal */
 .productos-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Sección por Categoría */
 .categoria-section {
     margin-bottom: 80px;
-    background: white; /* Un fondo blanco para separar categorías se ve mejor */
+    background: white; 
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -43,7 +39,7 @@
 
 .categoria-titulo {
     font-size: 2.2rem;
-    color: #84bd00; /* Verde Pacifico */
+    color: #84bd00;
     border-left: 6px solid #0e1a24;
     padding-left: 20px;
     margin-bottom: 10px;
@@ -57,17 +53,14 @@
     margin-left: 25px;
 }
 
-/* Grid de Productos */
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 40px;
 }
 
-/* Tarjeta de Producto */
 .producto-card {
     background: white;
-    /* Quitamos el borde y sombra de la tarjeta individual para un look más limpio */
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -76,9 +69,8 @@
     transform: translateY(-5px);
 }
 
-/* CONTENEDOR DE LA IMAGEN DEL PRODUCTO */
 .producto-img-container {
-    height: 250px; /* Altura fija para que todas se alineen */
+    height: 250px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,12 +81,12 @@
 .producto-img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* IMPORTANTE: Muestra todo el saco sin recortar */
+    object-fit: contain; 
     transition: transform 0.3s ease;
 }
 
 .producto-card:hover .producto-img {
-    transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+    transform: scale(1.05); 
 }
 
 .producto-card h3 {
@@ -105,13 +97,12 @@
     text-transform: uppercase;
 }
 
-/* Botón Cotizar */
 .btn-cotizar {
     background-color: #0e1a24;
     color: white;
     border: none;
     padding: 12px 30px;
-    border-radius: 5px; /* Bordes menos redondos para look industrial */
+    border-radius: 5px; 
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -125,8 +116,6 @@
     background-color: #84bd00; 
 }
 
-/* --- CLASE NECESARIA PARA EL LINK --- */
-/* Esto permite que al dar clic en la imagen funcione como enlace sin afectar el estilo */
 .producto-link-wrapper {
     text-decoration: none;
     color: inherit;
@@ -134,39 +123,25 @@
     cursor: pointer;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .productos-header h1 { font-size: 2.2rem; }
     .categoria-section { padding: 20px; }
     .productos-grid { gap: 30px; }
 }
 
-/* ... (El resto de tu CSS sigue igual, solo agrega esto al final) ... */
-
-/* =========================================
-   EFECTO DE ENTRADA ELÁSTICA (BOUNCY)
-   ========================================= */
-
-/* Estado inicial: Invisible, desplazado abajo y un poco más pequeño */
 .scroll-card {
     opacity: 0;
     transform: translateY(60px) scale(0.9);
-    
-    /* La magia está aquí: cubic-bezier crea el efecto de rebote.
-       La tarjeta "se pasa" un poquito de su tamaño y luego regresa.
-    */
     transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
     will-change: opacity, transform;
 }
 
-/* Estado final: Visible y en su lugar */
 .scroll-card.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
-/* Opcional: Si quieres que en celulares sea un poco más rápido */
 @media (max-width: 768px) {
     .scroll-card {
         transition-duration: 0.5s;
