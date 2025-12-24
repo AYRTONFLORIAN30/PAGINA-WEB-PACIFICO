@@ -22,6 +22,39 @@ function Home() {
 
   const [showModal, setShowModal] = useState(false);
 
+  const testimonials = [
+    {
+      id: 1,
+      nombre: "Carlos Mendoza",
+      cargo: "Productor de Palto, Ica",
+      texto: "Desde que utilizo el compost de Pacífico, la estructura de mi suelo ha mejorado notablemente. Mis árboles están más vigorosos y la fruta tiene mejor calibre."
+    },
+    {
+      id: 2,
+      nombre: "Asoc. Agricultores del Valle",
+      cargo: "Junín",
+      texto: "La asesoría técnica que brindan es excelente. No solo te venden el producto, sino que te enseñan a aplicarlo para no desperdiciar nada. 100% recomendados."
+    },
+    {
+      id: 3,
+      nombre: "Roberto H.",
+      cargo: "Fundo Santa Rosa",
+      texto: "Probé su línea de enmiendas cálcicas y solucioné mis problemas de acidez rápidamente. La logística de envío fue puntual y sin contratiempos."
+    },
+    {
+      id: 4,
+      nombre: "Ing. Sofia Torres",
+      cargo: "Agroexportadora del Norte, Piura",
+      texto: "Sus fertilizantes orgánicos fueron clave para cumplir con los estándares de residuos cero en nuestra exportación de uva de mesa. Calidad garantizada."
+    },
+    {
+      id: 5,
+      nombre: "Cooperativa Cafetalera",
+      cargo: "San Martín",
+      texto: "Recuperamos el vigor de nuestros cafetales antiguos gracias a su plan de nutrición. El rendimiento por hectárea aumentó un 20% esta campaña."
+    }
+  ];
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -57,7 +90,14 @@ function Home() {
   return (
     <div className="home-wrapper">
       
-      <div className="banner" style={{ backgroundImage: `url(${homeBgImage})` }}>
+      {/* SECCIÓN MODIFICADA: Imagen real con prioridad alta */}
+      <div className="banner">
+        <img 
+            src={homeBgImage} 
+            alt="Campo de cultivo Pacífico" 
+            className="banner-bg-image" 
+            fetchPriority="high"
+        />
         <div className="overlay">
           <div className="home-container">
               <h1>Nutrición Avanzada para tus Cultivos</h1>
@@ -157,10 +197,32 @@ function Home() {
         </div>
       </section>
 
+      <section className="testimonials-section">
+        <div className="products-title-section" style={{ paddingBottom: '10px' }}>
+          <h2>Testimonios de nuestros clientes</h2>
+          <p>La voz de quienes confían en nuestra calidad</p>
+        </div>
+        
+        <div className="testimonials-container">
+          {testimonials.map((testimonio, index) => (
+            <div 
+              key={testimonio.id} 
+              className={`testimonial-card scroll-scale ${index % 3 === 1 ? 'delay-100' : index % 3 === 2 ? 'delay-200' : ''}`}
+            >
+              <div className="quote-icon">❝</div>
+              <p className="testimonial-text">"{testimonio.texto}"</p>
+              <div className="testimonial-author">
+                <h4>{testimonio.nombre}</h4>
+                <span>{testimonio.cargo}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="cotizacion-section">
         <div className="cotizacion-overlay"></div>
         <div className="cotizacion-container">
-          
           <div className="form-card scroll-slide">
             <div className="form-header-yellow">
               <h2>Solicite una cotización</h2>

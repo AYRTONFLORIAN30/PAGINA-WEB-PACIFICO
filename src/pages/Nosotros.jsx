@@ -38,7 +38,6 @@ function Nosotros() {
 
     return () => hiddenElements.forEach((el) => observer.unobserve(el));
   }, []);
-  // --------------------------------------------------
 
   return (
     <section className="nosotros-section">

@@ -19,7 +19,6 @@ function Productos() {
 
     return () => hiddenElements.forEach((el) => observer.unobserve(el));
   }, []);
-  // -------------------------------------------
 
   const catCalcicas = productsData.filter(p => p.categoria === "Enmiendas Agrícolas Cálcicas");
   const catNaturales = productsData.filter(p => p.categoria === "Abonos Naturales");
