@@ -4,24 +4,21 @@
     padding: 0;
 }
 
-/* --- BANNER MODIFICADO --- */
 .banner {
     position: relative;
     width: 100%;
     height: 85vh;
-    overflow: hidden; /* Importante para contener la imagen */
-    /* Se han eliminado las propiedades de background-image para usar <img> */
+    overflow: hidden; 
 }
 
-/* Nueva clase para la imagen de fondo */
 .banner-bg-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Simula background-size: cover */
-    z-index: 0; /* Al fondo */
+    object-fit: cover; 
+    z-index: 0; 
 }
 
 .overlay {
@@ -34,9 +31,8 @@
     align-items: center; 
     justify-content: center;
     background: rgba(0,0,0,0.3);
-    z-index: 1; /* Encima de la imagen */
+    z-index: 1; 
 }
-/* ------------------------- */
 
 .home-container {
     width: 90%;

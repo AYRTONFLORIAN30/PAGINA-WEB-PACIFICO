@@ -94,7 +94,6 @@ function Home() {
       <div className="banner">
         <img 
             src={homeBgImage} 
-            alt="Campo de cultivo Pacífico" 
             className="banner-bg-image" 
             fetchPriority="high"
         />
