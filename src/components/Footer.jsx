@@ -39,8 +39,9 @@ function Footer() {
           <h3>ENLACES DE INTERÉS:</h3>
           <ul className="footer-links">
             <li><Link to="/productos">Portafolio de productos</Link></li>
+             <li><Link to="/nosotros">Nosotros</Link></li>
             <li><Link to="/contacto">Contáctanos</Link></li>
-            <li><Link to="/nosotros">Nosotros</Link></li>
+          
             
             <li style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>
               <Link to="/libro-de-reclamaciones">
@@ -68,11 +69,13 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2025 PACIFICO ABONOS Y ENMIENDAS — Todos los derechos reservados.</p>
-        <div className="legal-links">
-          <a href="#">Política de Privacidad</a> | <a href="#">Condiciones de Uso</a>
-        </div>
-      </div>
+  <p>© 2025 PACIFICO ABONOS Y ENMIENDAS — Todos los derechos reservados.</p>
+  <div className="legal-links">
+    <Link to="/politica-de-privacidad">Política de Privacidad</Link> 
+    {' | '}
+    <Link to="/terminos-y-condiciones">Condiciones de Uso</Link>
+  </div>
+</div>
     </footer>
   );
 }

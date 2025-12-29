@@ -90,7 +90,6 @@ function Home() {
   return (
     <div className="home-wrapper">
       
-      {/* SECCIÓN MODIFICADA: Imagen real con prioridad alta */}
       <div className="banner">
         <img 
             src={homeBgImage} 
@@ -113,7 +112,7 @@ function Home() {
           <span className="section-tag">NUESTRA ESENCIA</span>
           <h2>Acerca de Pacífico Abonos y Enmiendas</h2>
           <p>
-            Con más de 18 años de experiencia, somos especialistas en potenciar el rendimiento agrícola. 
+            Con más de 20 años de experiencia, somos especialistas en potenciar el rendimiento agrícola. 
             Producimos y comercializamos la línea más completa de abonos naturales, orgánicos y enmiendas 
             cálcicas marca PACIFICO.
           </p>

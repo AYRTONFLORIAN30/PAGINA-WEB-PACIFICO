@@ -10,6 +10,8 @@ import Productos from "./pages/Productos";
 import Contacto from "./pages/Contacto"; 
 import ProductoDetalle from "./pages/ProductoDetalle"; 
 import LibroReclamaciones from "./pages/LibroReclamaciones"; 
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
+import TerminosCondiciones from './pages/TerminosCondiciones';
 
 import "./App.css";
 
@@ -42,6 +44,8 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
 
             <Route path="/libro-de-reclamaciones" element={<LibroReclamaciones />} />
+            <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
+        <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
             
           </Routes>
         </main>
