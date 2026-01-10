@@ -1,0 +1,22 @@
+.mapa-container-svg {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+.svg-content { width: 100%; height: auto; }
+
+.dept-path {
+  fill: #005691; 
+  stroke: #ffffff;
+  stroke-width: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dept-path:hover { fill: #007bc2; }
+
+.dept-path.active {
+  fill: #76b900 !important;
+  stroke-width: 2px;
+  z-index: 10;
+}

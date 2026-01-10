@@ -1,0 +1,163 @@
+.footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 60px 20px 20px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px; 
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-col {
+    flex: 1; 
+    min-width: 250px;
+}
+
+.footer-col h3 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-col p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.footer-logo {
+    max-width: 160px;
+    margin-bottom: 20px;
+    display: block;
+    
+    margin-left: 20px; 
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333; 
+    border-radius: 50%;
+    color: white; 
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.icon:hover {
+    background-color: #84bd00;
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(132, 189, 0, 0.3);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #84bd00;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.legal-links a {
+    color: #888;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-col {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+.icon.facebook {
+    background-color: #1877F2;
+    border: 1px solid #1877F2;
+}
+
+.icon.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border: none; 
+}
+
+.icon.linkedin {
+    background-color: #0A66C2;
+    border: 1px solid #0A66C2;
+}
+
+.icon.youtube {
+    background-color: #FF0000;
+    border: 1px solid #FF0000;
+}
+
+.icon.facebook:hover {
+    background-color: white;
+    color: #1877F2;
+}
+
+.icon.instagram:hover {
+    background: white;
+    color: #d6249f;
+}
+
+.icon.linkedin:hover {
+    background-color: white;
+    color: #0A66C2;
+}
+
+.icon.youtube:hover {
+    background-color: white;
+    color: #FF0000;
+}
