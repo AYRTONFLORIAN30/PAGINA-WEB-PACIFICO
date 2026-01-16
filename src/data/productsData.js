@@ -19,6 +19,7 @@ import fillCal from "../assets/Fill cal.webp";
 import bioCal from "../assets/Bio cal.webp";      
 import calNieve from "../assets/Cal nieve.webp";  
 
+// Importación de Fichas Técnicas existentes
 import pdfAgrocalMix from "../assets/fichas/Agrocal-mix.pdf";
 import pdfDolomita from "../assets/fichas/Dolomita.pdf";
 import pdfMagnoCal from "../assets/fichas/Magnocal mix.pdf";
@@ -33,11 +34,15 @@ import pdfFillCal from "../assets/fichas/Fill cal.pdf";
 import pdfBioCal from "../assets/fichas/Bio cal.pdf";
 import pdfCalNieve from "../assets/fichas/Cal nieve.pdf";
 
+// Nuevas importaciones basadas en tu captura de pantalla
+import pdfCarboCal from "../assets/fichas/Ficha Técnica - CARBO CAL.pdf";
+import pdfGallinaza from "../assets/fichas/Ficha Técnica - GALLINAZA ABONO ORGÁNICO.pdf";
+import pdfHidrosil from "../assets/fichas/Ficha Técnica - HIDROSIL 2025.pdf";
+import pdfNutriAbonaza from "../assets/fichas/Ficha Técnica - NUTRI ABONAZA.pdf";
+import pdfUlex30 from "../assets/fichas/Ficha Técnica - ULEX 30.pdf";
+
 import pdfRegistroHidrocal from "../assets/fichas/HIDROCAL REGISTRO SANITARIO.pdf";
 import pdfRegistroHidrosil from "../assets/fichas/HIDROSIL REGISTRO SANITARIO.pdf";
-import { BiAddToQueue } from "react-icons/bi";
-import { GoArrowDown } from "react-icons/go";
-import { svg } from "leaflet";
 
 export const productsData = [
   {
@@ -91,18 +96,16 @@ export const productsData = [
   },
   {
     id: "agro-yeso",
-    nombre: "Agro yeso",
+    nombre: "Agro - Yeso",
     categoria: "Enmiendas Agrícolas Cálcicas",
     img: agroYeso,
-    descripcion: "Sulfato de calcio dihidratado, excelente para suelos sódicos.",
-    beneficios: ["Desplaza el sodio", "Aporta Azufre", "Mejora la infiltración de agua"],
+    descripcion: "Sulfato de calcio dihidratado, mejorador de suelos ácidos.",
+    beneficios: ["Desplaza el sodio", "Aporta Azufre y Calcio", "Mejora la infiltración de agua"],
     pdfFile: pdfAgroYeso,
-    fichaTecnica: "CaSO4·2H2O.",
+    fichaTecnica: "CaSO4 - Análisis garantizado.",
     composicion: [
-      { elemento: "Ca", porcentaje: "22.50%" },
-      { elemento: "CaO", porcentaje: "31.50%" },
-      { elemento: "S", porcentaje: "17.80%" },
-      { elemento: "MgO", porcentaje: "53.00%" }
+      { elemento: "CaO", porcentaje: "32%" },
+      { elemento: "SO4", porcentaje: "53%" }
     ]
   },
   {
@@ -112,8 +115,8 @@ export const productsData = [
     img: carboCal,
     descripcion: "Carbonato de calcio de alta pureza.",
     beneficios: ["Fuente concentrada de Calcio", "Regulador de pH", "Mejora disponibilidad de nutrientes"],
-    pdfFile: null,
-    fichaTecnica: "CaCO3 90%.",
+    pdfFile: pdfCarboCal,
+    fichaTecnica: "Carbonato de calcio de alta pureza.",
     composicion: [
       { elemento: "CaCO3", porcentaje: "97.80%" },
       { elemento: "CaO", porcentaje: "53.00%" }
@@ -158,8 +161,8 @@ export const productsData = [
     img: ulex30,
     descripcion: "Borato de sodio y calcio natural.",
     beneficios: ["Fuente de Boro", "Esencial para floración", "Origen mineral"],
-    pdfFile: null,
-    fichaTecnica: "Boro 10% aprox.",
+    pdfFile: pdfUlex30,
+    fichaTecnica: "Borato de sodio y calcio.",
     composicion: [
       { elemento: "B", porcentaje: "9 - 13%" },
       { elemento: "B2O3", porcentaje: "30 - 32%" }
@@ -173,8 +176,8 @@ export const productsData = [
     img: gallinaza,
     descripcion: "Abono orgánico rico en nitrógeno procedente de aves.",
     beneficios: ["Alto contenido de N-P-K", "Activa vida microbiana", "Compostado"],
-    pdfFile: null,
-    fichaTecnica: "Materia Orgánica 40%.",
+    pdfFile: pdfGallinaza,
+    fichaTecnica: "Abono orgánico procesado.",
     composicion: [
       { elemento: "N", porcentaje: "2 - 3%" },
       { elemento: "P2O5", porcentaje: "3 - 4%" },
@@ -210,8 +213,8 @@ export const productsData = [
     img: nutriAbonaza,
     descripcion: "Abono orgánico enriquecido y balanceado.",
     beneficios: ["Nutrición integral", "Mejora retención de humedad", "Sostenible"],
-    pdfFile: null,
-    fichaTecnica: "Materia Orgánica enriquecida.",
+    pdfFile: pdfNutriAbonaza,
+    fichaTecnica: "Abono orgánico compuesto.",
     composicion: [
       { elemento: "N", porcentaje: "1.5 - 2%" },
       { elemento: "P2O5", porcentaje: "4.0 - 4.5%" },
@@ -254,25 +257,23 @@ export const productsData = [
     descripcion: "Especializado para el tratamiento de Residuos Sanitarios.",
     beneficios: ["Alta pureza", "Control de contaminantes", "Eficiencia en tratamiento"],
     pdfFile: pdfHidroCal,
-    
     pdfRegistro: pdfRegistroHidrocal,
-    
     fichaTecnica: "Tratamiento de aguas residuales."
   },
   {
     id: "hidrosil",
     nombre: "Hidrosil",
     categoria: "Productos para tratamiento de agua potable",
-    
     img: hidrosil, 
-    
     descripcion: "Medio filtrador de residuos sanitarios de alto rendimiento.",
     beneficios: ["Filtración avanzada", "Remoción de partículas", "Seguro y confiable"],
-    pdfFile: null,
-    
+    pdfFile: pdfHidrosil,
     pdfRegistro: pdfRegistroHidrosil,
-    
-    fichaTecnica: "Medio filtrante silíceo."
+    fichaTecnica: "Arena Silícea de alta pureza.",
+    composicion: [
+        { elemento: "SiO2", porcentaje: "≥ 85%" },
+        { elemento: "Granulometría", porcentaje: "0.40 - 1.00 mm" }
+      ]
   },
 
   {

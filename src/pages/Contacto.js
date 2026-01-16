@@ -11,7 +11,7 @@ const zonasData = [
   {
     id: 1, 
     titulo: "ZONA 1 (Junín,Pasco,Huancavelica,Ayacucho)",
-    representante: "Freddy Caracuzma",
+    representante: "Freddy Caracuzma Ureta",
     ciudad: "Tarma",
     direccion: "Av. Ramón Castilla N° 251",
     horario: "Lunes a Sábado: 8am - 5pm",
@@ -20,7 +20,7 @@ const zonasData = [
   {
     id: 2, 
     titulo: "ZONA 2 (Huánuco,San Martín,Ucayali)",
-    representante: "Andy Sanancio",
+    representante: "Andy Vasquez Sanancio",
     ciudad: "Tingo Maria",
     direccion: "Car. Marginal Huánuco Tingo María Km 111",
     horario: "Lunes a Viernes: 8am - 5pm",
@@ -29,7 +29,7 @@ const zonasData = [
   {
     id: 3, 
     titulo: "ZONA 3 (Lambayeque,Cajamarca,Amazonas)",
-    representante: "Ruth Rojas",
+    representante: "Ruth Rojas Hilario",
     ciudad: "Lambayeque",
     direccion: "Calle 2 de mayo N°136",
     horario: "Lunes a Viernes: 8am - 5pm",
@@ -38,7 +38,7 @@ const zonasData = [
   {
     id: 4, 
     titulo: "ZONA 4 (Abancay,Cusco,Madre de Dios)",
-    representante: "Daniel Benitez",
+    representante: "Daniel Benites Pino",
     ciudad: "Madre de Dios",
     direccion: "Av. Hernesto Rivero 1302 piso 02",
     horario: "Lunes a Sábado: 8am - 5pm",

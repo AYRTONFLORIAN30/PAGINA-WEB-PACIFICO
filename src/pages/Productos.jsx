@@ -52,7 +52,7 @@ function Productos() {
             
             <button 
               className="btn-cotizar" 
-              onClick={() => window.open(`https://wa.me/51999999999?text=Hola, me interesa cotizar el producto: ${prod.nombre}`, '_blank')}
+              onClick={() => window.open(`https://wa.me/51935919049?text=Hola, me interesa cotizar el producto: ${prod.nombre}`, '_blank')}
             >
               Cotizar
             </button>

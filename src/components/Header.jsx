@@ -16,7 +16,7 @@ function Header() {
             <img src={logoMinera} alt="Pacifico Logo" className="logo-img" />
           </Link>
         </div>
-
+        
         <div className={`menu-toggle ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(!isOpen)}>
           <span className="bar"></span>
           <span className="bar"></span>

@@ -62,7 +62,7 @@ function Nosotros() {
             
             <h2 style={{ marginTop: '1.5rem', marginBottom: '1rem', color: '#333' }}>¿Quiénes somos?</h2>
             <p>
-              Somos una empresa peruana con más de 18 años en el mercado agrícola.
+              Somos una empresa peruana con más de 20 años en el mercado agrícola.
               <br />
               Especializada en la producción y comercialización de Abonos Naturales, 
               abonos orgánicos y enmiendas agrícolas cálcicas de marca PACIFICO.

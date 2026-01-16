@@ -25,7 +25,6 @@ function ProductoDetalle() {
         
         <div className="detalle-grid">
           
-          {/* Animación 1: La Imagen (delay-1) */}
           <div className="detalle-img-box animate-on-load delay-1">
             <img 
               src={producto.img} 
@@ -36,7 +35,6 @@ function ProductoDetalle() {
           </div>
 
           <div className="detalle-info">
-            {/* Animación 2: Título y Descripción (delay-2) */}
             <div className="animate-on-load delay-2">
                 <span className="detalle-categoria">{producto.categoria}</span>
                 <h1>{producto.nombre}</h1>
@@ -87,10 +85,8 @@ function ProductoDetalle() {
               </div>
             </div>
 
-            {/* Animación 4: Botones de Acción (delay-4) */}
             <div className="botones-accion animate-on-load delay-4">
               
-              {/* BOTÓN 1: FICHA TÉCNICA */}
               {producto.pdfFile && (
                 <a 
                   href={producto.pdfFile} 
@@ -118,7 +114,6 @@ function ProductoDetalle() {
                 </a>
               )}
 
-              {/* BOTÓN 2: REGISTRO SANITARIO */}
               {producto.pdfRegistro && (
                 <a 
                   href={producto.pdfRegistro} 
@@ -137,7 +132,7 @@ function ProductoDetalle() {
 
               <button 
                 className="btn-cotizar-grande"
-                onClick={() => window.open(`https://wa.me/51999999999?text=Hola, estoy interesado en el producto: ${producto.nombre}. ¿Me podrían dar más información y precios?`, '_blank')}
+                onClick={() => window.open(`https://wa.me/51935919049?text=Hola, estoy interesado en el producto: ${producto.nombre}. ¿Me podrían dar más información y precios?`, '_blank')}
                 style={{ marginTop: '10px' }}
               >
                 Cotizar por WhatsApp

@@ -226,9 +226,6 @@
 }
 
 
-/* --- Animaciones de Entrada --- */
-
-/* Definición de la animación: sube suavemente y aparece */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -240,34 +237,31 @@
   }
 }
 
-/* Clase base para animar */
 .animate-on-load {
-  opacity: 0; /* Comienza invisible */
+  opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* Retrasos para crear el efecto escalera (uno tras otro) */
 .delay-1 {
-  animation-delay: 0.1s; /* La imagen carga casi al instante */
+  animation-delay: 0.1s;
 }
 
 .delay-2 {
-  animation-delay: 0.3s; /* El título y descripción tardan un poco más */
+  animation-delay: 0.3s; 
 }
 
 .delay-3 {
-  animation-delay: 0.5s; /* La ficha técnica viene después */
+  animation-delay: 0.5s; 
 }
 
 .delay-4 {
-  animation-delay: 0.7s; /* Los botones al final */
+  animation-delay: 0.7s; 
 }
 
-/* Efecto extra para la imagen al pasar el mouse */
 .detalle-img-box img {
     transition: transform 0.5s ease;
 }
 
 .detalle-img-box:hover img {
-    transform: scale(1.05); /* Zoom suave */
+    transform: scale(1.05); 
 }
