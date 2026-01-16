@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts/highmaps'; 
 import HighchartsReact from 'highcharts-react-official';
 import './MapaPeruSelector.css';
-import { TbAirConditioning } from 'react-icons/tb';
+
 
 const ZONE_COLORS = {
   1: '#76b900', 

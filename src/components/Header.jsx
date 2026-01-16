@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
 import logoMinera from "../assets/logo.webp"; 
-import { getValue } from "@testing-library/user-event/dist/utils";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
