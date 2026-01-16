@@ -93,6 +93,7 @@ function Home() {
       <div className="banner">
         <img 
             src={homeBgImage} 
+            alt="Campo de cultivo nutrido con fertilizantes Pacifico" 
             className="banner-bg-image" 
             fetchPriority="high"
         />
