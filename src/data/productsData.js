@@ -1,7 +1,7 @@
 import agrocalMix from "../assets/Agrocal mix.webp";
 import dolomita from "../assets/Dolomita.webp";
 import superMagnoCal from "../assets/Magno cal mix.webp";
-import agroYeso from "../assets/Agro - yeso.webp";
+import agroYeso from "../assets/Agro-yeso.webp";
 import carboCal from "../assets/Carbo cal.webp";
 import hidrosil from "../assets/Hidrosil.webp";
 import rocaFosforica from "../assets/Roca fosforica.webp";
@@ -19,7 +19,6 @@ import fillCal from "../assets/Fill cal.webp";
 import bioCal from "../assets/Bio cal.webp";      
 import calNieve from "../assets/Cal nieve.webp";  
 
-// Importación de Fichas Técnicas existentes
 import pdfAgrocalMix from "../assets/fichas/Agrocal-mix.pdf";
 import pdfDolomita from "../assets/fichas/Dolomita.pdf";
 import pdfMagnoCal from "../assets/fichas/Magnocal mix.pdf";
@@ -34,7 +33,6 @@ import pdfFillCal from "../assets/fichas/Fill cal.pdf";
 import pdfBioCal from "../assets/fichas/Bio cal.pdf";
 import pdfCalNieve from "../assets/fichas/Cal nieve.pdf";
 
-// Nuevas importaciones basadas en tu captura de pantalla
 import pdfCarboCal from "../assets/fichas/Ficha Técnica - CARBO CAL.pdf";
 import pdfGallinaza from "../assets/fichas/Ficha Técnica - GALLINAZA ABONO ORGÁNICO.pdf";
 import pdfHidrosil from "../assets/fichas/Ficha Técnica - HIDROSIL 2025.pdf";
