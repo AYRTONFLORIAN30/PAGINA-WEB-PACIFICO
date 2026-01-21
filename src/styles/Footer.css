@@ -137,11 +137,6 @@
     border: 1px solid #0A66C2;
 }
 
-.icon.youtube {
-    background-color: #FF0000;
-    border: 1px solid #FF0000;
-}
-
 .icon.facebook:hover {
     background-color: white;
     color: #1877F2;
@@ -157,7 +152,17 @@
     color: #0A66C2;
 }
 
-.icon.youtube:hover {
+/* ESTILO TIKTOK */
+.icon.tiktok {
+    background-color: #000000; /* Negro oficial */
+    border: 1px solid #000000;
+    /* Opcional: Si quieres un borde gris suave para diferenciarlo del fondo del footer */
+    /* border: 1px solid #333; */
+}
+
+.icon.tiktok:hover {
     background-color: white;
-    color: #FF0000;
+    color: #000000;
+    /* Efecto extra: sombra color turquesa/rosa típico de TikTok (opcional) */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
 }

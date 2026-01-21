@@ -26,6 +26,8 @@ function Header() {
           <Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link>
           <Link to="/nosotros" onClick={() => setIsOpen(false)}>Nosotros</Link>
           <Link to="/productos" onClick={() => setIsOpen(false)}>Productos</Link>
+          {/* Aquí agregamos el nuevo enlace de Servicios */}
+          <Link to="/servicios" onClick={() => setIsOpen(false)}>Servicios</Link>
           <Link to="/contacto" onClick={() => setIsOpen(false)}>Contacto</Link>
         </nav>
 

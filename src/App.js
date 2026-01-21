@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos"; 
+import Servicios from "./pages/Servicios";
 import Contacto from "./pages/Contacto"; 
 import ProductoDetalle from "./pages/ProductoDetalle"; 
 import LibroReclamaciones from "./pages/LibroReclamaciones"; 
@@ -40,7 +41,7 @@ function App() {
             
             <Route path="/productos" element={<Productos />} />
             <Route path="/producto/:id" element={<ProductoDetalle />} />
-            
+            <Route path="/servicios" element={<Servicios />} />
             <Route path="/contacto" element={<Contacto />} />
 
             <Route path="/libro-de-reclamaciones" element={<LibroReclamaciones />} />
