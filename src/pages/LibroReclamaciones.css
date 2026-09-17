@@ -1,0 +1,320 @@
+.libro-layout {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden; 
+}
+
+.libro-container {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  padding: 50px; 
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-top: 5px solid #005691;
+  
+  opacity: 0;
+  animation: aparecerSuave 0.8s ease-out forwards;
+  transform: translateY(30px);
+}
+
+.libro-header {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 25px;
+}
+
+.libro-header h1 {
+  color: #005691;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.fecha-actual { font-size: 1.1rem; color: #555; margin-bottom: 5px; }
+.empresa-info { font-size: 0.9rem; color: #888; }
+
+.form-section {
+  margin-bottom: 30px;
+  background: #fafafa;
+  padding: 35px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-section:hover {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-section h3 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-left: 5px solid #76b900;
+  padding-left: 15px;
+  line-height: 1.4;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.full-width { grid-column: 1 / -1; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #005691;
+  box-shadow: 0 0 0 3px rgba(0, 86, 145, 0.1);
+  outline: none;
+}
+
+.radio-group {
+  grid-column: 1 / -1;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  gap: 20px;
+  flex-wrap: wrap; 
+}
+
+.radio-group > label {
+  margin-bottom: 0;
+  margin-right: 10px;
+  color: #005691 !important;
+  font-weight: 800;
+  min-width: fit-content;
+}
+
+.radio-group div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 0 !important;
+  flex-wrap: wrap; 
+}
+
+.radio-group label {
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #005691;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tipo-reclamo-info {
+  background-color: #eef6fc;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  color: #004a7c;
+  border-left: 4px solid #005691;
+  line-height: 1.6;
+}
+
+.checkbox-legal {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.checkbox-legal input {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  accent-color: #76b900;
+  flex-shrink: 0; 
+}
+
+.btn-enviar {
+  background-color: #005691;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-enviar:hover {
+  background-color: #76b900;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+  padding: 20px; 
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border-top: 6px solid #76b900;
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-icon {
+  width: 70px;
+  height: 70px;
+  background-color: #eefce3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #76b900;
+  animation: drawCheck 0.6s ease-in-out;
+}
+
+.modal-content h2 { color: #005691; font-size: 1.6rem; margin-bottom: 10px; font-weight: 800; }
+.btn-modal-cerrar {
+  background-color: #005691;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+
+@keyframes aparecerSuave { from { opacity: 0; transform: translateY(50px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes scaleUp { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+
+@media (max-width: 768px) {
+  .libro-layout {
+    padding: 10px; 
+  }
+
+  .libro-container {
+    padding: 20px 15px; 
+    width: 100%;
+  }
+
+  .libro-header h1 {
+    font-size: 1.4rem; 
+    word-break: break-word; 
+  }
+
+  .form-section {
+    padding: 20px 15px; 
+    margin-bottom: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .radio-group {
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 10px;
+  }
+  
+  .radio-group div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; 
+    gap: 15px;
+  }
+
+  .checkbox-legal {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+  
+  .btn-enviar {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}

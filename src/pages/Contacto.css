@@ -1,0 +1,285 @@
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+* {
+  box-sizing: border-box;
+}
+
+.hortus-layout {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/fondo-campo-flores.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.main-header-section {
+  text-align: center;
+  margin-bottom: 30px; 
+  width: 100%;
+  max-width: 900px;
+  padding: 0 15px;
+}
+
+.mapa-title {
+  color: white;
+  font-size: 3.5rem; 
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.mapa-subtitle {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  font-weight: 500;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px; 
+  max-width: 1000px; 
+  width: 100%; 
+  margin: 0 auto; 
+  align-items: center; 
+  justify-items: center; 
+}
+
+.mapa-section {
+  width: 100%;
+  max-width: 500px; 
+  display: flex;
+  justify-content: center;
+}
+
+.info-card-container {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  
+  min-height: auto; 
+
+  
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.card-header-hortus {
+  border-bottom: 3px solid #76b900; 
+  padding-bottom: 20px; 
+  margin-bottom: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+.zona-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.zona-titulo-principal {
+  color: #005691; 
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.8rem; 
+  display: block;
+  line-height: 1.2;
+}
+
+.zona-regiones {
+  color: #005691;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  display: block;
+  width: 100%;
+  white-space: normal; 
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.zona-label {
+  color: #005691; 
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  display: block;
+  width: 100%; 
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.icon-circle {
+  background: #eef6fc;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #005691;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.detail-text h4 {
+  margin: 0 0 5px 0;
+  color: #888;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.detail-text p, .detail-text span {
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .hortus-layout { padding: 20px 10px; height: auto; }
+  .mapa-title { font-size: 2rem; letter-spacing: 0; }
+  .mapa-subtitle { font-size: 1rem; }
+
+  .layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mapa-section {
+    order: 1;
+    margin: 0;
+    width: 100%;
+    max-width: 100%; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  }
+
+  .info-card-container {
+    order: 2;
+    margin: 0;
+    width: 100%;
+    max-width: 100%; 
+    padding: 25px 20px;
+    min-height: auto;
+    border-radius: 20px;
+  }
+  
+  .zona-titulo-principal { font-size: 1.5rem; }
+  .zona-regiones { font-size: 1rem; }
+  .zona-label { font-size: 1.3rem; text-align: center; }
+  .card-header-hortus { text-align: center; }
+  .icon-circle { width: 35px; height: 35px; font-size: 1rem; }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-down {
+  animation: fadeDown 0.8s ease-out forwards;
+}
+
+.animate-fade-right {
+  animation: fadeRight 0.8s ease-out forwards;
+  animation-delay: 0.2s; 
+  opacity: 0; 
+}
+
+.card-content-wrapper {
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  width: 100%;
+}
+
+.card-body .detail-row {
+  opacity: 0; 
+  animation: slideUpFade 0.5s ease forwards;
+}
+
+.icon-circle {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.detail-row:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+  background-color: #dcedfa;
+}
